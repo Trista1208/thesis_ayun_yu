@@ -1,0 +1,1720 @@
+[
+  {
+    "id": "demo-jonas-we-plan",
+    "member_user_id": "demo-jonas-weber",
+    "member_name": "Jonas Weber",
+    "pseudonym": "JW-67M",
+    "member_data": {
+      "Demographic::Age": 67,
+      "Demographic::Sex": "Male",
+      "Physiological::Vo2Max": 22,
+      "Physiological::HR max": 153,
+      "Physiological::HR at VT1": 102,
+      "Physiological::HR at VT2": 124,
+      "Physiological::Gripstrength Rechts": 24,
+      "Physiological::Gripstrength Links": 22,
+      "Physiological::Y-Balance Composite Score": 78,
+      "Body Composition::Fat percentage": 31,
+      "Body Composition::Muscle Mass Index (LMI)": 15.1,
+      "Body Composition::ALMI": 6.4,
+      "Body Composition::Bone mineral density": -1.4,
+      "Blood Biomarkers::LDL": 3.6,
+      "Genetics::Bone Health Risk": "Moderate"
+    },
+    "personal_profile": {
+      "name": "Jonas Weber",
+      "goals": [
+        "Stay independent",
+        "Reduce fall risk"
+      ],
+      "activity_level": "Lightly Active (under 2h/week)",
+      "sport_prefs": [
+        "Walking",
+        "Swimming"
+      ],
+      "geographic_area": "Switzerland — rural / alpine",
+      "location_detail": "Bernese Oberland",
+      "health_status": "Managing chronic condition(s)",
+      "existing_conditions": "Osteopenia; history of a near-fall last winter",
+      "smoking_status": "Non-smoker",
+      "alcohol_use": "Occasional (social)",
+      "sleep_hours": "7–8 hours",
+      "diet": "",
+      "stress": "Not assessed",
+      "depression": "Not assessed",
+      "optimism": "Not assessed",
+      "injuries": "Unsteady on uneven ground",
+      "notes": "Prefers supervised strength work before any jumping."
+    },
+    "assessment": {
+      "triggered": [
+        {
+          "title": "Maintain Functional Independence - Male 60-69",
+          "category": "Longevity and Functional Capacity",
+          "priority": "Critical",
+          "action_items": [
+            "Target VO2max: Aim for >42 ml/min/kg (excellent for age 60-69)",
+            "VO2max directly correlates with independence in daily activities",
+            "Aerobic base: 4-5 sessions per week, moderate intensity",
+            "Duration over intensity: 35-60 minutes at comfortable pace",
+            "Low-impact essential: Swimming, cycling, walking",
+            "Medical supervision: Regular check-ups, especially if starting program"
+          ],
+          "sex_group": "male",
+          "age_group": "age_60_69"
+        },
+        {
+          "title": "Functional Strength - Male 60-69",
+          "category": "Strength for Daily Living",
+          "priority": "Critical",
+          "action_items": [
+            "Target LMI: >18.5 kg/m² (excellent)",
+            "Functional strength critical: Carry groceries, climb stairs, get up from chair",
+            "Resistance training: 2-3 sessions per week",
+            "Focus on major muscle groups: Legs, back, chest, core",
+            "Lighter weights, proper form: Injury prevention priority",
+            "Protein: 1.5-2.0 g/kg body weight daily",
+            "Consider supervised training: Work with qualified trainer"
+          ],
+          "sex_group": "male",
+          "age_group": "age_60_69"
+        },
+        {
+          "title": "Fall Risk Reduction - Male 60-69",
+          "category": "Balance and Fall Prevention",
+          "priority": "Critical",
+          "action_items": [
+            "Balance training: Daily practice essential",
+            "Falls are leading cause of injury in this age group",
+            "Single-leg stands: 30-60 seconds, 3x daily",
+            "Tai Chi: Evidence-based fall prevention",
+            "Lower body power: Target jump height >32 cm (excellent)",
+            "Vision and hearing: Regular checks affect balance",
+            "Medication review: Some medications affect balance",
+            "Home modifications: Install handrails, improve lighting"
+          ],
+          "sex_group": "male",
+          "age_group": "age_60_69"
+        },
+        {
+          "title": "Borderline High LDL (3.6 mmol/L) — Lipid Optimisation",
+          "category": "Cardiovascular Health",
+          "priority": "High",
+          "action_items": [
+            "LDL 3.6 mmol/L is borderline high (3.3–4.1 mmol/L)",
+            "Regular Zone 2 cardio (≥120 min/week) to improve lipid profile",
+            "Dietary: limit red meat and processed foods, add plant sterols",
+            "Retest lipid panel in 3–6 months"
+          ],
+          "sex_group": "male",
+          "age_group": "age_60_69"
+        },
+        {
+          "title": "Genetic Bone Health Risk (Moderate) — Bone Loading Protocol",
+          "category": "Bone Health",
+          "priority": "High",
+          "action_items": [
+            "Genetic testing indicates a moderate predisposition to bone mass loss",
+            "Weight-bearing exercise is essential: walking, jogging, hiking, dance",
+            "Impact/bone-loading: jumping exercises, plyometrics 2–3×/week",
+            "Resistance training targeting hip and spine 2–3×/week",
+            "Ensure adequate calcium (1000–1200 mg/day) and vitamin D (800–2000 IU/day)",
+            "Consider DEXA scan to establish a bone density baseline",
+            "High impact activities permitted if no current fracture risk"
+          ],
+          "sex_group": "male",
+          "age_group": "age_60_69"
+        }
+      ],
+      "ratings": [
+        {
+          "parameter": "Physiological::Vo2Max",
+          "value": 22,
+          "rating": "poor",
+          "unit": "ml/min/kg"
+        },
+        {
+          "parameter": "Physiological::Gripstrength Rechts",
+          "value": 24,
+          "rating": "poor",
+          "unit": "kg"
+        },
+        {
+          "parameter": "Physiological::Gripstrength Links",
+          "value": 22,
+          "rating": "poor",
+          "unit": "kg"
+        },
+        {
+          "parameter": "Physiological::Y-Balance Composite Score",
+          "value": 78,
+          "rating": "average",
+          "unit": "% of limb length"
+        },
+        {
+          "parameter": "Body Composition::Muscle Mass Index (LMI)",
+          "value": 15.1,
+          "rating": "poor",
+          "unit": "kg/m²"
+        },
+        {
+          "parameter": "Body Composition::Fat percentage",
+          "value": 31,
+          "rating": "high",
+          "unit": "%"
+        },
+        {
+          "parameter": "Body Composition::Bone mineral density",
+          "value": -1.4,
+          "rating": "below_average",
+          "unit": "SD"
+        },
+        {
+          "parameter": "Blood Biomarkers::LDL",
+          "value": 3.6,
+          "rating": "elevated",
+          "unit": "mmol/L"
+        }
+      ],
+      "training_zones": {
+        "source": "CPET (VT1/VT2)",
+        "hr_max": 153,
+        "vt1_bpm": 102,
+        "vt2_bpm": 124,
+        "zones": {
+          "Zone 1 (Recovery)": "< 87 bpm",
+          "Zone 2 (Aerobic Base)": "88–102 bpm",
+          "Zone 3 (Tempo)": "103–114 bpm",
+          "Zone 4 (Threshold)": "115–124 bpm",
+          "Zone 5 (Max Effort)": "> 125 bpm"
+        }
+      },
+      "protocol_recommendations": [
+        {
+          "key": "low_bone_density",
+          "title": "Low Bone Density",
+          "description": "Build and maintain bone mineral density",
+          "category": "AYUN Scientist Protocol",
+          "priority": "Medium",
+          "action_items": [
+            "Frequency: 3–4 sessions per week",
+            "Intensity: Weight-bearing and impact; progressive overload",
+            "Duration: 30–60 min per session",
+            "Weight-bearing: running, jumping, step-ups",
+            "Resistance training: squats, deadlifts, lunges",
+            "Plyometrics (if safe): box jumps, hopping",
+            "Avoid long-duration non-weight-bearing only"
+          ],
+          "nutrition_focus": [
+            "Calcium: 1000–1200 mg/day",
+            "Vitamin D: test and supplement to 50–100 nmol/L",
+            "Adequate protein for bone matrix",
+            "Limit alcohol and smoking"
+          ],
+          "recheck_interval": "12–24 months (DEXA)",
+          "templates": [
+            {
+              "key": "strength_bone_health",
+              "title": "Strength for Bone Health",
+              "summary": "2–3× per week · 3–6 reps (heavy) or 6–30 reps (hypertrophy) · Exercises: Barbell back squats, Deadlifts / Romanian deadlifts, Lunges, Step-ups, Plyometrics (box jumps) if appropriate"
+            },
+            {
+              "key": "balance_training",
+              "title": "Balance & Stability",
+              "summary": "At least 2× per week, ideally daily 5–10 min · Low to moderate · 5–10 min per session · Exercises: Single-leg stance (eyes closed, unstable surface), Step-downs, balance pad, Side jumps, tandem walking, lunges with rotation, Deadbug, standing on one leg, BOSU, slackline, yoga"
+            },
+            {
+              "key": "leg_power",
+              "title": "Leg Power / Plyometrics",
+              "summary": "1–2× per week · Maximum effort per rep · Exercises: Single-leg box jumps (6–8 reps), Tuck jumps (6–8), Seated vertical jumps (6–8), Kettlebell swings (8–12)"
+            },
+            {
+              "key": "full_body_strength",
+              "title": "Full Body Strength (3–6 reps)",
+              "summary": "2–3× per week · Exercises: Pull-ups (3–5), Barbell shoulder press (3–5), Deadlifts (3–5), Inverse rows (3–5), Bench press (3–5), Barbell back squats (3–5)"
+            }
+          ],
+          "source": "protocols_quick_reference.yml"
+        },
+        {
+          "key": "high_body_fat",
+          "title": "High Body Fat / Elevated Visceral Fat",
+          "description": "Body recomposition and fat loss",
+          "category": "AYUN Scientist Protocol",
+          "priority": "Medium",
+          "action_items": [
+            "Frequency: 2–4 strength + 2–4 cardio per week",
+            "Intensity: Strength: 6–30 reps; Cardio: Zone 2 primary",
+            "Duration: Strength 45–60 min; Cardio 30–120 min",
+            "Strength training prevents muscle loss during deficit",
+            "Zone 2 cardio supports fat oxidation",
+            "Daily steps: aim 8,000+"
+          ],
+          "nutrition_focus": [
+            "Moderate caloric deficit (300–500 kcal/day)",
+            "High protein (1.6–2.2 g/kg) to preserve muscle",
+            "Combine with resistance training"
+          ],
+          "recheck_interval": "8–12 weeks (DEXA or body composition)",
+          "templates": [
+            {
+              "key": "zone2_base",
+              "title": "Zone 2 Base Endurance",
+              "summary": "At least 2× per week · Zone 2 (below VT1); talk test · 30 min to several hours"
+            },
+            {
+              "key": "fat_burn_workout",
+              "title": "Fat Burn / Body Recomposition",
+              "summary": "2–4 strength + 2–4 cardio per week · Exercises: Pull-ups, shoulder press, RDL, bicycle crunches, Inverse rows, push-ups, lunges"
+            },
+            {
+              "key": "full_body_hypertrophy",
+              "title": "Full Body Hypertrophy (6–30 reps)",
+              "summary": "2–3× per week, up to 6 sets per muscle group · Exercises: Pull-ups (10), Half-kneeling single arm shoulder press (12), Romanian deadlifts (10), Bicycle crunches (20), Inverse rows (12), Push-ups (20), Lunges (10)"
+            }
+          ],
+          "source": "protocols_quick_reference.yml"
+        },
+        {
+          "key": "low_vo2max",
+          "title": "Low VO2max / Poor Aerobic Base",
+          "description": "Improve cardiorespiratory fitness",
+          "category": "AYUN Scientist Protocol",
+          "priority": "Medium",
+          "action_items": [
+            "Frequency: 2–5 sessions per week",
+            "Intensity: Zone 2 primary; talk test (can speak, slightly uncomfortable)",
+            "Duration: 30–120 min per session",
+            "Activities: hiking, rowing, cycling, swimming, jogging",
+            "Progression: increase frequency or duration gradually",
+            "Polarized: 70–80% Zone 2, 1–2× Zone 4 intervals"
+          ],
+          "nutrition_focus": [
+            "Adequate carbs for training days",
+            "Recovery nutrition post longer sessions"
+          ],
+          "recheck_interval": "6–12 months (CPET)",
+          "templates": [
+            {
+              "key": "zone2_base",
+              "title": "Zone 2 Base Endurance",
+              "summary": "At least 2× per week · Zone 2 (below VT1); talk test · 30 min to several hours"
+            },
+            {
+              "key": "polarized_hiit",
+              "title": "Polarized Training / HIIT",
+              "summary": "1–2 interval sessions per week · Zone 4; 1–8 min intervals · 15–25 min high-intensity portion"
+            },
+            {
+              "key": "exercube_cognition",
+              "title": "ExerCube / Dual-Task Training",
+              "summary": "1–2× per week · Full concentration and physical effort · 15–25 min per session"
+            }
+          ],
+          "source": "protocols_quick_reference.yml"
+        },
+        {
+          "key": "low_strength_muscle",
+          "title": "Low Strength / Muscle Mass",
+          "description": "Build strength and lean mass",
+          "category": "AYUN Scientist Protocol",
+          "priority": "Medium",
+          "action_items": [
+            "Frequency: 2–3 sessions per week",
+            "Intensity: 3–6 reps (strength) or 6–30 reps (hypertrophy)",
+            "Duration: 45–75 min",
+            "Multi-joint exercises for all muscle groups",
+            "Progressive overload",
+            "Adequate recovery between sessions"
+          ],
+          "nutrition_focus": [
+            "Protein: 1.6–2.2 g/kg for hypertrophy",
+            "Caloric surplus if building (small)",
+            "Sleep and recovery"
+          ],
+          "recheck_interval": "8–12 weeks (strength tests, DEXA)",
+          "templates": [
+            {
+              "key": "full_body_strength",
+              "title": "Full Body Strength (3–6 reps)",
+              "summary": "2–3× per week · Exercises: Pull-ups (3–5), Barbell shoulder press (3–5), Deadlifts (3–5), Inverse rows (3–5), Bench press (3–5), Barbell back squats (3–5)"
+            },
+            {
+              "key": "full_body_hypertrophy",
+              "title": "Full Body Hypertrophy (6–30 reps)",
+              "summary": "2–3× per week, up to 6 sets per muscle group · Exercises: Pull-ups (10), Half-kneeling single arm shoulder press (12), Romanian deadlifts (10), Bicycle crunches (20), Inverse rows (12), Push-ups (20), Lunges (10)"
+            },
+            {
+              "key": "leg_power",
+              "title": "Leg Power / Plyometrics",
+              "summary": "1–2× per week · Maximum effort per rep · Exercises: Single-leg box jumps (6–8 reps), Tuck jumps (6–8), Seated vertical jumps (6–8), Kettlebell swings (8–12)"
+            },
+            {
+              "key": "hip_mobility",
+              "title": "Hip Mobility",
+              "summary": "At least 2× per week, ideally 2× daily · 60 sec per exercise · Exercises: Couch stretch, Pigeon pose, Hip 90/90, Pike stretch"
+            }
+          ],
+          "source": "protocols_quick_reference.yml"
+        }
+      ],
+      "context_for_llm": "── MEMBER PROFILE ──────────────────────────────────\nMember: Male, age 67\n  VO2max: 22 ml/min/kg\n  Grip (R): 24 kg\n  Grip (L): 22 kg\n  Y-Balance: 78 %\n  LMI: 15.1 kg/m²\n  ALMI: 6.4 kg/m²\n  Body fat: 31 %\n  BMD Z-score: -1.4\n  LDL: 3.6 mmol/L\n  Genetic bone risk: Moderate\n\n── PERSONAL PROFILE & GOALS ────────────────────────\nMember name: Jonas Weber\nGeographic area: Switzerland — rural / alpine\nGeneral health status: Managing chronic condition(s)\nHealth goals: Stay independent, Reduce fall risk\nCurrent activity level: Lightly Active (under 2h/week)\nPreferred activities: Walking, Swimming\nExisting conditions / diagnoses: Osteopenia; history of a near-fall last winter\nInjuries / limitations: Unsteady on uneven ground\nAdditional notes: Prefers supervised strength work before any jumping.\n\nKey Parameter Ratings (vs. age/gender norms):\n  VO2max: 22 ml/min/kg → poor\n  Grip Strength (R): 24 kg → poor\n  Grip Strength (L): 22 kg → poor\n  Y-Balance Score: 78 % of limb length → average\n  Muscle Mass Index (LMI): 15.1 kg/m² → poor\n  Body Fat %: 31 % → high\n  Bone Mineral Density (Z-score): -1.4 SD → below average\n  LDL Cholesterol: 3.6 mmol/L → elevated\n\n── TRAINING ZONES ──────────────────────────────────\nTraining Zones (CPET (VT1/VT2), HR max = 153 bpm):\n  Zone 1 — Recovery:          < 87 bpm\n  Zone 2 — Aerobic Base:      88–102 bpm  ← VT1 = 102 bpm\n  Zone 3 — Tempo:             103–114 bpm\n  Zone 4 — Threshold:         115–124 bpm  ← VT2 = 124 bpm\n  Zone 5 — Max Effort:        > 125 bpm\n\n── RECOMMENDATIONS ─────────────────────────────────\n\n[1] [CRITICAL] Maintain Functional Independence - Male 60-69\n    Category: Longevity and Functional Capacity\n    • Target VO2max: Aim for >42 ml/min/kg (excellent for age 60-69)\n    • VO2max directly correlates with independence in daily activities\n    • Aerobic base: 4-5 sessions per week, moderate intensity\n    • Duration over intensity: 35-60 minutes at comfortable pace\n    • Low-impact essential: Swimming, cycling, walking\n    • Medical supervision: Regular check-ups, especially if starting program\n\n[2] [CRITICAL] Functional Strength - Male 60-69\n    Category: Strength for Daily Living\n    • Target LMI: >18.5 kg/m² (excellent)\n    • Functional strength critical: Carry groceries, climb stairs, get up from chair\n    • Resistance training: 2-3 sessions per week\n    • Focus on major muscle groups: Legs, back, chest, core\n    • Lighter weights, proper form: Injury prevention priority\n    • Protein: 1.5-2.0 g/kg body weight daily\n    • Consider supervised training: Work with qualified trainer\n\n[3] [CRITICAL] Fall Risk Reduction - Male 60-69\n    Category: Balance and Fall Prevention\n    • Balance training: Daily practice essential\n    • Falls are leading cause of injury in this age group\n    • Single-leg stands: 30-60 seconds, 3x daily\n    • Tai Chi: Evidence-based fall prevention\n    • Lower body power: Target jump height >32 cm (excellent)\n    • Vision and hearing: Regular checks affect balance\n    • Medication review: Some medications affect balance\n    • Home modifications: Install handrails, improve lighting\n\n[4] [HIGH] Borderline High LDL (3.6 mmol/L) — Lipid Optimisation\n    Category: Cardiovascular Health\n    • LDL 3.6 mmol/L is borderline high (3.3–4.1 mmol/L)\n    • Regular Zone 2 cardio (≥120 min/week) to improve lipid profile\n    • Dietary: limit red meat and processed foods, add plant sterols\n    • Retest lipid panel in 3–6 months\n\n[5] [HIGH] Genetic Bone Health Risk (Moderate) — Bone Loading Protocol\n    Category: Bone Health\n    • Genetic testing indicates a moderate predisposition to bone mass loss\n    • Weight-bearing exercise is essential: walking, jogging, hiking, dance\n    • Impact/bone-loading: jumping exercises, plyometrics 2–3×/week\n    • Resistance training targeting hip and spine 2–3×/week\n    • Ensure adequate calcium (1000–1200 mg/day) and vitamin D (800–2000 IU/day)\n    • Consider DEXA scan to establish a bone density baseline\n    • High impact activities permitted if no current fracture risk\n\n── AYUN SCIENTIST PROTOCOLS (authoritative clinic templates) ──\nGround workout plans in these protocols and related templates.\nPrefer listed exercises, frequencies, and intensities over inventing new ones.\nStill fit any weekly plan into exactly 7 days.\n\n### Protocol: Low Bone Density\n    Build and maintain bone mineral density\n    Frequency: 3–4 sessions per week\n    Intensity: Weight-bearing and impact; progressive overload\n    Duration: 30–60 min per session\n    Focus:\n      • Weight-bearing: running, jumping, step-ups\n      • Resistance training: squats, deadlifts, lunges\n      • Plyometrics (if safe): box jumps, hopping\n      • Avoid long-duration non-weight-bearing only\n    Nutrition:\n      • Calcium: 1000–1200 mg/day\n      • Vitamin D: test and supplement to 50–100 nmol/L\n      • Adequate protein for bone matrix\n      • Limit alcohol and smoking\n    Recheck: 12–24 months (DEXA)\n\n### Protocol: High Body Fat / Elevated Visceral Fat\n    Body recomposition and fat loss\n    Frequency: 2–4 strength + 2–4 cardio per week\n    Intensity: Strength: 6–30 reps; Cardio: Zone 2 primary\n    Duration: Strength 45–60 min; Cardio 30–120 min\n    Focus:\n      • Strength training prevents muscle loss during deficit\n      • Zone 2 cardio supports fat oxidation\n      • Daily steps: aim 8,000+\n    Nutrition:\n      • Moderate caloric deficit (300–500 kcal/day)\n      • High protein (1.6–2.2 g/kg) to preserve muscle\n      • Combine with resistance training\n    Recheck: 8–12 weeks (DEXA or body composition)\n\n### Protocol: Low VO2max / Poor Aerobic Base\n    Improve cardiorespiratory fitness\n    Frequency: 2–5 sessions per week\n    Intensity: Zone 2 primary; talk test (can speak, slightly uncomfortable)\n    Duration: 30–120 min per session\n    Focus:\n      • Activities: hiking, rowing, cycling, swimming, jogging\n      • Progression: increase frequency or duration gradually\n      • Polarized: 70–80% Zone 2, 1–2× Zone 4 intervals\n    Nutrition:\n      • Adequate carbs for training days\n      • Recovery nutrition post longer sessions\n    Recheck: 6–12 months (CPET)\n\n### Protocol: Low Strength / Muscle Mass\n    Build strength and lean mass\n    Frequency: 2–3 sessions per week\n    Intensity: 3–6 reps (strength) or 6–30 reps (hypertrophy)\n    Duration: 45–75 min\n    Focus:\n      • Multi-joint exercises for all muscle groups\n      • Progressive overload\n      • Adequate recovery between sessions\n    Nutrition:\n      • Protein: 1.6–2.2 g/kg for hypertrophy\n      • Caloric surplus if building (small)\n      • Sleep and recovery\n    Recheck: 8–12 weeks (strength tests, DEXA)\n\n### Related training templates\n\n  [strength_bone_health] Strength for Bone Health\n      Weight-bearing and resistance for bone density\n      Frequency: 2–3× per week\n      Intensity: 3–6 reps (heavy) or 6–30 reps (hypertrophy)\n      Exercises:\n      • Barbell back squats\n      • Deadlifts / Romanian deadlifts\n      • Lunges\n      • Step-ups\n      • Plyometrics (box jumps) if appropriate\n\n  [balance_training] Balance & Stability\n      Fall prevention, coordination\n      Frequency: At least 2× per week, ideally daily 5–10 min\n      Intensity: Low to moderate\n      Duration: 5–10 min per session\n      Exercises:\n      • Single-leg stance (eyes closed, unstable surface)\n      • Step-downs, balance pad\n      • Side jumps, tandem walking, lunges with rotation\n      • Deadbug, standing on one leg\n      • BOSU, slackline, yoga\n\n  [leg_power] Leg Power / Plyometrics\n      Explosive strength, fall prevention\n      Frequency: 1–2× per week\n      Intensity: Maximum effort per rep\n      Volume: 80–200 jumps, progress slowly\n      Rest: 2–3 min between sets\n      Exercises:\n      • Single-leg box jumps (6–8 reps)\n      • Tuck jumps (6–8)\n      • Seated vertical jumps (6–8)\n      • Kettlebell swings (8–12)\n\n  [full_body_strength] Full Body Strength (3–6 reps)\n      Maximal strength; multi-joint compound movements\n      Frequency: 2–3× per week\n      Exercises:\n      • Pull-ups (3–5)\n      • Barbell shoulder press (3–5)\n      • Deadlifts (3–5)\n      • Inverse rows (3–5)\n      • Bench press (3–5)\n      • Barbell back squats (3–5)\n\n  [zone2_base] Zone 2 Base Endurance\n      Foundation of aerobic fitness; fat oxidation, mitochondrial biogenesis\n      Frequency: At least 2× per week\n      Intensity: Zone 2 (below VT1); talk test\n      Duration: 30 min to several hours\n      Zones:\n      • Zone 1: Recovery / warm-up\n      • Zone 2: Base endurance — 30 min to couple hours\n      • Zone 3: Tempo — 20 min to 1.5 hours\n      • Zone 4: Intervals — few minutes\n      Tips:\n      • Running: add ~10 bpm to bike zone (higher muscle activation)\n      • 70–80% of weekly volume in Zone 2\n\n  [fat_burn_workout] Fat Burn / Body Recomposition\n      Strength + cardio for fat loss\n      Frequency: 2–4 strength + 2–4 cardio per week\n      Exercises:\n      • Pull-ups, shoulder press, RDL, bicycle crunches\n      • Inverse rows, push-ups, lunges\n      Daily activity: 8,000+ steps",
+      "member_summary": "Member: Male, age 67\n  VO2max: 22 ml/min/kg\n  Grip (R): 24 kg\n  Grip (L): 22 kg\n  Y-Balance: 78 %\n  LMI: 15.1 kg/m²\n  ALMI: 6.4 kg/m²\n  Body fat: 31 %\n  BMD Z-score: -1.4\n  LDL: 3.6 mmol/L\n  Genetic bone risk: Moderate",
+      "sex_group": "male",
+      "age_group": "age_60_69",
+      "personal_context": "Member name: Jonas Weber\nGeographic area: Switzerland — rural / alpine\nGeneral health status: Managing chronic condition(s)\nHealth goals: Stay independent, Reduce fall risk\nCurrent activity level: Lightly Active (under 2h/week)\nPreferred activities: Walking, Swimming\nExisting conditions / diagnoses: Osteopenia; history of a near-fall last winter\nInjuries / limitations: Unsteady on uneven ground\nAdditional notes: Prefers supervised strength work before any jumping."
+    },
+    "draft_recommendations": [
+      {
+        "id": "rec_0",
+        "title": "Maintain Functional Independence - Male 60-69",
+        "category": "Longevity and Functional Capacity",
+        "original_priority": "Critical",
+        "reviewed_priority": "Critical",
+        "action_items": [
+          "Target VO2max: Aim for >42 ml/min/kg (excellent for age 60-69)",
+          "VO2max directly correlates with independence in daily activities",
+          "Aerobic base: 4-5 sessions per week, moderate intensity",
+          "Duration over intensity: 35-60 minutes at comfortable pace",
+          "Low-impact essential: Swimming, cycling, walking",
+          "Medical supervision: Regular check-ups, especially if starting program"
+        ],
+        "clinician_notes": "",
+        "source": "ai_generated",
+        "removed": false
+      },
+      {
+        "id": "rec_1",
+        "title": "Functional Strength - Male 60-69",
+        "category": "Strength for Daily Living",
+        "original_priority": "Critical",
+        "reviewed_priority": "Critical",
+        "action_items": [
+          "Target LMI: >18.5 kg/m² (excellent)",
+          "Functional strength critical: Carry groceries, climb stairs, get up from chair",
+          "Resistance training: 2-3 sessions per week",
+          "Focus on major muscle groups: Legs, back, chest, core",
+          "Lighter weights, proper form: Injury prevention priority",
+          "Protein: 1.5-2.0 g/kg body weight daily",
+          "Consider supervised training: Work with qualified trainer"
+        ],
+        "clinician_notes": "",
+        "source": "ai_generated",
+        "removed": false
+      },
+      {
+        "id": "rec_2",
+        "title": "Fall Risk Reduction - Male 60-69",
+        "category": "Balance and Fall Prevention",
+        "original_priority": "Critical",
+        "reviewed_priority": "Critical",
+        "action_items": [
+          "Balance training: Daily practice essential",
+          "Falls are leading cause of injury in this age group",
+          "Single-leg stands: 30-60 seconds, 3x daily",
+          "Tai Chi: Evidence-based fall prevention",
+          "Lower body power: Target jump height >32 cm (excellent)",
+          "Vision and hearing: Regular checks affect balance",
+          "Medication review: Some medications affect balance",
+          "Home modifications: Install handrails, improve lighting"
+        ],
+        "clinician_notes": "",
+        "source": "ai_generated",
+        "removed": false
+      },
+      {
+        "id": "rec_3",
+        "title": "Borderline High LDL (3.6 mmol/L) — Lipid Optimisation",
+        "category": "Cardiovascular Health",
+        "original_priority": "High",
+        "reviewed_priority": "High",
+        "action_items": [
+          "LDL 3.6 mmol/L is borderline high (3.3–4.1 mmol/L)",
+          "Regular Zone 2 cardio (≥120 min/week) to improve lipid profile",
+          "Dietary: limit red meat and processed foods, add plant sterols",
+          "Retest lipid panel in 3–6 months"
+        ],
+        "clinician_notes": "",
+        "source": "ai_generated",
+        "removed": false
+      },
+      {
+        "id": "rec_4",
+        "title": "Genetic Bone Health Risk (Moderate) — Bone Loading Protocol",
+        "category": "Bone Health",
+        "original_priority": "High",
+        "reviewed_priority": "High",
+        "action_items": [
+          "Genetic testing indicates a moderate predisposition to bone mass loss",
+          "Weight-bearing exercise is essential: walking, jogging, hiking, dance",
+          "Impact/bone-loading: jumping exercises, plyometrics 2–3×/week",
+          "Resistance training targeting hip and spine 2–3×/week",
+          "Ensure adequate calcium (1000–1200 mg/day) and vitamin D (800–2000 IU/day)",
+          "Consider DEXA scan to establish a bone density baseline",
+          "High impact activities permitted if no current fracture risk"
+        ],
+        "clinician_notes": "",
+        "source": "ai_generated",
+        "removed": false
+      },
+      {
+        "id": "protocol_0",
+        "title": "Low Bone Density",
+        "category": "AYUN Scientist Protocol",
+        "original_priority": "Medium",
+        "reviewed_priority": "Medium",
+        "action_items": [
+          "Frequency: 3–4 sessions per week",
+          "Intensity: Weight-bearing and impact; progressive overload",
+          "Duration: 30–60 min per session",
+          "Weight-bearing: running, jumping, step-ups",
+          "Resistance training: squats, deadlifts, lunges",
+          "Plyometrics (if safe): box jumps, hopping",
+          "Avoid long-duration non-weight-bearing only"
+        ],
+        "clinician_notes": "",
+        "source": "ayun_protocol",
+        "removed": false
+      },
+      {
+        "id": "protocol_1",
+        "title": "High Body Fat / Elevated Visceral Fat",
+        "category": "AYUN Scientist Protocol",
+        "original_priority": "Medium",
+        "reviewed_priority": "Medium",
+        "action_items": [
+          "Frequency: 2–4 strength + 2–4 cardio per week",
+          "Intensity: Strength: 6–30 reps; Cardio: Zone 2 primary",
+          "Duration: Strength 45–60 min; Cardio 30–120 min",
+          "Strength training prevents muscle loss during deficit",
+          "Zone 2 cardio supports fat oxidation",
+          "Daily steps: aim 8,000+"
+        ],
+        "clinician_notes": "",
+        "source": "ayun_protocol",
+        "removed": false
+      },
+      {
+        "id": "protocol_2",
+        "title": "Low VO2max / Poor Aerobic Base",
+        "category": "AYUN Scientist Protocol",
+        "original_priority": "Medium",
+        "reviewed_priority": "Medium",
+        "action_items": [
+          "Frequency: 2–5 sessions per week",
+          "Intensity: Zone 2 primary; talk test (can speak, slightly uncomfortable)",
+          "Duration: 30–120 min per session",
+          "Activities: hiking, rowing, cycling, swimming, jogging",
+          "Progression: increase frequency or duration gradually",
+          "Polarized: 70–80% Zone 2, 1–2× Zone 4 intervals"
+        ],
+        "clinician_notes": "",
+        "source": "ayun_protocol",
+        "removed": false
+      },
+      {
+        "id": "protocol_3",
+        "title": "Low Strength / Muscle Mass",
+        "category": "AYUN Scientist Protocol",
+        "original_priority": "Medium",
+        "reviewed_priority": "Medium",
+        "action_items": [
+          "Frequency: 2–3 sessions per week",
+          "Intensity: 3–6 reps (strength) or 6–30 reps (hypertrophy)",
+          "Duration: 45–75 min",
+          "Multi-joint exercises for all muscle groups",
+          "Progressive overload",
+          "Adequate recovery between sessions"
+        ],
+        "clinician_notes": "",
+        "source": "ayun_protocol",
+        "removed": false
+      }
+    ],
+    "draft_updated_by": "",
+    "draft_updated_at": "",
+    "published": null,
+    "created_at": "2026-10-09T23:44:25+00:00"
+  },
+  {
+    "id": "demo-sofia-ro-plan",
+    "member_user_id": "demo-sofia-rossi",
+    "member_name": "Sofia Rossi",
+    "pseudonym": "SR-29F",
+    "member_data": {
+      "Demographic::Age": 29,
+      "Demographic::Sex": "Female",
+      "Physiological::Vo2Max": 48,
+      "Physiological::HR max": 191,
+      "Physiological::HR at VT1": 148,
+      "Physiological::HR at VT2": 172,
+      "Physiological::Gripstrength Rechts": 32,
+      "Physiological::Gripstrength Links": 31,
+      "Physiological::Counter movement jump": 34,
+      "Body Composition::Fat percentage": 22,
+      "Body Composition::Muscle Mass Index (LMI)": 16.1,
+      "Body Composition::ALMI": 6.6,
+      "Blood Biomarkers::LDL": 2.4,
+      "Blood Biomarkers::HbA1c": 5.1
+    },
+    "personal_profile": {
+      "name": "Sofia Rossi",
+      "goals": [
+        "Race a half marathon",
+        "Raise top-end speed"
+      ],
+      "activity_level": "Very Active (6h+/week)",
+      "sport_prefs": [
+        "Running",
+        "Strength training"
+      ],
+      "geographic_area": "Switzerland — urban",
+      "location_detail": "Zürich",
+      "health_status": "Good health — no known conditions",
+      "existing_conditions": "",
+      "smoking_status": "Non-smoker",
+      "alcohol_use": "Occasional (social)",
+      "sleep_hours": "7–8 hours",
+      "diet": "High-carb around long runs",
+      "stress": "Not assessed",
+      "depression": "Not assessed",
+      "optimism": "Not assessed",
+      "injuries": "",
+      "notes": "Already trains often; wants quality, not more volume."
+    },
+    "assessment": {
+      "triggered": [],
+      "ratings": [
+        {
+          "parameter": "Physiological::Vo2Max",
+          "value": 48,
+          "rating": "good",
+          "unit": "ml/min/kg"
+        },
+        {
+          "parameter": "Physiological::Gripstrength Rechts",
+          "value": 32,
+          "rating": "good",
+          "unit": "kg"
+        },
+        {
+          "parameter": "Physiological::Gripstrength Links",
+          "value": 31,
+          "rating": "average",
+          "unit": "kg"
+        },
+        {
+          "parameter": "Physiological::Counter movement jump",
+          "value": 34,
+          "rating": "good",
+          "unit": "cm"
+        },
+        {
+          "parameter": "Body Composition::Muscle Mass Index (LMI)",
+          "value": 16.1,
+          "rating": "good",
+          "unit": "kg/m²"
+        },
+        {
+          "parameter": "Body Composition::Fat percentage",
+          "value": 22,
+          "rating": "excellent",
+          "unit": "%"
+        },
+        {
+          "parameter": "Blood Biomarkers::LDL",
+          "value": 2.4,
+          "rating": "excellent",
+          "unit": "mmol/L"
+        },
+        {
+          "parameter": "Blood Biomarkers::HbA1c",
+          "value": 5.1,
+          "rating": "good",
+          "unit": "%"
+        }
+      ],
+      "training_zones": {
+        "source": "CPET (VT1/VT2)",
+        "hr_max": 191,
+        "vt1_bpm": 148,
+        "vt2_bpm": 172,
+        "zones": {
+          "Zone 1 (Recovery)": "< 133 bpm",
+          "Zone 2 (Aerobic Base)": "134–148 bpm",
+          "Zone 3 (Tempo)": "149–162 bpm",
+          "Zone 4 (Threshold)": "163–172 bpm",
+          "Zone 5 (Max Effort)": "> 173 bpm"
+        }
+      },
+      "protocol_recommendations": [],
+      "context_for_llm": "── MEMBER PROFILE ──────────────────────────────────\nMember: Female, age 29\n  VO2max: 48 ml/min/kg\n  Grip (R): 32 kg\n  Grip (L): 31 kg\n  CMJ: 34 cm\n  LMI: 16.1 kg/m²\n  ALMI: 6.6 kg/m²\n  Body fat: 22 %\n  LDL: 2.4 mmol/L\n  HbA1c: 5.1 %\n\n── PERSONAL PROFILE & GOALS ────────────────────────\nMember name: Sofia Rossi\nGeographic area: Switzerland — urban\nGeneral health status: Good health — no known conditions\nHealth goals: Race a half marathon, Raise top-end speed\nCurrent activity level: Very Active (6h+/week)\nPreferred activities: Running, Strength training\nAdditional notes: Already trains often; wants quality, not more volume.\n\nKey Parameter Ratings (vs. age/gender norms):\n  VO2max: 48 ml/min/kg → good\n  Grip Strength (R): 32 kg → good\n  Grip Strength (L): 31 kg → average\n  Counter Movement Jump: 34 cm → good\n  Muscle Mass Index (LMI): 16.1 kg/m² → good\n  Body Fat %: 22 % → excellent\n  LDL Cholesterol: 2.4 mmol/L → excellent\n  HbA1c: 5.1 % → good\n\n── TRAINING ZONES ──────────────────────────────────\nTraining Zones (CPET (VT1/VT2), HR max = 191 bpm):\n  Zone 1 — Recovery:          < 133 bpm\n  Zone 2 — Aerobic Base:      134–148 bpm  ← VT1 = 148 bpm\n  Zone 3 — Tempo:             149–162 bpm\n  Zone 4 — Threshold:         163–172 bpm  ← VT2 = 172 bpm\n  Zone 5 — Max Effort:        > 173 bpm\n\n── RECOMMENDATIONS ─────────────────────────────────\nAll measured values are within reference ranges.",
+      "member_summary": "Member: Female, age 29\n  VO2max: 48 ml/min/kg\n  Grip (R): 32 kg\n  Grip (L): 31 kg\n  CMJ: 34 cm\n  LMI: 16.1 kg/m²\n  ALMI: 6.6 kg/m²\n  Body fat: 22 %\n  LDL: 2.4 mmol/L\n  HbA1c: 5.1 %",
+      "sex_group": "female",
+      "age_group": "age_18_29",
+      "personal_context": "Member name: Sofia Rossi\nGeographic area: Switzerland — urban\nGeneral health status: Good health — no known conditions\nHealth goals: Race a half marathon, Raise top-end speed\nCurrent activity level: Very Active (6h+/week)\nPreferred activities: Running, Strength training\nAdditional notes: Already trains often; wants quality, not more volume."
+    },
+    "draft_recommendations": [],
+    "draft_updated_by": "",
+    "draft_updated_at": "",
+    "published": null,
+    "created_at": "2026-10-09T23:44:21+00:00"
+  },
+  {
+    "id": "demo-marco-ke-plan",
+    "member_user_id": "demo-marco-keller",
+    "member_name": "Marco Keller",
+    "pseudonym": "MK-58M",
+    "member_data": {
+      "Demographic::Age": 58,
+      "Demographic::Sex": "Male",
+      "Blood Biomarkers::LDL": 3.9,
+      "Physiological::HR max": 168,
+      "Physiological::Vo2Max": 32,
+      "Body Composition::ALMI": 7.1,
+      "Blood Biomarkers::HbA1c": 5.6,
+      "Physiological::HR at VT1": 118,
+      "Physiological::HR at VT2": 145,
+      "Body Composition::Fat percentage": 27,
+      "Physiological::Gripstrength Links": 36,
+      "Physiological::Gripstrength Rechts": 38,
+      "Physiological::Biceps Strength Links": 26,
+      "Physiological::Biceps Strength Rechts": 28,
+      "Body Composition::Muscle Mass Index (LMI)": 17.4
+    },
+    "personal_profile": {
+      "diet": "",
+      "name": "Marco Keller",
+      "goals": [
+        "Stay active for work travel",
+        "Protect the left knee"
+      ],
+      "notes": "Published plan already reviewed by the clinic.",
+      "stress": "Not assessed",
+      "injuries": "Left knee pain after interval sessions",
+      "optimism": "Not assessed",
+      "depression": "Not assessed",
+      "alcohol_use": "Occasional (social)",
+      "sleep_hours": "7–8 hours",
+      "sport_prefs": [
+        "Running",
+        "Cycling"
+      ],
+      "health_status": "Recovering from illness or injury",
+      "activity_level": "Moderately Active (2–4h/week)",
+      "smoking_status": "Non-smoker",
+      "geographic_area": "Switzerland — urban",
+      "location_detail": "Zürich",
+      "existing_conditions": "Mild left-knee osteoarthritis"
+    },
+    "assessment": {
+      "ratings": [
+        {
+          "unit": "ml/min/kg",
+          "value": 32,
+          "rating": "below_average",
+          "parameter": "Physiological::Vo2Max"
+        },
+        {
+          "unit": "kg",
+          "value": 38,
+          "rating": "below_average",
+          "parameter": "Physiological::Gripstrength Rechts"
+        },
+        {
+          "unit": "kg",
+          "value": 36,
+          "rating": "poor",
+          "parameter": "Physiological::Gripstrength Links"
+        },
+        {
+          "unit": "kg",
+          "value": 28,
+          "rating": "average",
+          "parameter": "Physiological::Biceps Strength Rechts"
+        },
+        {
+          "unit": "kg",
+          "value": 26,
+          "rating": "below_average",
+          "parameter": "Physiological::Biceps Strength Links"
+        },
+        {
+          "unit": "kg/m²",
+          "value": 17.4,
+          "rating": "average",
+          "parameter": "Body Composition::Muscle Mass Index (LMI)"
+        },
+        {
+          "unit": "%",
+          "value": 27,
+          "rating": "high",
+          "parameter": "Body Composition::Fat percentage"
+        },
+        {
+          "unit": "mmol/L",
+          "value": 3.9,
+          "rating": "elevated",
+          "parameter": "Blood Biomarkers::LDL"
+        },
+        {
+          "unit": "%",
+          "value": 5.6,
+          "rating": "good",
+          "parameter": "Blood Biomarkers::HbA1c"
+        }
+      ],
+      "age_group": "age_50_59",
+      "sex_group": "male",
+      "triggered": [
+        {
+          "title": "Cardiovascular Disease Prevention - Male 50-59",
+          "category": "Cardiovascular Health",
+          "priority": "Critical",
+          "age_group": "age_50_59",
+          "sex_group": "male",
+          "action_items": [
+            "Target VO2max: Aim for >45 ml/min/kg (excellent for age 50-59)",
+            "VO2max is strong predictor of longevity - prioritize improvement",
+            "VT1 base building: 4-5 sessions per week, 35-50 minutes",
+            "VT2 sessions: 1 session per week with careful monitoring",
+            "Low-impact preferred: Cycling, swimming, elliptical",
+            "Medical clearance: Consult physician before high-intensity training",
+            "HRV monitoring: Daily tracking for recovery management"
+          ]
+        },
+        {
+          "title": "Muscle Mass Preservation - Male 50-59",
+          "category": "Sarcopenia Prevention",
+          "priority": "Critical",
+          "age_group": "age_50_59",
+          "sex_group": "male",
+          "action_items": [
+            "Target LMI: Aim for >19.0 kg/m² (excellent)",
+            "Resistance training: 3 sessions per week MINIMUM",
+            "Muscle loss accelerates after 50 - action required",
+            "High protein: 1.6-2.0 g/kg body weight daily essential",
+            "Progressive resistance: Focus on compound movements",
+            "Recovery time: 48-72 hours between intense sessions",
+            "Consider creatine supplementation (consult physician)"
+          ]
+        },
+        {
+          "title": "Borderline High LDL (3.9 mmol/L) — Lipid Optimisation",
+          "category": "Cardiovascular Health",
+          "priority": "High",
+          "age_group": "age_50_59",
+          "sex_group": "male",
+          "action_items": [
+            "LDL 3.9 mmol/L is borderline high (3.3–4.1 mmol/L)",
+            "Regular Zone 2 cardio (≥120 min/week) to improve lipid profile",
+            "Dietary: limit red meat and processed foods, add plant sterols",
+            "Retest lipid panel in 3–6 months"
+          ]
+        }
+      ],
+      "member_summary": "Member: Male, age 58\n  VO2max: 32 ml/min/kg\n  Grip (R): 38 kg\n  Grip (L): 36 kg\n  Biceps (R): 28 kg\n  Biceps (L): 26 kg\n  LMI: 17.4 kg/m²\n  ALMI: 7.1 kg/m²\n  Body fat: 27 %\n  LDL: 3.9 mmol/L\n  HbA1c: 5.6 %",
+      "training_zones": {
+        "zones": {
+          "Zone 3 (Tempo)": "119–135 bpm",
+          "Zone 1 (Recovery)": "< 103 bpm",
+          "Zone 4 (Threshold)": "136–145 bpm",
+          "Zone 5 (Max Effort)": "> 146 bpm",
+          "Zone 2 (Aerobic Base)": "104–118 bpm"
+        },
+        "hr_max": 168,
+        "source": "CPET (VT1/VT2)",
+        "vt1_bpm": 118,
+        "vt2_bpm": 145
+      },
+      "context_for_llm": "── MEMBER PROFILE ──────────────────────────────────\nMember: Male, age 58\n  VO2max: 32 ml/min/kg\n  Grip (R): 38 kg\n  Grip (L): 36 kg\n  Biceps (R): 28 kg\n  Biceps (L): 26 kg\n  LMI: 17.4 kg/m²\n  ALMI: 7.1 kg/m²\n  Body fat: 27 %\n  LDL: 3.9 mmol/L\n  HbA1c: 5.6 %\n\n── PERSONAL PROFILE & GOALS ────────────────────────\nMember name: Marco Keller\nGeographic area: Switzerland — urban\nGeneral health status: Recovering from illness or injury\nHealth goals: Stay active for work travel, Protect the left knee\nCurrent activity level: Moderately Active (2–4h/week)\nPreferred activities: Running, Cycling\nExisting conditions / diagnoses: Mild left-knee osteoarthritis\nInjuries / limitations: Left knee pain after interval sessions\nAdditional notes: Published plan already reviewed by the clinic.\n\nKey Parameter Ratings (vs. age/gender norms):\n  VO2max: 32 ml/min/kg → below average\n  Grip Strength (R): 38 kg → below average\n  Grip Strength (L): 36 kg → poor\n  Biceps Strength (R): 28 kg → average\n  Biceps Strength (L): 26 kg → below average\n  Muscle Mass Index (LMI): 17.4 kg/m² → average\n  Body Fat %: 27 % → high\n  LDL Cholesterol: 3.9 mmol/L → elevated\n  HbA1c: 5.6 % → good\n\n── TRAINING ZONES ──────────────────────────────────\nTraining Zones (CPET (VT1/VT2), HR max = 168 bpm):\n  Zone 1 — Recovery:          < 103 bpm\n  Zone 2 — Aerobic Base:      104–118 bpm  ← VT1 = 118 bpm\n  Zone 3 — Tempo:             119–135 bpm\n  Zone 4 — Threshold:         136–145 bpm  ← VT2 = 145 bpm\n  Zone 5 — Max Effort:        > 146 bpm\n\n── RECOMMENDATIONS ─────────────────────────────────\n\n[1] [CRITICAL] Cardiovascular Disease Prevention - Male 50-59\n    Category: Cardiovascular Health\n    • Target VO2max: Aim for >45 ml/min/kg (excellent for age 50-59)\n    • VO2max is strong predictor of longevity - prioritize improvement\n    • VT1 base building: 4-5 sessions per week, 35-50 minutes\n    • VT2 sessions: 1 session per week with careful monitoring\n    • Low-impact preferred: Cycling, swimming, elliptical\n    • Medical clearance: Consult physician before high-intensity training\n    • HRV monitoring: Daily tracking for recovery management\n\n[2] [CRITICAL] Muscle Mass Preservation - Male 50-59\n    Category: Sarcopenia Prevention\n    • Target LMI: Aim for >19.0 kg/m² (excellent)\n    • Resistance training: 3 sessions per week MINIMUM\n    • Muscle loss accelerates after 50 - action required\n    • High protein: 1.6-2.0 g/kg body weight daily essential\n    • Progressive resistance: Focus on compound movements\n    • Recovery time: 48-72 hours between intense sessions\n    • Consider creatine supplementation (consult physician)\n\n[3] [HIGH] Borderline High LDL (3.9 mmol/L) — Lipid Optimisation\n    Category: Cardiovascular Health\n    • LDL 3.9 mmol/L is borderline high (3.3–4.1 mmol/L)\n    • Regular Zone 2 cardio (≥120 min/week) to improve lipid profile\n    • Dietary: limit red meat and processed foods, add plant sterols\n    • Retest lipid panel in 3–6 months\n\n── AYUN SCIENTIST PROTOCOLS (authoritative clinic templates) ──\nGround workout plans in these protocols and related templates.\nPrefer listed exercises, frequencies, and intensities over inventing new ones.\nStill fit any weekly plan into exactly 7 days.\n\n### Protocol: High Body Fat / Elevated Visceral Fat\n    Body recomposition and fat loss\n    Frequency: 2–4 strength + 2–4 cardio per week\n    Intensity: Strength: 6–30 reps; Cardio: Zone 2 primary\n    Duration: Strength 45–60 min; Cardio 30–120 min\n    Focus:\n      • Strength training prevents muscle loss during deficit\n      • Zone 2 cardio supports fat oxidation\n      • Daily steps: aim 8,000+\n    Nutrition:\n      • Moderate caloric deficit (300–500 kcal/day)\n      • High protein (1.6–2.2 g/kg) to preserve muscle\n      • Combine with resistance training\n    Recheck: 8–12 weeks (DEXA or body composition)\n\n### Protocol: Low VO2max / Poor Aerobic Base\n    Improve cardiorespiratory fitness\n    Frequency: 2–5 sessions per week\n    Intensity: Zone 2 primary; talk test (can speak, slightly uncomfortable)\n    Duration: 30–120 min per session\n    Focus:\n      • Activities: hiking, rowing, cycling, swimming, jogging\n      • Progression: increase frequency or duration gradually\n      • Polarized: 70–80% Zone 2, 1–2× Zone 4 intervals\n    Nutrition:\n      • Adequate carbs for training days\n      • Recovery nutrition post longer sessions\n    Recheck: 6–12 months (CPET)\n\n### Protocol: Low Strength / Muscle Mass\n    Build strength and lean mass\n    Frequency: 2–3 sessions per week\n    Intensity: 3–6 reps (strength) or 6–30 reps (hypertrophy)\n    Duration: 45–75 min\n    Focus:\n      • Multi-joint exercises for all muscle groups\n      • Progressive overload\n      • Adequate recovery between sessions\n    Nutrition:\n      • Protein: 1.6–2.2 g/kg for hypertrophy\n      • Caloric surplus if building (small)\n      • Sleep and recovery\n    Recheck: 8–12 weeks (strength tests, DEXA)\n\n### Related training templates\n\n  [zone2_base] Zone 2 Base Endurance\n      Foundation of aerobic fitness; fat oxidation, mitochondrial biogenesis\n      Frequency: At least 2× per week\n      Intensity: Zone 2 (below VT1); talk test\n      Duration: 30 min to several hours\n      Zones:\n      • Zone 1: Recovery / warm-up\n      • Zone 2: Base endurance — 30 min to couple hours\n      • Zone 3: Tempo — 20 min to 1.5 hours\n      • Zone 4: Intervals — few minutes\n      Tips:\n      • Running: add ~10 bpm to bike zone (higher muscle activation)\n      • 70–80% of weekly volume in Zone 2\n\n  [fat_burn_workout] Fat Burn / Body Recomposition\n      Strength + cardio for fat loss\n      Frequency: 2–4 strength + 2–4 cardio per week\n      Exercises:\n      • Pull-ups, shoulder press, RDL, bicycle crunches\n      • Inverse rows, push-ups, lunges\n      Daily activity: 8,000+ steps\n\n  [full_body_hypertrophy] Full Body Hypertrophy (6–30 reps)\n      Muscle building; metabolic health\n      Frequency: 2–3× per week, up to 6 sets per muscle group\n      Exercises:\n      • Pull-ups (10)\n      • Half-kneeling single arm shoulder press (12)\n      • Romanian deadlifts (10)\n      • Bicycle crunches (20)\n      • Inverse rows (12)\n      • Push-ups (20)\n      • Lunges (10)\n\n  [polarized_hiit] Polarized Training / HIIT\n      Zone 2 base + 1–2× intense Zone 4 intervals\n      Frequency: 1–2 interval sessions per week\n      Intensity: Zone 4; 1–8 min intervals\n      Duration: 15–25 min high-intensity portion\n      Structure:\n      • 70–80% of training in Zone 2\n      • 1–2×/week: intervals 1–8 min, recovery to Zone 2\n      • Builds VO2max and lactate tolerance\n\n  [exercube_cognition] ExerCube / Dual-Task Training\n      HIIT + cognitive stimulation; endurance and cognition\n      Frequency: 1–2× per week\n      Intensity: Full concentration and physical effort\n      Duration: 15–25 min per session\n\n  [full_body_strength] Full Body Strength (3–6 reps)\n      Maximal strength; multi-joint compound movements\n      Frequency: 2–3× per week\n      Exercises:\n      • Pull-ups (3–5)\n      • Barbell shoulder press (3–5)\n      • Deadlifts (3–5)\n      • Inverse rows (3–5)\n      • Bench press (3–5)\n      • Barbell back squats (3–5)",
+      "personal_context": "Member name: Marco Keller\nGeographic area: Switzerland — urban\nGeneral health status: Recovering from illness or injury\nHealth goals: Stay active for work travel, Protect the left knee\nCurrent activity level: Moderately Active (2–4h/week)\nPreferred activities: Running, Cycling\nExisting conditions / diagnoses: Mild left-knee osteoarthritis\nInjuries / limitations: Left knee pain after interval sessions\nAdditional notes: Published plan already reviewed by the clinic.",
+      "protocol_recommendations": [
+        {
+          "key": "high_body_fat",
+          "title": "High Body Fat / Elevated Visceral Fat",
+          "source": "protocols_quick_reference.yml",
+          "category": "AYUN Scientist Protocol",
+          "priority": "Medium",
+          "templates": [
+            {
+              "key": "zone2_base",
+              "title": "Zone 2 Base Endurance",
+              "summary": "At least 2× per week · Zone 2 (below VT1); talk test · 30 min to several hours"
+            },
+            {
+              "key": "fat_burn_workout",
+              "title": "Fat Burn / Body Recomposition",
+              "summary": "2–4 strength + 2–4 cardio per week · Exercises: Pull-ups, shoulder press, RDL, bicycle crunches, Inverse rows, push-ups, lunges"
+            },
+            {
+              "key": "full_body_hypertrophy",
+              "title": "Full Body Hypertrophy (6–30 reps)",
+              "summary": "2–3× per week, up to 6 sets per muscle group · Exercises: Pull-ups (10), Half-kneeling single arm shoulder press (12), Romanian deadlifts (10), Bicycle crunches (20), Inverse rows (12), Push-ups (20), Lunges (10)"
+            }
+          ],
+          "description": "Body recomposition and fat loss",
+          "action_items": [
+            "Frequency: 2–4 strength + 2–4 cardio per week",
+            "Intensity: Strength: 6–30 reps; Cardio: Zone 2 primary",
+            "Duration: Strength 45–60 min; Cardio 30–120 min",
+            "Strength training prevents muscle loss during deficit",
+            "Zone 2 cardio supports fat oxidation",
+            "Daily steps: aim 8,000+"
+          ],
+          "nutrition_focus": [
+            "Moderate caloric deficit (300–500 kcal/day)",
+            "High protein (1.6–2.2 g/kg) to preserve muscle",
+            "Combine with resistance training"
+          ],
+          "recheck_interval": "8–12 weeks (DEXA or body composition)"
+        },
+        {
+          "key": "low_vo2max",
+          "title": "Low VO2max / Poor Aerobic Base",
+          "source": "protocols_quick_reference.yml",
+          "category": "AYUN Scientist Protocol",
+          "priority": "Medium",
+          "templates": [
+            {
+              "key": "zone2_base",
+              "title": "Zone 2 Base Endurance",
+              "summary": "At least 2× per week · Zone 2 (below VT1); talk test · 30 min to several hours"
+            },
+            {
+              "key": "polarized_hiit",
+              "title": "Polarized Training / HIIT",
+              "summary": "1–2 interval sessions per week · Zone 4; 1–8 min intervals · 15–25 min high-intensity portion"
+            },
+            {
+              "key": "exercube_cognition",
+              "title": "ExerCube / Dual-Task Training",
+              "summary": "1–2× per week · Full concentration and physical effort · 15–25 min per session"
+            }
+          ],
+          "description": "Improve cardiorespiratory fitness",
+          "action_items": [
+            "Frequency: 2–5 sessions per week",
+            "Intensity: Zone 2 primary; talk test (can speak, slightly uncomfortable)",
+            "Duration: 30–120 min per session",
+            "Activities: hiking, rowing, cycling, swimming, jogging",
+            "Progression: increase frequency or duration gradually",
+            "Polarized: 70–80% Zone 2, 1–2× Zone 4 intervals"
+          ],
+          "nutrition_focus": [
+            "Adequate carbs for training days",
+            "Recovery nutrition post longer sessions"
+          ],
+          "recheck_interval": "6–12 months (CPET)"
+        },
+        {
+          "key": "low_strength_muscle",
+          "title": "Low Strength / Muscle Mass",
+          "source": "protocols_quick_reference.yml",
+          "category": "AYUN Scientist Protocol",
+          "priority": "Medium",
+          "templates": [
+            {
+              "key": "full_body_strength",
+              "title": "Full Body Strength (3–6 reps)",
+              "summary": "2–3× per week · Exercises: Pull-ups (3–5), Barbell shoulder press (3–5), Deadlifts (3–5), Inverse rows (3–5), Bench press (3–5), Barbell back squats (3–5)"
+            },
+            {
+              "key": "full_body_hypertrophy",
+              "title": "Full Body Hypertrophy (6–30 reps)",
+              "summary": "2–3× per week, up to 6 sets per muscle group · Exercises: Pull-ups (10), Half-kneeling single arm shoulder press (12), Romanian deadlifts (10), Bicycle crunches (20), Inverse rows (12), Push-ups (20), Lunges (10)"
+            },
+            {
+              "key": "leg_power",
+              "title": "Leg Power / Plyometrics",
+              "summary": "1–2× per week · Maximum effort per rep · Exercises: Single-leg box jumps (6–8 reps), Tuck jumps (6–8), Seated vertical jumps (6–8), Kettlebell swings (8–12)"
+            },
+            {
+              "key": "hip_mobility",
+              "title": "Hip Mobility",
+              "summary": "At least 2× per week, ideally 2× daily · 60 sec per exercise · Exercises: Couch stretch, Pigeon pose, Hip 90/90, Pike stretch"
+            }
+          ],
+          "description": "Build strength and lean mass",
+          "action_items": [
+            "Frequency: 2–3 sessions per week",
+            "Intensity: 3–6 reps (strength) or 6–30 reps (hypertrophy)",
+            "Duration: 45–75 min",
+            "Multi-joint exercises for all muscle groups",
+            "Progressive overload",
+            "Adequate recovery between sessions"
+          ],
+          "nutrition_focus": [
+            "Protein: 1.6–2.2 g/kg for hypertrophy",
+            "Caloric surplus if building (small)",
+            "Sleep and recovery"
+          ],
+          "recheck_interval": "8–12 weeks (strength tests, DEXA)"
+        }
+      ]
+    },
+    "draft_recommendations": [
+      {
+        "id": "rec_0",
+        "title": "Cardiovascular Disease Prevention - Male 50-59",
+        "category": "Cardiovascular Health",
+        "original_priority": "Critical",
+        "reviewed_priority": "Critical",
+        "action_items": [
+          "Target VO2max: Aim for >45 ml/min/kg (excellent for age 50-59)",
+          "VO2max is strong predictor of longevity - prioritize improvement",
+          "VT1 base building: 4-5 sessions per week, 35-50 minutes",
+          "VT2 sessions: 1 session per week with careful monitoring",
+          "Low-impact preferred: Cycling, swimming, elliptical",
+          "Medical clearance: Consult physician before high-intensity training",
+          "HRV monitoring: Daily tracking for recovery management"
+        ],
+        "clinician_notes": "",
+        "source": "ai_generated",
+        "removed": false
+      },
+      {
+        "id": "rec_1",
+        "title": "Muscle Mass Preservation - Male 50-59",
+        "category": "Sarcopenia Prevention",
+        "original_priority": "Critical",
+        "reviewed_priority": "Critical",
+        "action_items": [
+          "Target LMI: Aim for >19.0 kg/m² (excellent)",
+          "Resistance training: 3 sessions per week MINIMUM",
+          "Muscle loss accelerates after 50 - action required",
+          "High protein: 1.6-2.0 g/kg body weight daily essential",
+          "Progressive resistance: Focus on compound movements",
+          "Recovery time: 48-72 hours between intense sessions",
+          "Consider creatine supplementation (consult physician)"
+        ],
+        "clinician_notes": "",
+        "source": "ai_generated",
+        "removed": false
+      },
+      {
+        "id": "rec_2",
+        "title": "Borderline High LDL (3.9 mmol/L) — Lipid Optimisation",
+        "category": "Cardiovascular Health",
+        "original_priority": "High",
+        "reviewed_priority": "High",
+        "action_items": [
+          "LDL 3.9 mmol/L is borderline high (3.3–4.1 mmol/L)",
+          "Regular Zone 2 cardio (≥120 min/week) to improve lipid profile",
+          "Dietary: limit red meat and processed foods, add plant sterols",
+          "Retest lipid panel in 3–6 months"
+        ],
+        "clinician_notes": "",
+        "source": "ai_generated",
+        "removed": false
+      },
+      {
+        "id": "protocol_0",
+        "title": "High Body Fat / Elevated Visceral Fat",
+        "category": "AYUN Scientist Protocol",
+        "original_priority": "Medium",
+        "reviewed_priority": "Medium",
+        "action_items": [
+          "Frequency: 2–4 strength + 2–4 cardio per week",
+          "Intensity: Strength: 6–30 reps; Cardio: Zone 2 primary",
+          "Duration: Strength 45–60 min; Cardio 30–120 min",
+          "Strength training prevents muscle loss during deficit",
+          "Zone 2 cardio supports fat oxidation",
+          "Daily steps: aim 8,000+"
+        ],
+        "clinician_notes": "",
+        "source": "ayun_protocol",
+        "removed": false
+      },
+      {
+        "id": "protocol_1",
+        "title": "Low VO2max / Poor Aerobic Base",
+        "category": "AYUN Scientist Protocol",
+        "original_priority": "Medium",
+        "reviewed_priority": "Medium",
+        "action_items": [
+          "Frequency: 2–5 sessions per week",
+          "Intensity: Zone 2 primary; talk test (can speak, slightly uncomfortable)",
+          "Duration: 30–120 min per session",
+          "Activities: hiking, rowing, cycling, swimming, jogging",
+          "Progression: increase frequency or duration gradually",
+          "Polarized: 70–80% Zone 2, 1–2× Zone 4 intervals"
+        ],
+        "clinician_notes": "",
+        "source": "ayun_protocol",
+        "removed": false
+      },
+      {
+        "id": "protocol_2",
+        "title": "Low Strength / Muscle Mass",
+        "category": "AYUN Scientist Protocol",
+        "original_priority": "Medium",
+        "reviewed_priority": "Medium",
+        "action_items": [
+          "Frequency: 2–3 sessions per week",
+          "Intensity: 3–6 reps (strength) or 6–30 reps (hypertrophy)",
+          "Duration: 45–75 min",
+          "Multi-joint exercises for all muscle groups",
+          "Progressive overload",
+          "Adequate recovery between sessions"
+        ],
+        "clinician_notes": "",
+        "source": "ayun_protocol",
+        "removed": false
+      }
+    ],
+    "draft_updated_by": "Dr. Meier",
+    "draft_updated_at": "2026-10-09T23:44:18+00:00",
+    "published": {
+      "recommendations": [
+        {
+          "id": "rec_0",
+          "title": "Cardiovascular Disease Prevention - Male 50-59",
+          "category": "Cardiovascular Health",
+          "original_priority": "Critical",
+          "reviewed_priority": "Critical",
+          "action_items": [
+            "Target VO2max: Aim for >45 ml/min/kg (excellent for age 50-59)",
+            "VO2max is strong predictor of longevity - prioritize improvement",
+            "VT1 base building: 4-5 sessions per week, 35-50 minutes",
+            "VT2 sessions: 1 session per week with careful monitoring",
+            "Low-impact preferred: Cycling, swimming, elliptical",
+            "Medical clearance: Consult physician before high-intensity training",
+            "HRV monitoring: Daily tracking for recovery management"
+          ],
+          "clinician_notes": "",
+          "source": "ai_generated",
+          "removed": false
+        },
+        {
+          "id": "rec_1",
+          "title": "Muscle Mass Preservation - Male 50-59",
+          "category": "Sarcopenia Prevention",
+          "original_priority": "Critical",
+          "reviewed_priority": "Critical",
+          "action_items": [
+            "Target LMI: Aim for >19.0 kg/m² (excellent)",
+            "Resistance training: 3 sessions per week MINIMUM",
+            "Muscle loss accelerates after 50 - action required",
+            "High protein: 1.6-2.0 g/kg body weight daily essential",
+            "Progressive resistance: Focus on compound movements",
+            "Recovery time: 48-72 hours between intense sessions",
+            "Consider creatine supplementation (consult physician)"
+          ],
+          "clinician_notes": "",
+          "source": "ai_generated",
+          "removed": false
+        },
+        {
+          "id": "rec_2",
+          "title": "Borderline High LDL (3.9 mmol/L) — Lipid Optimisation",
+          "category": "Cardiovascular Health",
+          "original_priority": "High",
+          "reviewed_priority": "High",
+          "action_items": [
+            "LDL 3.9 mmol/L is borderline high (3.3–4.1 mmol/L)",
+            "Regular Zone 2 cardio (≥120 min/week) to improve lipid profile",
+            "Dietary: limit red meat and processed foods, add plant sterols",
+            "Retest lipid panel in 3–6 months"
+          ],
+          "clinician_notes": "",
+          "source": "ai_generated",
+          "removed": false
+        },
+        {
+          "id": "protocol_0",
+          "title": "High Body Fat / Elevated Visceral Fat",
+          "category": "AYUN Scientist Protocol",
+          "original_priority": "Medium",
+          "reviewed_priority": "Medium",
+          "action_items": [
+            "Frequency: 2–4 strength + 2–4 cardio per week",
+            "Intensity: Strength: 6–30 reps; Cardio: Zone 2 primary",
+            "Duration: Strength 45–60 min; Cardio 30–120 min",
+            "Strength training prevents muscle loss during deficit",
+            "Zone 2 cardio supports fat oxidation",
+            "Daily steps: aim 8,000+"
+          ],
+          "clinician_notes": "",
+          "source": "ayun_protocol",
+          "removed": false
+        },
+        {
+          "id": "protocol_1",
+          "title": "Low VO2max / Poor Aerobic Base",
+          "category": "AYUN Scientist Protocol",
+          "original_priority": "Medium",
+          "reviewed_priority": "Medium",
+          "action_items": [
+            "Frequency: 2–5 sessions per week",
+            "Intensity: Zone 2 primary; talk test (can speak, slightly uncomfortable)",
+            "Duration: 30–120 min per session",
+            "Activities: hiking, rowing, cycling, swimming, jogging",
+            "Progression: increase frequency or duration gradually",
+            "Polarized: 70–80% Zone 2, 1–2× Zone 4 intervals"
+          ],
+          "clinician_notes": "",
+          "source": "ayun_protocol",
+          "removed": false
+        },
+        {
+          "id": "protocol_2",
+          "title": "Low Strength / Muscle Mass",
+          "category": "AYUN Scientist Protocol",
+          "original_priority": "Medium",
+          "reviewed_priority": "Medium",
+          "action_items": [
+            "Frequency: 2–3 sessions per week",
+            "Intensity: 3–6 reps (strength) or 6–30 reps (hypertrophy)",
+            "Duration: 45–75 min",
+            "Multi-joint exercises for all muscle groups",
+            "Progressive overload",
+            "Adequate recovery between sessions"
+          ],
+          "clinician_notes": "",
+          "source": "ayun_protocol",
+          "removed": false
+        }
+      ],
+      "removed_titles": [],
+      "published_by": "Dr. Meier",
+      "published_at": "2026-10-09T23:44:18+00:00",
+      "clinician_note": "Demo published plan for the clinic manual."
+    },
+    "created_at": "2026-10-09T23:44:15+00:00"
+  },
+  {
+    "id": "demo-lena-hof-plan",
+    "pseudonym": "LH-42F",
+    "published": null,
+    "assessment": {
+      "ratings": [
+        {
+          "unit": "ml/min/kg",
+          "value": 28,
+          "rating": "below_average",
+          "parameter": "Physiological::Vo2Max"
+        },
+        {
+          "unit": "kg",
+          "value": 26,
+          "rating": "below_average",
+          "parameter": "Physiological::Gripstrength Rechts"
+        },
+        {
+          "unit": "kg",
+          "value": 24,
+          "rating": "poor",
+          "parameter": "Physiological::Gripstrength Links"
+        },
+        {
+          "unit": "cm",
+          "value": 22,
+          "rating": "good",
+          "parameter": "Physiological::Counter movement jump"
+        },
+        {
+          "unit": "kg/m²",
+          "value": 14.2,
+          "rating": "average",
+          "parameter": "Body Composition::Muscle Mass Index (LMI)"
+        },
+        {
+          "unit": "%",
+          "value": 34,
+          "rating": "elevated",
+          "parameter": "Body Composition::Fat percentage"
+        },
+        {
+          "unit": "cm³",
+          "value": 9,
+          "rating": "excellent",
+          "parameter": "Body Composition::Visceral Fat Index (raw value from DEXA)"
+        },
+        {
+          "unit": "mmol/L",
+          "value": 4.2,
+          "rating": "high",
+          "parameter": "Blood Biomarkers::LDL"
+        },
+        {
+          "unit": "%",
+          "value": 5.8,
+          "rating": "elevated",
+          "parameter": "Blood Biomarkers::HbA1c"
+        }
+      ],
+      "age_group": "age_40_49",
+      "sex_group": "female",
+      "triggered": [
+        {
+          "title": "High LDL Cholesterol (4.2 mmol/L) — Cardiovascular Risk",
+          "category": "Cardiovascular Health",
+          "priority": "Critical",
+          "age_group": "age_40_49",
+          "sex_group": "female",
+          "action_items": [
+            "LDL 4.2 mmol/L is above the high-risk threshold (4.1 mmol/L)",
+            "Zone 2 aerobic training ≥150 min/week — most effective lifestyle intervention for LDL",
+            "Dietary: reduce saturated fat, increase soluble fibre (oats, legumes, psyllium)",
+            "Increase omega-3 intake (fatty fish 2–3×/week or supplement)",
+            "Medical review recommended — discuss statin therapy if lifestyle changes insufficient"
+          ]
+        },
+        {
+          "title": "Combat Muscle Loss - Female 40-49",
+          "category": "Strength and Muscle Mass",
+          "priority": "Critical",
+          "age_group": "age_40_49",
+          "sex_group": "female",
+          "action_items": [
+            "Target LMI: >16.0 kg/m² (excellent)",
+            "Resistance training: 3 sessions per week MINIMUM",
+            "Muscle loss accelerates: Hormonal changes increase loss",
+            "Heavy weights: Don't be afraid - build strength now",
+            "Protein: 1.6-2.0 g/kg body weight daily - essential",
+            "Progressive overload: Continue challenging muscles"
+          ]
+        },
+        {
+          "title": "HbA1c in Prediabetes Range (5.8%) — Prevention Protocol",
+          "category": "Metabolic Health",
+          "priority": "High",
+          "age_group": "age_40_49",
+          "sex_group": "female",
+          "action_items": [
+            "HbA1c 5.8% is in the prediabetes range (5.7–6.4%)",
+            "Aerobic training ≥150 min/week improves insulin sensitivity",
+            "Add 2× resistance/strength sessions per week",
+            "10–15 min walk after each meal to blunt postprandial glucose",
+            "Reduce refined carbohydrates; prefer whole grains, legumes, vegetables",
+            "Retest HbA1c in 3 months"
+          ]
+        },
+        {
+          "title": "Heart Health Priority - Female 40-49",
+          "category": "Cardiovascular Health",
+          "priority": "High",
+          "age_group": "age_40_49",
+          "sex_group": "female",
+          "action_items": [
+            "Target VO2max: >41 ml/min/kg (excellent for age 40-49)",
+            "Cardiovascular disease risk increases after menopause",
+            "Aerobic exercise: 4-5 sessions per week",
+            "VT1 training: 35-50 minutes per session",
+            "Monitor heart health: Regular check-ups",
+            "Low-impact options: Protect joints while building fitness"
+          ]
+        },
+        {
+          "title": "Metabolic Changes - Female 40-49",
+          "category": "Body Composition Changes",
+          "priority": "High",
+          "age_group": "age_40_49",
+          "sex_group": "female",
+          "action_items": [
+            "Target body fat: 20-27% (excellent-good range)",
+            "Visceral fat: Target <420 (good range)",
+            "Fat distribution changes: More abdominal with hormonal changes",
+            "Metabolism slowing: Exercise and diet both important",
+            "Strength training: Maintains metabolic rate",
+            "Cardiovascular risk: Visceral fat particularly harmful"
+          ]
+        }
+      ],
+      "member_summary": "Member: Female, age 42\n  VO2max: 28 ml/min/kg\n  Grip (R): 26 kg\n  Grip (L): 24 kg\n  CMJ: 22 cm\n  LMI: 14.2 kg/m²\n  ALMI: 5.8 kg/m²\n  Body fat: 34 %\n  Visceral fat: 9\n  LDL: 4.2 mmol/L\n  HbA1c: 5.8 %",
+      "training_zones": {
+        "zones": {
+          "Zone 3 (Tempo)": "129–145 bpm",
+          "Zone 1 (Recovery)": "< 113 bpm",
+          "Zone 4 (Threshold)": "146–155 bpm",
+          "Zone 5 (Max Effort)": "> 156 bpm",
+          "Zone 2 (Aerobic Base)": "114–128 bpm"
+        },
+        "hr_max": 178,
+        "source": "CPET (VT1/VT2)",
+        "vt1_bpm": 128,
+        "vt2_bpm": 155
+      },
+      "context_for_llm": "── MEMBER PROFILE ──────────────────────────────────\nMember: Female, age 42\n  VO2max: 28 ml/min/kg\n  Grip (R): 26 kg\n  Grip (L): 24 kg\n  CMJ: 22 cm\n  LMI: 14.2 kg/m²\n  ALMI: 5.8 kg/m²\n  Body fat: 34 %\n  Visceral fat: 9\n  LDL: 4.2 mmol/L\n  HbA1c: 5.8 %\n\n── PERSONAL PROFILE & GOALS ────────────────────────\nMember name: Lena Hofmann\nGeographic area: Switzerland — urban\nGeneral health status: Generally healthy — minor issues only\nHealth goals: Improve aerobic fitness, Lower cholesterol\nCurrent activity level: Lightly Active (under 2h/week)\nPreferred activities: Walking, Yoga\nExisting conditions / diagnoses: Family history of cardiovascular disease\nAdditional notes: Wants a plan she can keep with two small children.\n\nKey Parameter Ratings (vs. age/gender norms):\n  VO2max: 28 ml/min/kg → below average\n  Grip Strength (R): 26 kg → below average\n  Grip Strength (L): 24 kg → poor\n  Counter Movement Jump: 22 cm → good\n  Muscle Mass Index (LMI): 14.2 kg/m² → average\n  Body Fat %: 34 % → elevated\n  Visceral Fat Index: 9 cm³ → excellent\n  LDL Cholesterol: 4.2 mmol/L → high\n  HbA1c: 5.8 % → elevated\n\n── TRAINING ZONES ──────────────────────────────────\nTraining Zones (CPET (VT1/VT2), HR max = 178 bpm):\n  Zone 1 — Recovery:          < 113 bpm\n  Zone 2 — Aerobic Base:      114–128 bpm  ← VT1 = 128 bpm\n  Zone 3 — Tempo:             129–145 bpm\n  Zone 4 — Threshold:         146–155 bpm  ← VT2 = 155 bpm\n  Zone 5 — Max Effort:        > 156 bpm\n\n── RECOMMENDATIONS ─────────────────────────────────\n\n[1] [CRITICAL] High LDL Cholesterol (4.2 mmol/L) — Cardiovascular Risk\n    Category: Cardiovascular Health\n    • LDL 4.2 mmol/L is above the high-risk threshold (4.1 mmol/L)\n    • Zone 2 aerobic training ≥150 min/week — most effective lifestyle intervention for LDL\n    • Dietary: reduce saturated fat, increase soluble fibre (oats, legumes, psyllium)\n    • Increase omega-3 intake (fatty fish 2–3×/week or supplement)\n    • Medical review recommended — discuss statin therapy if lifestyle changes insufficient\n\n[2] [CRITICAL] Combat Muscle Loss - Female 40-49\n    Category: Strength and Muscle Mass\n    • Target LMI: >16.0 kg/m² (excellent)\n    • Resistance training: 3 sessions per week MINIMUM\n    • Muscle loss accelerates: Hormonal changes increase loss\n    • Heavy weights: Don't be afraid - build strength now\n    • Protein: 1.6-2.0 g/kg body weight daily - essential\n    • Progressive overload: Continue challenging muscles\n\n[3] [HIGH] HbA1c in Prediabetes Range (5.8%) — Prevention Protocol\n    Category: Metabolic Health\n    • HbA1c 5.8% is in the prediabetes range (5.7–6.4%)\n    • Aerobic training ≥150 min/week improves insulin sensitivity\n    • Add 2× resistance/strength sessions per week\n    • 10–15 min walk after each meal to blunt postprandial glucose\n    • Reduce refined carbohydrates; prefer whole grains, legumes, vegetables\n    • Retest HbA1c in 3 months\n\n[4] [HIGH] Heart Health Priority - Female 40-49\n    Category: Cardiovascular Health\n    • Target VO2max: >41 ml/min/kg (excellent for age 40-49)\n    • Cardiovascular disease risk increases after menopause\n    • Aerobic exercise: 4-5 sessions per week\n    • VT1 training: 35-50 minutes per session\n    • Monitor heart health: Regular check-ups\n    • Low-impact options: Protect joints while building fitness\n\n[5] [HIGH] Metabolic Changes - Female 40-49\n    Category: Body Composition Changes\n    • Target body fat: 20-27% (excellent-good range)\n    • Visceral fat: Target <420 (good range)\n    • Fat distribution changes: More abdominal with hormonal changes\n    • Metabolism slowing: Exercise and diet both important\n    • Strength training: Maintains metabolic rate\n    • Cardiovascular risk: Visceral fat particularly harmful\n\n── AYUN SCIENTIST PROTOCOLS (authoritative clinic templates) ──\nGround workout plans in these protocols and related templates.\nPrefer listed exercises, frequencies, and intensities over inventing new ones.\nStill fit any weekly plan into exactly 7 days.\n\n### Protocol: Elevated HbA1c\n    Blood glucose control and insulin sensitivity\n    Frequency: 3–5 sessions per week\n    Intensity: Moderate to vigorous; include both aerobic and resistance\n    Duration: 30–60 min per session\n    Focus:\n      • Aerobic exercise (Zone 2) improves glucose uptake\n      • Resistance training 2–3×/week for muscle glucose storage\n      • Post-meal walking (10–15 min) to blunt glucose spikes\n    Nutrition:\n      • Low glycemic load; prioritize whole grains, vegetables, legumes\n      • Adequate protein (1.2–1.6 g/kg) to preserve muscle\n      • Limit refined sugars and ultra-processed foods\n    Recheck: 3 months (HbA1c)\n\n### Protocol: High Body Fat / Elevated Visceral Fat\n    Body recomposition and fat loss\n    Frequency: 2–4 strength + 2–4 cardio per week\n    Intensity: Strength: 6–30 reps; Cardio: Zone 2 primary\n    Duration: Strength 45–60 min; Cardio 30–120 min\n    Focus:\n      • Strength training prevents muscle loss during deficit\n      • Zone 2 cardio supports fat oxidation\n      • Daily steps: aim 8,000+\n    Nutrition:\n      • Moderate caloric deficit (300–500 kcal/day)\n      • High protein (1.6–2.2 g/kg) to preserve muscle\n      • Combine with resistance training\n    Recheck: 8–12 weeks (DEXA or body composition)\n\n### Protocol: Low VO2max / Poor Aerobic Base\n    Improve cardiorespiratory fitness\n    Frequency: 2–5 sessions per week\n    Intensity: Zone 2 primary; talk test (can speak, slightly uncomfortable)\n    Duration: 30–120 min per session\n    Focus:\n      • Activities: hiking, rowing, cycling, swimming, jogging\n      • Progression: increase frequency or duration gradually\n      • Polarized: 70–80% Zone 2, 1–2× Zone 4 intervals\n    Nutrition:\n      • Adequate carbs for training days\n      • Recovery nutrition post longer sessions\n    Recheck: 6–12 months (CPET)\n\n### Protocol: Low Strength / Muscle Mass\n    Build strength and lean mass\n    Frequency: 2–3 sessions per week\n    Intensity: 3–6 reps (strength) or 6–30 reps (hypertrophy)\n    Duration: 45–75 min\n    Focus:\n      • Multi-joint exercises for all muscle groups\n      • Progressive overload\n      • Adequate recovery between sessions\n    Nutrition:\n      • Protein: 1.6–2.2 g/kg for hypertrophy\n      • Caloric surplus if building (small)\n      • Sleep and recovery\n    Recheck: 8–12 weeks (strength tests, DEXA)\n\n### Related training templates\n\n  [zone2_base] Zone 2 Base Endurance\n      Foundation of aerobic fitness; fat oxidation, mitochondrial biogenesis\n      Frequency: At least 2× per week\n      Intensity: Zone 2 (below VT1); talk test\n      Duration: 30 min to several hours\n      Zones:\n      • Zone 1: Recovery / warm-up\n      • Zone 2: Base endurance — 30 min to couple hours\n      • Zone 3: Tempo — 20 min to 1.5 hours\n      • Zone 4: Intervals — few minutes\n      Tips:\n      • Running: add ~10 bpm to bike zone (higher muscle activation)\n      • 70–80% of weekly volume in Zone 2\n\n  [polarized_hiit] Polarized Training / HIIT\n      Zone 2 base + 1–2× intense Zone 4 intervals\n      Frequency: 1–2 interval sessions per week\n      Intensity: Zone 4; 1–8 min intervals\n      Duration: 15–25 min high-intensity portion\n      Structure:\n      • 70–80% of training in Zone 2\n      • 1–2×/week: intervals 1–8 min, recovery to Zone 2\n      • Builds VO2max and lactate tolerance\n\n  [full_body_strength] Full Body Strength (3–6 reps)\n      Maximal strength; multi-joint compound movements\n      Frequency: 2–3× per week\n      Exercises:\n      • Pull-ups (3–5)\n      • Barbell shoulder press (3–5)\n      • Deadlifts (3–5)\n      • Inverse rows (3–5)\n      • Bench press (3–5)\n      • Barbell back squats (3–5)\n\n  [full_body_hypertrophy] Full Body Hypertrophy (6–30 reps)\n      Muscle building; metabolic health\n      Frequency: 2–3× per week, up to 6 sets per muscle group\n      Exercises:\n      • Pull-ups (10)\n      • Half-kneeling single arm shoulder press (12)\n      • Romanian deadlifts (10)\n      • Bicycle crunches (20)\n      • Inverse rows (12)\n      • Push-ups (20)\n      • Lunges (10)\n\n  [fat_burn_workout] Fat Burn / Body Recomposition\n      Strength + cardio for fat loss\n      Frequency: 2–4 strength + 2–4 cardio per week\n      Exercises:\n      • Pull-ups, shoulder press, RDL, bicycle crunches\n      • Inverse rows, push-ups, lunges\n      Daily activity: 8,000+ steps\n\n  [exercube_cognition] ExerCube / Dual-Task Training\n      HIIT + cognitive stimulation; endurance and cognition\n      Frequency: 1–2× per week\n      Intensity: Full concentration and physical effort\n      Duration: 15–25 min per session",
+      "personal_context": "Member name: Lena Hofmann\nGeographic area: Switzerland — urban\nGeneral health status: Generally healthy — minor issues only\nHealth goals: Improve aerobic fitness, Lower cholesterol\nCurrent activity level: Lightly Active (under 2h/week)\nPreferred activities: Walking, Yoga\nExisting conditions / diagnoses: Family history of cardiovascular disease\nAdditional notes: Wants a plan she can keep with two small children.",
+      "protocol_recommendations": [
+        {
+          "key": "elevated_hba1c",
+          "title": "Elevated HbA1c",
+          "source": "protocols_quick_reference.yml",
+          "category": "AYUN Scientist Protocol",
+          "priority": "Medium",
+          "templates": [
+            {
+              "key": "zone2_base",
+              "title": "Zone 2 Base Endurance",
+              "summary": "At least 2× per week · Zone 2 (below VT1); talk test · 30 min to several hours"
+            },
+            {
+              "key": "polarized_hiit",
+              "title": "Polarized Training / HIIT",
+              "summary": "1–2 interval sessions per week · Zone 4; 1–8 min intervals · 15–25 min high-intensity portion"
+            },
+            {
+              "key": "full_body_strength",
+              "title": "Full Body Strength (3–6 reps)",
+              "summary": "2–3× per week · Exercises: Pull-ups (3–5), Barbell shoulder press (3–5), Deadlifts (3–5), Inverse rows (3–5), Bench press (3–5), Barbell back squats (3–5)"
+            },
+            {
+              "key": "full_body_hypertrophy",
+              "title": "Full Body Hypertrophy (6–30 reps)",
+              "summary": "2–3× per week, up to 6 sets per muscle group · Exercises: Pull-ups (10), Half-kneeling single arm shoulder press (12), Romanian deadlifts (10), Bicycle crunches (20), Inverse rows (12), Push-ups (20), Lunges (10)"
+            }
+          ],
+          "description": "Blood glucose control and insulin sensitivity",
+          "action_items": [
+            "Frequency: 3–5 sessions per week",
+            "Intensity: Moderate to vigorous; include both aerobic and resistance",
+            "Duration: 30–60 min per session",
+            "Aerobic exercise (Zone 2) improves glucose uptake",
+            "Resistance training 2–3×/week for muscle glucose storage",
+            "Post-meal walking (10–15 min) to blunt glucose spikes"
+          ],
+          "nutrition_focus": [
+            "Low glycemic load; prioritize whole grains, vegetables, legumes",
+            "Adequate protein (1.2–1.6 g/kg) to preserve muscle",
+            "Limit refined sugars and ultra-processed foods"
+          ],
+          "recheck_interval": "3 months (HbA1c)"
+        },
+        {
+          "key": "high_body_fat",
+          "title": "High Body Fat / Elevated Visceral Fat",
+          "source": "protocols_quick_reference.yml",
+          "category": "AYUN Scientist Protocol",
+          "priority": "Medium",
+          "templates": [
+            {
+              "key": "zone2_base",
+              "title": "Zone 2 Base Endurance",
+              "summary": "At least 2× per week · Zone 2 (below VT1); talk test · 30 min to several hours"
+            },
+            {
+              "key": "fat_burn_workout",
+              "title": "Fat Burn / Body Recomposition",
+              "summary": "2–4 strength + 2–4 cardio per week · Exercises: Pull-ups, shoulder press, RDL, bicycle crunches, Inverse rows, push-ups, lunges"
+            },
+            {
+              "key": "full_body_hypertrophy",
+              "title": "Full Body Hypertrophy (6–30 reps)",
+              "summary": "2–3× per week, up to 6 sets per muscle group · Exercises: Pull-ups (10), Half-kneeling single arm shoulder press (12), Romanian deadlifts (10), Bicycle crunches (20), Inverse rows (12), Push-ups (20), Lunges (10)"
+            }
+          ],
+          "description": "Body recomposition and fat loss",
+          "action_items": [
+            "Frequency: 2–4 strength + 2–4 cardio per week",
+            "Intensity: Strength: 6–30 reps; Cardio: Zone 2 primary",
+            "Duration: Strength 45–60 min; Cardio 30–120 min",
+            "Strength training prevents muscle loss during deficit",
+            "Zone 2 cardio supports fat oxidation",
+            "Daily steps: aim 8,000+"
+          ],
+          "nutrition_focus": [
+            "Moderate caloric deficit (300–500 kcal/day)",
+            "High protein (1.6–2.2 g/kg) to preserve muscle",
+            "Combine with resistance training"
+          ],
+          "recheck_interval": "8–12 weeks (DEXA or body composition)"
+        },
+        {
+          "key": "low_vo2max",
+          "title": "Low VO2max / Poor Aerobic Base",
+          "source": "protocols_quick_reference.yml",
+          "category": "AYUN Scientist Protocol",
+          "priority": "Medium",
+          "templates": [
+            {
+              "key": "zone2_base",
+              "title": "Zone 2 Base Endurance",
+              "summary": "At least 2× per week · Zone 2 (below VT1); talk test · 30 min to several hours"
+            },
+            {
+              "key": "polarized_hiit",
+              "title": "Polarized Training / HIIT",
+              "summary": "1–2 interval sessions per week · Zone 4; 1–8 min intervals · 15–25 min high-intensity portion"
+            },
+            {
+              "key": "exercube_cognition",
+              "title": "ExerCube / Dual-Task Training",
+              "summary": "1–2× per week · Full concentration and physical effort · 15–25 min per session"
+            }
+          ],
+          "description": "Improve cardiorespiratory fitness",
+          "action_items": [
+            "Frequency: 2–5 sessions per week",
+            "Intensity: Zone 2 primary; talk test (can speak, slightly uncomfortable)",
+            "Duration: 30–120 min per session",
+            "Activities: hiking, rowing, cycling, swimming, jogging",
+            "Progression: increase frequency or duration gradually",
+            "Polarized: 70–80% Zone 2, 1–2× Zone 4 intervals"
+          ],
+          "nutrition_focus": [
+            "Adequate carbs for training days",
+            "Recovery nutrition post longer sessions"
+          ],
+          "recheck_interval": "6–12 months (CPET)"
+        },
+        {
+          "key": "low_strength_muscle",
+          "title": "Low Strength / Muscle Mass",
+          "source": "protocols_quick_reference.yml",
+          "category": "AYUN Scientist Protocol",
+          "priority": "Medium",
+          "templates": [
+            {
+              "key": "full_body_strength",
+              "title": "Full Body Strength (3–6 reps)",
+              "summary": "2–3× per week · Exercises: Pull-ups (3–5), Barbell shoulder press (3–5), Deadlifts (3–5), Inverse rows (3–5), Bench press (3–5), Barbell back squats (3–5)"
+            },
+            {
+              "key": "full_body_hypertrophy",
+              "title": "Full Body Hypertrophy (6–30 reps)",
+              "summary": "2–3× per week, up to 6 sets per muscle group · Exercises: Pull-ups (10), Half-kneeling single arm shoulder press (12), Romanian deadlifts (10), Bicycle crunches (20), Inverse rows (12), Push-ups (20), Lunges (10)"
+            },
+            {
+              "key": "leg_power",
+              "title": "Leg Power / Plyometrics",
+              "summary": "1–2× per week · Maximum effort per rep · Exercises: Single-leg box jumps (6–8 reps), Tuck jumps (6–8), Seated vertical jumps (6–8), Kettlebell swings (8–12)"
+            },
+            {
+              "key": "hip_mobility",
+              "title": "Hip Mobility",
+              "summary": "At least 2× per week, ideally 2× daily · 60 sec per exercise · Exercises: Couch stretch, Pigeon pose, Hip 90/90, Pike stretch"
+            }
+          ],
+          "description": "Build strength and lean mass",
+          "action_items": [
+            "Frequency: 2–3 sessions per week",
+            "Intensity: 3–6 reps (strength) or 6–30 reps (hypertrophy)",
+            "Duration: 45–75 min",
+            "Multi-joint exercises for all muscle groups",
+            "Progressive overload",
+            "Adequate recovery between sessions"
+          ],
+          "nutrition_focus": [
+            "Protein: 1.6–2.2 g/kg for hypertrophy",
+            "Caloric surplus if building (small)",
+            "Sleep and recovery"
+          ],
+          "recheck_interval": "8–12 weeks (strength tests, DEXA)"
+        }
+      ]
+    },
+    "created_at": "2026-10-09T23:44:11+00:00",
+    "member_data": {
+      "Demographic::Age": 42,
+      "Demographic::Sex": "Female",
+      "Blood Biomarkers::LDL": 4.2,
+      "Physiological::HR max": 178,
+      "Physiological::Vo2Max": 28,
+      "Body Composition::ALMI": 5.8,
+      "Blood Biomarkers::HbA1c": 5.8,
+      "Physiological::HR at VT1": 128,
+      "Physiological::HR at VT2": 155,
+      "Body Composition::Fat percentage": 34,
+      "Physiological::Gripstrength Links": 24,
+      "Physiological::Gripstrength Rechts": 26,
+      "Physiological::Counter movement jump": 22,
+      "Body Composition::Muscle Mass Index (LMI)": 14.2,
+      "Body Composition::Visceral Fat Index (raw value from DEXA)": 9
+    },
+    "member_name": "Lena Hofmann",
+    "member_user_id": "demo-lena-hofmann",
+    "draft_updated_at": "",
+    "draft_updated_by": "",
+    "personal_profile": {
+      "diet": "",
+      "name": "Lena Hofmann",
+      "goals": [
+        "Improve aerobic fitness",
+        "Lower cholesterol"
+      ],
+      "notes": "Wants a plan she can keep with two small children.",
+      "stress": "Not assessed",
+      "injuries": "",
+      "optimism": "Not assessed",
+      "depression": "Not assessed",
+      "alcohol_use": "Occasional (social)",
+      "sleep_hours": "7–8 hours",
+      "sport_prefs": [
+        "Walking",
+        "Yoga"
+      ],
+      "health_status": "Generally healthy — minor issues only",
+      "activity_level": "Lightly Active (under 2h/week)",
+      "smoking_status": "Non-smoker",
+      "geographic_area": "Switzerland — urban",
+      "location_detail": "Zürich",
+      "existing_conditions": "Family history of cardiovascular disease"
+    },
+    "draft_recommendations": [
+      {
+        "id": "rec_0",
+        "title": "High LDL Cholesterol (4.2 mmol/L) — Cardiovascular Risk",
+        "source": "ai_generated",
+        "removed": false,
+        "category": "Cardiovascular Health",
+        "action_items": [
+          "LDL 4.2 mmol/L is above the high-risk threshold (4.1 mmol/L)",
+          "Zone 2 aerobic training ≥150 min/week — most effective lifestyle intervention for LDL",
+          "Dietary: reduce saturated fat, increase soluble fibre (oats, legumes, psyllium)",
+          "Increase omega-3 intake (fatty fish 2–3×/week or supplement)",
+          "Medical review recommended — discuss statin therapy if lifestyle changes insufficient"
+        ],
+        "clinician_notes": "",
+        "original_priority": "Critical",
+        "reviewed_priority": "Critical"
+      },
+      {
+        "id": "rec_1",
+        "title": "Combat Muscle Loss - Female 40-49",
+        "source": "ai_generated",
+        "removed": false,
+        "category": "Strength and Muscle Mass",
+        "action_items": [
+          "Target LMI: >16.0 kg/m² (excellent)",
+          "Resistance training: 3 sessions per week MINIMUM",
+          "Muscle loss accelerates: Hormonal changes increase loss",
+          "Heavy weights: Don't be afraid - build strength now",
+          "Protein: 1.6-2.0 g/kg body weight daily - essential",
+          "Progressive overload: Continue challenging muscles"
+        ],
+        "clinician_notes": "",
+        "original_priority": "Critical",
+        "reviewed_priority": "Critical"
+      },
+      {
+        "id": "rec_2",
+        "title": "HbA1c in Prediabetes Range (5.8%) — Prevention Protocol",
+        "source": "ai_generated",
+        "removed": false,
+        "category": "Metabolic Health",
+        "action_items": [
+          "HbA1c 5.8% is in the prediabetes range (5.7–6.4%)",
+          "Aerobic training ≥150 min/week improves insulin sensitivity",
+          "Add 2× resistance/strength sessions per week",
+          "10–15 min walk after each meal to blunt postprandial glucose",
+          "Reduce refined carbohydrates; prefer whole grains, legumes, vegetables",
+          "Retest HbA1c in 3 months"
+        ],
+        "clinician_notes": "",
+        "original_priority": "High",
+        "reviewed_priority": "High"
+      },
+      {
+        "id": "rec_3",
+        "title": "Heart Health Priority - Female 40-49",
+        "source": "ai_generated",
+        "removed": false,
+        "category": "Cardiovascular Health",
+        "action_items": [
+          "Target VO2max: >41 ml/min/kg (excellent for age 40-49)",
+          "Cardiovascular disease risk increases after menopause",
+          "Aerobic exercise: 4-5 sessions per week",
+          "VT1 training: 35-50 minutes per session",
+          "Monitor heart health: Regular check-ups",
+          "Low-impact options: Protect joints while building fitness"
+        ],
+        "clinician_notes": "",
+        "original_priority": "High",
+        "reviewed_priority": "High"
+      },
+      {
+        "id": "rec_4",
+        "title": "Metabolic Changes - Female 40-49",
+        "source": "ai_generated",
+        "removed": false,
+        "category": "Body Composition Changes",
+        "action_items": [
+          "Target body fat: 20-27% (excellent-good range)",
+          "Visceral fat: Target <420 (good range)",
+          "Fat distribution changes: More abdominal with hormonal changes",
+          "Metabolism slowing: Exercise and diet both important",
+          "Strength training: Maintains metabolic rate",
+          "Cardiovascular risk: Visceral fat particularly harmful"
+        ],
+        "clinician_notes": "",
+        "original_priority": "High",
+        "reviewed_priority": "High"
+      },
+      {
+        "id": "protocol_0",
+        "title": "Elevated HbA1c",
+        "source": "ayun_protocol",
+        "removed": false,
+        "category": "AYUN Scientist Protocol",
+        "action_items": [
+          "Frequency: 3–5 sessions per week",
+          "Intensity: Moderate to vigorous; include both aerobic and resistance",
+          "Duration: 30–60 min per session",
+          "Aerobic exercise (Zone 2) improves glucose uptake",
+          "Resistance training 2–3×/week for muscle glucose storage",
+          "Post-meal walking (10–15 min) to blunt glucose spikes"
+        ],
+        "clinician_notes": "",
+        "original_priority": "Medium",
+        "reviewed_priority": "Medium"
+      },
+      {
+        "id": "protocol_1",
+        "title": "High Body Fat / Elevated Visceral Fat",
+        "source": "ayun_protocol",
+        "removed": false,
+        "category": "AYUN Scientist Protocol",
+        "action_items": [
+          "Frequency: 2–4 strength + 2–4 cardio per week",
+          "Intensity: Strength: 6–30 reps; Cardio: Zone 2 primary",
+          "Duration: Strength 45–60 min; Cardio 30–120 min",
+          "Strength training prevents muscle loss during deficit",
+          "Zone 2 cardio supports fat oxidation",
+          "Daily steps: aim 8,000+"
+        ],
+        "clinician_notes": "",
+        "original_priority": "Medium",
+        "reviewed_priority": "Medium"
+      },
+      {
+        "id": "protocol_2",
+        "title": "Low VO2max / Poor Aerobic Base",
+        "source": "ayun_protocol",
+        "removed": false,
+        "category": "AYUN Scientist Protocol",
+        "action_items": [
+          "Frequency: 2–5 sessions per week",
+          "Intensity: Zone 2 primary; talk test (can speak, slightly uncomfortable)",
+          "Duration: 30–120 min per session",
+          "Activities: hiking, rowing, cycling, swimming, jogging",
+          "Progression: increase frequency or duration gradually",
+          "Polarized: 70–80% Zone 2, 1–2× Zone 4 intervals"
+        ],
+        "clinician_notes": "",
+        "original_priority": "Medium",
+        "reviewed_priority": "Medium"
+      },
+      {
+        "id": "protocol_3",
+        "title": "Low Strength / Muscle Mass",
+        "source": "ayun_protocol",
+        "removed": false,
+        "category": "AYUN Scientist Protocol",
+        "action_items": [
+          "Frequency: 2–3 sessions per week",
+          "Intensity: 3–6 reps (strength) or 6–30 reps (hypertrophy)",
+          "Duration: 45–75 min",
+          "Multi-joint exercises for all muscle groups",
+          "Progressive overload",
+          "Adequate recovery between sessions"
+        ],
+        "clinician_notes": "",
+        "original_priority": "Medium",
+        "reviewed_priority": "Medium"
+      }
+    ]
+  }
+]

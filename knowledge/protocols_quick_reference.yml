@@ -1,0 +1,410 @@
+# Protocol & Quick Reference Library
+# Extracted from AYUN Longevity Report (longevity_plan_32_2.pdf) and sports_health_recommendations.yml
+# Use: Consistent reference for condition-based protocols and training templates without asking AI each time
+
+metadata:
+  source: "AYUN Longevity Report (longevity_plan_32_2.pdf); AYUN One-Year Outcomes Overview"
+  # ayun_source on each protocol/template names the AYUN section it follows.
+  # An empty ayun_source means AYUN material does not cover it (general exercise evidence).
+  version: "1.0"
+  created: "2026-03-13"
+
+# ── MAPPING: Triggered recommendations & ratings → protocol keys ───────────────
+# Used to auto-show only relevant protocols based on patient input
+recommendation_mapping:
+  # Category (from triggered rec) → protocol key
+  category_to_protocol:
+    "Aerobic Capacity": low_vo2max
+    "Aerobic Capacity for Daily Life": low_vo2max
+    "Bone Health": low_bone_density
+    "Bone and Joint Health": low_bone_density
+    "Bone Density": low_bone_density
+    "Body Composition": high_body_fat
+    "Metabolic Health": high_body_fat
+    "Strength and Muscle Mass": low_strength_muscle
+    "Sarcopenia Prevention": low_strength_muscle
+    "Strength for Daily Living": low_strength_muscle
+    "Lower Body Power": low_strength_muscle
+    "Balance and Stability": low_bone_density
+    "Balance and Fall Prevention": low_bone_density
+    "Balance and Functional Fitness": low_bone_density
+    "Cardiovascular Health": low_vo2max
+    "Cardiovascular Disease": low_vo2max
+    "Independence and Quality of Life": low_strength_muscle
+    "Longevity and Functional Capacity": low_strength_muscle
+  # Title keywords (substring, case-insensitive) → protocol key
+  title_keywords_to_protocol:
+    "aerobic": low_vo2max
+    "vo2": low_vo2max
+    "cardiovascular": low_vo2max
+    "bone": low_bone_density
+    "fat": high_body_fat
+    "visceral": high_body_fat
+    "strength": low_strength_muscle
+    "muscle": low_strength_muscle
+    "sarcopenia": low_strength_muscle
+    "balance": low_bone_density
+    "fall": low_bone_density
+  # Parameter (from ratings) → protocol key when rating is elevated/poor/high
+  parameter_to_protocol:
+    "Blood Biomarkers::HbA1c": elevated_hba1c
+    "Blood Biomarkers::ALAT": possible_fatty_liver
+    "Blood Biomarkers::ASAT": possible_fatty_liver
+    "Blood Biomarkers::GGT": possible_fatty_liver
+    "Physiological::Vo2Max": low_vo2max
+    "Body Composition::Fat percentage": high_body_fat
+    "Body Composition::Visceral Fat Index (raw value from DEXA)": high_body_fat
+    "Body Composition::Bone mineral density": low_bone_density
+    "Physiological::Gripstrength Rechts": low_strength_muscle
+    "Body Composition::Muscle Mass Index (LMI)": low_strength_muscle
+
+# ── CONDITION-BASED PROTOCOLS ─────────────────────────────────────────────────
+# Each protocol: training frequency, intensity, duration, nutrition focus, recheck intervals
+
+condition_protocols:
+  elevated_hba1c:
+    title: "Elevated HbA1c"
+    ayun_source: ""  # not covered by AYUN protocol material; AYUN cut-off HbA1c ≥ 5.7% only (One-Year Outcomes Overview)
+    description: "Blood glucose control and insulin sensitivity"
+    related_templates: [zone2_base, polarized_hiit, full_body_strength, full_body_hypertrophy]
+    training:
+      frequency: "3–5 sessions per week"
+      intensity: "Moderate to vigorous; include both aerobic and resistance"
+      duration: "30–60 min per session"
+      focus:
+        - "Aerobic exercise (Zone 2) improves glucose uptake"
+        - "Resistance training 2–3×/week for muscle glucose storage"
+        - "Post-meal walking (10–15 min) to blunt glucose spikes"
+    nutrition_focus:
+      - "Low glycemic load; prioritize whole grains, vegetables, legumes"
+      - "Adequate protein (1.2–1.6 g/kg) to preserve muscle"
+      - "Limit refined sugars and ultra-processed foods"
+    recheck_interval: "3 months (HbA1c)"
+    evidence:
+      - "Colberg et al. (2010): Physical activity and type 2 diabetes"
+      - "ACSM guidelines: Exercise and glycemic control"
+
+  possible_fatty_liver:
+    title: "Possible Fatty Liver (elevated ALAT, GGT, ASAT)"
+    ayun_source: ""  # not covered by AYUN material
+    description: "Reduce hepatic fat and improve liver enzymes"
+    related_templates: [zone2_base, full_body_strength, full_body_hypertrophy]
+    training:
+      frequency: "4–5 sessions per week"
+      intensity: "Moderate (Zone 2) primary; avoid excessive high-intensity initially"
+      duration: "30–90 min aerobic; 2–3× resistance"
+      focus:
+        - "Aerobic exercise: primary driver of hepatic fat reduction"
+        - "Resistance training: improves insulin sensitivity"
+        - "Gradual progression; avoid alcohol on training days"
+    nutrition_focus:
+      - "Reduce refined carbs and added sugars"
+      - "Limit or avoid alcohol"
+      - "Mediterranean-style diet; omega-3 from fish"
+    recheck_interval: "3–6 months (liver enzymes)"
+    evidence:
+      - "Hallsworth et al. (2011): Resistance exercise reduces liver fat"
+      - "Keating et al. (2012): Exercise and NAFLD"
+
+  low_bone_density:
+    title: "Low Bone Density"
+    ayun_source: ""  # not covered by AYUN protocol material
+    description: "Build and maintain bone mineral density"
+    related_templates: [strength_bone_health, balance_training, leg_power, full_body_strength]
+    training:
+      frequency: "3–4 sessions per week"
+      intensity: "Weight-bearing and impact; progressive overload"
+      duration: "30–60 min per session"
+      focus:
+        - "Weight-bearing: running, jumping, step-ups"
+        - "Resistance training: squats, deadlifts, lunges"
+        - "Plyometrics (if safe): box jumps, hopping"
+        - "Avoid long-duration non-weight-bearing only"
+    nutrition_focus:
+      - "Calcium: 1000–1200 mg/day"
+      - "Vitamin D: test and supplement to 50–100 nmol/L"
+      - "Adequate protein for bone matrix"
+      - "Limit alcohol and smoking"
+    recheck_interval: "12–24 months (DEXA)"
+    evidence:
+      - "Sherrington et al. (2017): Exercise for fall prevention"
+      - "ACSM: Weight-bearing exercise for bone health"
+
+  high_body_fat:
+    title: "High Body Fat / Elevated Visceral Fat"
+    ayun_source: "AYUN Longevity Report (longevity_plan_32_2.pdf) — Sports for fatburn"
+    description: "Body recomposition and fat loss"
+    related_templates: [zone2_base, fat_burn_workout, full_body_hypertrophy]
+    training:
+      frequency: "At least 1 strenuous set per muscle group per week, ideally 2–4 training sessions per week with up to 6 sets per muscle group"
+      intensity: "Weights or variations that allow a maximum of 6–30 repetitions with perfect form"
+      focus:
+        - "Warm up thoroughly before every workout: mobilize, activate muscles, increase core body temperature"
+        - "Versatile exercises for every muscle group in your body"
+        - "Progression: increase weight, sets or intensity gradually"
+        - "Everyday exercise: walk at least 8,000 steps per day"
+    nutrition_focus:
+      - "Follow the targeted nutrition strategy in the AYUN Nutrition section"
+      - "Plan rest days, get enough sleep and eat a protein-rich diet"
+    recheck_interval: "8–12 weeks (DEXA or body composition)"  # not specified in AYUN material
+    evidence:
+      - "Kim et al. (2021); Zheng et al. (2015); Watts et al. (2024)"
+
+  low_vo2max:
+    title: "Low VO2max / Poor Aerobic Base"
+    ayun_source: "AYUN Longevity Report (longevity_plan_32_2.pdf) — Basic endurance; Endurance and VO2max / Your training zones"
+    description: "Improve cardiorespiratory fitness"
+    related_templates: [zone2_base, polarized_hiit, exercube_cognition]
+    training:
+      frequency: "2–5 sessions per week"
+      intensity: "A pace that allows you to talk but is still strenuous (heart rate range from your VO2max test)"
+      duration: "30–120 min per session"
+      focus:
+        - "Activity: something you enjoy that works your lungs more than individual muscles (hiking, rowing, cycling, swimming, jogging)"
+        - "Progression: slowly increase training frequency or duration as soon as the training feels easier"
+        - "Polarized: 70–80% of training in Zone 2, 1–2× per week Zone 4 intervals of 1–8 min"
+        - "Running: add about 10 bpm to your zones (test was done on a bike)"
+    recheck_interval: "6–12 months (CPET)"  # not specified in AYUN material
+    evidence:
+      - "Tse et al. (2015): Low VO2max and cardiovascular risk"
+
+  low_strength_muscle:
+    title: "Low Strength / Muscle Mass"
+    ayun_source: "AYUN Longevity Report (longevity_plan_32_2.pdf) — Full body strength; Full body hypertrophy"
+    description: "Build strength and lean mass"
+    related_templates: [full_body_strength, full_body_hypertrophy, leg_power, hip_mobility, shoulder_mobility]
+    training:
+      frequency: "At least 1 strenuous set per muscle group per week, ideally 2–3 sessions per week (up to 4 sets per muscle group for strength, up to 6 for hypertrophy)"
+      intensity: "A maximum of 3–6 repetitions (strength) or 6–30 repetitions (hypertrophy) with perfect form"
+      focus:
+        - "Warm up thoroughly before every workout: mobilize, activate muscles, increase core body temperature"
+        - "Multi-joint exercises for every muscle group in your body"
+        - "Progression: increase weight, sets or intensity gradually"
+    nutrition_focus:
+      - "Plan rest days, get enough sleep and eat a protein-rich diet"
+    recheck_interval: "8–12 weeks (strength tests, DEXA)"  # not specified in AYUN material
+    evidence:
+      - "Hunter et al. (2004); Mcleod et al. (2024)"
+
+# ── TRAINING TEMPLATES ────────────────────────────────────────────────────────
+# Ready-to-use templates for common goals
+
+training_templates:
+  zone2_base:
+    ayun_source: "AYUN Longevity Report (longevity_plan_32_2.pdf) — Endurance and VO2max / Your training zones"
+    title: "Zone 2 Base Endurance"
+    description: "Foundation of aerobic fitness; fat oxidation, mitochondrial biogenesis"
+    frequency: "At least 2× per week"
+    intensity: "Zone 2 (below VT1); talk test"
+    duration: "30 min to several hours"
+    zones:
+      - "Zone 1: Recovery / warm-up"
+      - "Zone 2: Base endurance — 30 min to couple hours"
+      - "Zone 3: Tempo — 20 min to 1.5 hours"
+      - "Zone 4: Intervals — few minutes"
+    tips:
+      - "Running: add ~10 bpm to bike zone (higher muscle activation)"
+      - "70–80% of weekly volume in Zone 2"
+    evidence:
+      - "Polarized training research; Seiler et al."
+
+  polarized_hiit:
+    ayun_source: "AYUN Longevity Report (longevity_plan_32_2.pdf) — Endurance and VO2max / Your training zones"
+    title: "Polarized Training / HIIT"
+    description: "Zone 2 base + 1–2× intense Zone 4 intervals"
+    frequency: "1–2 interval sessions per week"
+    intensity: "Zone 4; intervals of 1–8 min, then recover until heart rate drops back into Zone 2"
+    structure:
+      - "70–80% of training in Zone 2"
+      - "1–2×/week: intervals 1–8 min, recovery to Zone 2"
+      - "Builds VO2max and lactate tolerance"
+    evidence:
+      - "Polarized training; HIIT for VO2max"
+
+  strength_bone_health:
+    ayun_source: ""  # not covered by AYUN material
+    title: "Strength for Bone Health"
+    description: "Weight-bearing and resistance for bone density"
+    frequency: "2–3× per week"
+    intensity: "3–6 reps (heavy) or 6–30 reps (hypertrophy)"
+    exercises:
+      - "Barbell back squats"
+      - "Deadlifts / Romanian deadlifts"
+      - "Lunges"
+      - "Step-ups"
+      - "Plyometrics (box jumps) if appropriate"
+    evidence:
+      - "Sherrington et al. (2017); ACSM bone health"
+
+  balance_training:
+    ayun_source: "AYUN Longevity Report (longevity_plan_32_2.pdf) — Balance"
+    title: "Balance & Stability"
+    description: "Fall prevention, coordination"
+    frequency: "At least 2× per week, ideally daily 5–10 min"
+    intensity: "Low to moderate"
+    duration: "5–10 min per session"
+    exercises:
+      - "Single-leg stance (eyes closed, unstable surface)"
+      - "Step-downs, balance pad"
+      - "Side jumps, tandem walking, lunges with rotation"
+      - "Deadbug, standing on one leg"
+      - "BOSU, slackline, yoga"
+    evidence:
+      - "Sherrington et al. (2008): Balance and fall prevention"
+
+  leg_power:
+    ayun_source: "AYUN Longevity Report (longevity_plan_32_2.pdf) — Leg Power"
+    title: "Leg Power / Plyometrics"
+    description: "Explosive strength, fall prevention"
+    frequency: "1–2× per week"
+    intensity: "Maximum effort per rep"
+    volume: "80–200 jumps, progress slowly"
+    exercises:
+      - "Single-leg box jumps (6–8 reps)"
+      - "Tuck jumps (6–8)"
+      - "Seated vertical jumps (6–8)"
+      - "Kettlebell swings (8–12)"
+    rest: "2–3 min between sets"
+    evidence:
+      - "Reid & Fielding (2012): Leg power and aging"
+
+  full_body_strength:
+    ayun_source: "AYUN Longevity Report (longevity_plan_32_2.pdf) — Full body strength"
+    title: "Full Body Strength (3–6 reps)"
+    description: "Maximal strength; multi-joint compound movements"
+    frequency: "At least 1 strenuous set per muscle group per week, ideally 2–3× per week with up to 4 sets per muscle group"
+    exercises:
+      - "Pull-ups (3–5)"
+      - "Barbell shoulder press (3–5)"
+      - "Deadlifts (3–5)"
+      - "Inverse rows (3–5)"
+      - "Bench press (3–5)"
+      - "Barbell back squats (3–5)"
+    evidence:
+      - "Hunter et al. (2004)"
+
+  full_body_hypertrophy:
+    ayun_source: "AYUN Longevity Report (longevity_plan_32_2.pdf) — Full body hypertrophy"
+    title: "Full Body Hypertrophy (6–30 reps)"
+    description: "Muscle building; metabolic health"
+    frequency: "At least 1 strenuous set per muscle group per week, ideally 2–3× per week with up to 6 sets per muscle group"
+    exercises:
+      - "Pull-ups (10)"
+      - "Half-kneeling single arm shoulder press (12)"
+      - "Romanian deadlifts (10)"
+      - "Bicycle crunches (20)"
+      - "Inverse rows (12)"
+      - "Push-ups (20)"
+      - "Lunges (10)"
+    evidence:
+      - "Mcleod et al. (2024); Gentil et al. (2016)"
+
+  exercube_cognition:
+    ayun_source: "AYUN Longevity Report (longevity_plan_32_2.pdf) — ExerCube Training: Improving Cognition & Endurance"
+    title: "ExerCube / Dual-Task Training"
+    description: "HIIT + cognitive stimulation; endurance and cognition"
+    frequency: "1–2× per week"
+    duration: "15–25 min per session"
+    intensity: "Full concentration and physical effort"
+    evidence:
+      - "Voelcker-Rehage et al. (2011): Dual-task and cognitive flexibility"
+      - "Alves et al. (2014): HIIT and processing speed"
+      - "Blackmore et al. (2024): HIIT and memory in older adults"
+
+  hip_mobility:
+    ayun_source: "AYUN Longevity Report (longevity_plan_32_2.pdf) — Hip mobility"
+    title: "Hip Mobility"
+    description: "Improve hip extension and flexion"
+    frequency: "At least 2× per week, ideally 2× daily"
+    duration: "60 sec per exercise"
+    exercises:
+      - "Couch stretch"
+      - "Pigeon pose"
+      - "Hip 90/90"
+      - "Pike stretch"
+    evidence:
+      - "Tak et al. (2017): Hip mobility and function"
+
+  shoulder_mobility:
+    ayun_source: "AYUN Longevity Report (longevity_plan_32_2.pdf) — Shoulder mobility"
+    title: "Shoulder Mobility"
+    description: "Overhead range, rotator cuff health"
+    frequency: "At least 2× per week, ideally 2× daily"
+    duration: "60 sec per exercise"
+    exercises:
+      - "Hanging from bar"
+      - "Dislocations with stick"
+      - "Behind the back towel stretch"
+    evidence:
+      - "Oosterwijk et al. (2018): Shoulder mobility"
+
+  cognition_sport:
+    ayun_source: "AYUN Longevity Report (longevity_plan_32_2.pdf) — Cognition & Sport"
+    title: "Cognition & Sport"
+    description: "Exercise for cognitive performance"
+    frequency: "At least 1× per week"
+    modalities:
+      - "HIIT sessions"
+      - "Complex movement: yoga, dancing, capoeira, agility"
+      - "Team sports: soccer, basketball, volleyball"
+      - "Racket sports: tennis, badminton"
+    evidence:
+      - "Smith et al. (2010): Aerobic training and executive function"
+      - "Erickson et al. (2011): Exercise and hippocampal volume"
+      - "Voss et al. (2013): Neuroplasticity"
+
+  fat_burn_workout:
+    ayun_source: "AYUN Longevity Report (longevity_plan_32_2.pdf) — Sports for fatburn"
+    title: "Fat Burn / Body Recomposition"
+    description: "Strength training plus everyday activity for fat loss"
+    frequency: "Ideally 2–4 training sessions per week, up to 6 sets per muscle group"
+    exercises:
+      - "Pull-ups, shoulder press, RDL, bicycle crunches"
+      - "Inverse rows, push-ups, lunges"
+    daily_activity: "8,000+ steps"
+    evidence:
+      - "Kim et al. (2021); Watts et al. (2024)"
+
+# ── EVIDENCE LIBRARY (short references) ──────────────────────────────────────
+
+evidence_links:
+  - citation: "Sherrington et al. (2008)"
+    topic: "Balance training and fall prevention"
+  - citation: "Sherrington et al. (2017)"
+    topic: "Exercise for fall prevention in older adults"
+  - citation: "Reid & Fielding (2012)"
+    topic: "Leg power and aging"
+  - citation: "Tse et al. (2015)"
+    topic: "Low VO2max and cardiovascular risk"
+  - citation: "Hunter et al. (2004)"
+    topic: "Strength training and health"
+  - citation: "Mcleod et al. (2024)"
+    topic: "Muscle mass and longevity"
+  - citation: "Tak et al. (2017)"
+    topic: "Hip mobility and function"
+  - citation: "Oosterwijk et al. (2018)"
+    topic: "Shoulder mobility"
+  - citation: "Voelcker-Rehage et al. (2011)"
+    topic: "Dual-task training and cognition"
+  - citation: "Alves et al. (2014)"
+    topic: "HIIT and processing speed"
+  - citation: "Blackmore et al. (2024)"
+    topic: "HIIT and memory in older adults"
+  - citation: "Smith et al. (2010)"
+    topic: "Aerobic training and executive function"
+  - citation: "Erickson et al. (2011)"
+    topic: "Exercise and hippocampal volume"
+  - citation: "Voss et al. (2013)"
+    topic: "Exercise and neuroplasticity"
+  - citation: "Gentil et al. (2016)"
+    topic: "Upper body hypertrophy"
+  - citation: "Willson et al. (2005)"
+    topic: "Core stability"
+  - citation: "Goodpaster et al. (2006)"
+    topic: "Leg muscle mass and glucose"
+  - citation: "Kim et al. (2021); Zheng et al. (2015); Watts et al. (2024)"
+    topic: "Body fat and health outcomes"
+  - citation: "Deary & Der (2005)"
+    topic: "Reaction time"
+  - citation: "Hansen et al. (2013)"
+    topic: "Upper body strength and independence"

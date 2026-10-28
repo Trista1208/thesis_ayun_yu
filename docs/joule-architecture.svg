@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 980" width="1400" height="980">
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#5a6356"/>
+    </marker>
+    <style>
+      .title { font: 600 32px 'Segoe UI', system-ui, sans-serif; fill: #1a4d35; }
+      .subtitle { font: 400 16px 'Segoe UI', system-ui, sans-serif; fill: #5a6356; }
+      .layer-label { font: 600 11px 'Segoe UI', system-ui, sans-serif; fill: #5a6356; letter-spacing: 0.12em; }
+      .box-title { font: 600 15px 'Segoe UI', system-ui, sans-serif; fill: #2c2c2c; }
+      .box-sub { font: 400 12px 'Segoe UI', system-ui, sans-serif; fill: #5a6356; }
+      .box-sub-sm { font: 400 11px 'Segoe UI', system-ui, sans-serif; fill: #5a6356; }
+      .knowledge-title { font: 700 17px 'Segoe UI', system-ui, sans-serif; fill: #1a4d35; }
+      .knowledge-sub { font: 500 13px 'Segoe UI', system-ui, sans-serif; fill: #2c2c2c; }
+      .knowledge-note { font: 400 12px 'Segoe UI', system-ui, sans-serif; fill: #5a6356; }
+      .pill { font: 600 12px 'Segoe UI', system-ui, sans-serif; fill: #1a4d35; }
+      .note { font: 400 13px 'Segoe UI', system-ui, sans-serif; fill: #2c2c2c; }
+      .footer { font: 400 12px 'Segoe UI', system-ui, sans-serif; fill: #5a6356; }
+    </style>
+  </defs>
+
+  <rect width="1400" height="980" fill="#f8faf9"/>
+
+  <rect x="40" y="28" width="1320" height="72" rx="12" fill="#eef7f1" stroke="#2e7d52" stroke-width="2"/>
+  <text x="700" y="58" text-anchor="middle" class="title">Sport Recommendations app for AYUN | Sport Plan</text>
+  <text x="700" y="82" text-anchor="middle" class="subtitle">Clinical sport-prescription platform | age- and gender-stratified recommendations</text>
+
+  <text x="60" y="138" class="layer-label">USERS</text>
+  <rect x="310" y="118" width="360" height="56" rx="10" fill="#ffffff" stroke="#2e7d52" stroke-width="2"/>
+  <text x="490" y="142" text-anchor="middle" class="box-title">Member</text>
+  <text x="490" y="160" text-anchor="middle" class="box-sub">Assessment, plan, Ask Joule (Cited Q&amp;A / Talk)</text>
+
+  <rect x="730" y="118" width="360" height="56" rx="10" fill="#ffffff" stroke="#2e7d52" stroke-width="2"/>
+  <text x="910" y="142" text-anchor="middle" class="box-title">Expert clinician</text>
+  <text x="910" y="160" text-anchor="middle" class="box-sub">Answer tickets, validate knowledge</text>
+
+  <line x1="490" y1="174" x2="490" y2="198" stroke="#5a6356" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="910" y1="174" x2="910" y2="198" stroke="#5a6356" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <text x="60" y="228" class="layer-label">WEB APP</text>
+  <rect x="250" y="206" width="900" height="68" rx="10" fill="#2e7d52"/>
+  <text x="700" y="234" text-anchor="middle" class="box-title" fill="#ffffff">React web app</text>
+  <text x="700" y="254" text-anchor="middle" class="box-sub" fill="#eef7f1">localhost:5173 | Member mode + Expert mode</text>
+
+  <line x1="700" y1="274" x2="700" y2="308" stroke="#5a6356" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="712" y="296" class="box-sub-sm">REST /api</text>
+
+  <text x="60" y="338" class="layer-label">API LAYER</text>
+  <rect x="440" y="316" width="520" height="56" rx="10" fill="#ffffff" stroke="#2e7d52" stroke-width="2"/>
+  <text x="700" y="340" text-anchor="middle" class="box-title">FastAPI</text>
+  <text x="700" y="358" text-anchor="middle" class="box-sub">api/ | port 8000 | auth, assessments, chat, tickets, voice</text>
+
+  <line x1="700" y1="372" x2="700" y2="402" stroke="#5a6356" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <text x="60" y="428" class="layer-label">CORE SERVICES</text>
+  <rect x="40" y="408" width="1320" height="118" rx="12" fill="#ffffff" stroke="#e5e0d8" stroke-width="1.5"/>
+  <text x="700" y="432" text-anchor="middle" class="box-sub">Python backend/ | business logic shared by the API</text>
+
+  <rect x="60" y="444" width="190" height="68" rx="8" fill="#eef7f1" stroke="#2e7d52" stroke-width="1.5"/>
+  <text x="155" y="468" text-anchor="middle" class="box-title">Rule engine</text>
+  <text x="155" y="486" text-anchor="middle" class="box-sub-sm">YAML -&gt; Plan cards</text>
+  <text x="155" y="502" text-anchor="middle" class="box-sub-sm">No LLM</text>
+
+  <rect x="270" y="444" width="190" height="68" rx="8" fill="#ffffff" stroke="#e5e0d8"/>
+  <text x="365" y="468" text-anchor="middle" class="box-title">Recommendations</text>
+  <text x="365" y="486" text-anchor="middle" class="box-sub-sm">Ratings and zones</text>
+
+  <rect x="480" y="444" width="190" height="68" rx="8" fill="#ffffff" stroke="#e5e0d8"/>
+  <text x="575" y="468" text-anchor="middle" class="box-title">Ask Joule</text>
+  <text x="575" y="486" text-anchor="middle" class="box-sub-sm">Cited Q&amp;A + Talk</text>
+
+  <rect x="690" y="444" width="190" height="68" rx="8" fill="#ffffff" stroke="#e5e0d8"/>
+  <text x="785" y="468" text-anchor="middle" class="box-title">PDF extract</text>
+  <text x="785" y="486" text-anchor="middle" class="box-sub-sm">Report upload</text>
+
+  <rect x="900" y="444" width="190" height="68" rx="8" fill="#ffffff" stroke="#e5e0d8"/>
+  <text x="995" y="468" text-anchor="middle" class="box-title">Tickets</text>
+  <text x="995" y="486" text-anchor="middle" class="box-sub-sm">Confirm, then file</text>
+
+  <rect x="1110" y="444" width="230" height="68" rx="8" fill="#ffffff" stroke="#e5e0d8"/>
+  <text x="1225" y="468" text-anchor="middle" class="box-title">Auth</text>
+  <text x="1225" y="486" text-anchor="middle" class="box-sub-sm">Member accounts + expert gate</text>
+
+  <line x1="700" y1="526" x2="700" y2="556" stroke="#5a6356" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <text x="60" y="582" class="layer-label">KNOWLEDGE</text>
+
+  <rect x="120" y="558" width="540" height="88" rx="10" fill="#eef7f1" stroke="#2e7d52" stroke-width="2.5"/>
+  <text x="390" y="586" text-anchor="middle" class="knowledge-title">Clinical YAML rules</text>
+  <text x="390" y="608" text-anchor="middle" class="knowledge-sub">sports_health_recommendations.yml</text>
+  <text x="390" y="628" text-anchor="middle" class="knowledge-note">Deterministic Plan output | no LLM</text>
+
+  <rect x="740" y="558" width="540" height="88" rx="10" fill="#ffffff" stroke="#2e7d52" stroke-width="2"/>
+  <text x="1010" y="586" text-anchor="middle" class="knowledge-title">Expert-validated corpus</text>
+  <text x="1010" y="608" text-anchor="middle" class="knowledge-sub">Validated tickets and doctor reviews</text>
+  <text x="1010" y="628" text-anchor="middle" class="knowledge-note">Feeds Ask Joule on later questions</text>
+
+  <line x1="390" y1="646" x2="390" y2="672" stroke="#5a6356" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="1010" y1="646" x2="1010" y2="672" stroke="#5a6356" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <text x="60" y="698" class="layer-label">DATA STORAGE</text>
+  <rect x="220" y="678" width="420" height="56" rx="10" fill="#ffffff" stroke="#2e7d52" stroke-width="2"/>
+  <text x="430" y="702" text-anchor="middle" class="box-title">Local JSON (default)</text>
+  <text x="430" y="720" text-anchor="middle" class="box-sub">Users, assessments, tickets, knowledge</text>
+
+  <rect x="760" y="678" width="420" height="56" rx="10" fill="#ffffff" stroke="#e5e0d8" stroke-width="1.5"/>
+  <text x="970" y="702" text-anchor="middle" class="box-title">Supabase Postgres (optional)</text>
+  <text x="970" y="720" text-anchor="middle" class="box-sub">Cloud persistence when configured</text>
+
+  <line x1="700" y1="734" x2="700" y2="760" stroke="#5a6356" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <text x="60" y="786" class="layer-label">EXTERNAL SERVICES</text>
+  <rect x="60" y="766" width="400" height="56" rx="10" fill="#ffffff" stroke="#e5e0d8"/>
+  <text x="260" y="790" text-anchor="middle" class="box-title">Gemini Flash (hosted) or local model</text>
+  <text x="260" y="808" text-anchor="middle" class="box-sub">Ask / Talk and extraction fallback</text>
+
+  <rect x="500" y="766" width="400" height="56" rx="10" fill="#ffffff" stroke="#e5e0d8"/>
+  <text x="700" y="790" text-anchor="middle" class="box-title">ElevenLabs</text>
+  <text x="700" y="808" text-anchor="middle" class="box-sub">Optional Talk voice (TTS)</text>
+
+
+  <rect x="40" y="844" width="1320" height="88" rx="10" fill="#ffffff" stroke="#2e7d52" stroke-width="1.5"/>
+  <text x="60" y="868" class="pill">Design principle</text>
+  <text x="60" y="890" class="note">
+    <tspan font-weight="600">Plan recommendations</tspan> come from auditable YAML + clinical rules (no LLM).
+    <tspan dx="12" font-weight="600">Ask Joule</tspan> Cited Q&amp;A explains the plan with protocols, Evipedia, and reused validated Q&amp;A.
+  </text>
+  <text x="60" y="910" class="note">
+    <tspan font-weight="600">Talk</tspan> may propose an expert ticket; the member confirms Send ticket before it is filed.
+    <tspan dx="12" font-weight="600">Experts</tspan> validate tickets into the library for Ask Joule to reuse.
+  </text>
+
+  <text x="700" y="956" text-anchor="middle" class="footer">AYUN Longevity Clinic | Sport Recommendations app | Architecture overview | October 2026</text>
+</svg>

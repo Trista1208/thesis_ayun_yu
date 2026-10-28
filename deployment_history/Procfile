@@ -1,0 +1,3 @@
+# Legacy Streamlit entry (Streamlit Cloud / manual Railway Streamlit deploy).
+# Default Railway deploy uses Dockerfile → React + FastAPI — see deployment_history/README.md
+web: streamlit run frontend/app.py --server.port $PORT --server.address 0.0.0.0

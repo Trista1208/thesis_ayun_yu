@@ -1,0 +1,213 @@
+[
+  {
+    "id": "demo-jonas-weber",
+    "email": "jonas.demo@ayun.local",
+    "password_hash": "pbkdf2_sha256$120000$21f81a0ca63df7c61d7126d2f36f03ef$176ef69bc048fbfc2ae1092e67ec3199a4d5073c6c007dc70ec3819cb31d6043",
+    "display_name": "Jonas Weber",
+    "pseudonym": "JW-67M",
+    "member_data": {
+      "Demographic::Age": 67,
+      "Demographic::Sex": "Male",
+      "Physiological::Vo2Max": 22,
+      "Physiological::HR max": 153,
+      "Physiological::HR at VT1": 102,
+      "Physiological::HR at VT2": 124,
+      "Physiological::Gripstrength Rechts": 24,
+      "Physiological::Gripstrength Links": 22,
+      "Physiological::Y-Balance Composite Score": 78,
+      "Body Composition::Fat percentage": 31,
+      "Body Composition::Muscle Mass Index (LMI)": 15.1,
+      "Body Composition::ALMI": 6.4,
+      "Body Composition::Bone mineral density": -1.4,
+      "Blood Biomarkers::LDL": 3.6,
+      "Genetics::Bone Health Risk": "Moderate"
+    },
+    "personal_profile": {
+      "name": "Jonas Weber",
+      "goals": [
+        "Stay independent",
+        "Reduce fall risk"
+      ],
+      "activity_level": "Lightly Active (under 2h/week)",
+      "sport_prefs": [
+        "Walking",
+        "Swimming"
+      ],
+      "geographic_area": "Switzerland — rural / alpine",
+      "location_detail": "Bernese Oberland",
+      "health_status": "Managing chronic condition(s)",
+      "existing_conditions": "Osteopenia; history of a near-fall last winter",
+      "smoking_status": "Non-smoker",
+      "alcohol_use": "Occasional (social)",
+      "sleep_hours": "7–8 hours",
+      "diet": "",
+      "stress": "Not assessed",
+      "depression": "Not assessed",
+      "optimism": "Not assessed",
+      "injuries": "Unsteady on uneven ground",
+      "notes": "Prefers supervised strength work before any jumping."
+    },
+    "enabled_sections": {},
+    "privacy_settings": {},
+    "created_at": "2026-10-09T23:44:24+00:00",
+    "updated_at": "2026-10-09T23:44:24+00:00"
+  },
+  {
+    "id": "demo-sofia-rossi",
+    "email": "sofia.demo@ayun.local",
+    "password_hash": "pbkdf2_sha256$120000$dd666480ef0fda357c9f9f208ef440aa$0e72d2016ff76e7979d1b2d2c907bbf0ed205198239d534ec4689125e73aad25",
+    "display_name": "Sofia Rossi",
+    "pseudonym": "SR-29F",
+    "member_data": {
+      "Demographic::Age": 29,
+      "Demographic::Sex": "Female",
+      "Physiological::Vo2Max": 48,
+      "Physiological::HR max": 191,
+      "Physiological::HR at VT1": 148,
+      "Physiological::HR at VT2": 172,
+      "Physiological::Gripstrength Rechts": 32,
+      "Physiological::Gripstrength Links": 31,
+      "Physiological::Counter movement jump": 34,
+      "Body Composition::Fat percentage": 22,
+      "Body Composition::Muscle Mass Index (LMI)": 16.1,
+      "Body Composition::ALMI": 6.6,
+      "Blood Biomarkers::LDL": 2.4,
+      "Blood Biomarkers::HbA1c": 5.1
+    },
+    "personal_profile": {
+      "name": "Sofia Rossi",
+      "goals": [
+        "Race a half marathon",
+        "Raise top-end speed"
+      ],
+      "activity_level": "Very Active (6h+/week)",
+      "sport_prefs": [
+        "Running",
+        "Strength training"
+      ],
+      "geographic_area": "Switzerland — urban",
+      "location_detail": "Zürich",
+      "health_status": "Good health — no known conditions",
+      "existing_conditions": "",
+      "smoking_status": "Non-smoker",
+      "alcohol_use": "Occasional (social)",
+      "sleep_hours": "7–8 hours",
+      "diet": "High-carb around long runs",
+      "stress": "Not assessed",
+      "depression": "Not assessed",
+      "optimism": "Not assessed",
+      "injuries": "",
+      "notes": "Already trains often; wants quality, not more volume."
+    },
+    "enabled_sections": {},
+    "privacy_settings": {},
+    "created_at": "2026-10-09T23:44:21+00:00",
+    "updated_at": "2026-10-09T23:44:21+00:00"
+  },
+  {
+    "id": "demo-marco-keller",
+    "email": "marco.demo@ayun.local",
+    "password_hash": "pbkdf2_sha256$120000$8213ce03ce8f77645800f9c517f37565$cb5d78646651de9c4d9f35daa4f27e8cba9ecc400d24c36d4682718daa721552",
+    "display_name": "Marco Keller",
+    "pseudonym": "MK-58M",
+    "member_data": {
+      "Demographic::Age": 58,
+      "Demographic::Sex": "Male",
+      "Physiological::Vo2Max": 32,
+      "Physiological::HR max": 168,
+      "Physiological::HR at VT1": 118,
+      "Physiological::HR at VT2": 145,
+      "Physiological::Gripstrength Rechts": 38,
+      "Physiological::Gripstrength Links": 36,
+      "Physiological::Biceps Strength Rechts": 28,
+      "Physiological::Biceps Strength Links": 26,
+      "Body Composition::Fat percentage": 27,
+      "Body Composition::Muscle Mass Index (LMI)": 17.4,
+      "Body Composition::ALMI": 7.1,
+      "Blood Biomarkers::LDL": 3.9,
+      "Blood Biomarkers::HbA1c": 5.6
+    },
+    "personal_profile": {
+      "name": "Marco Keller",
+      "goals": [
+        "Stay active for work travel",
+        "Protect the left knee"
+      ],
+      "activity_level": "Moderately Active (2–4h/week)",
+      "sport_prefs": [
+        "Running",
+        "Cycling"
+      ],
+      "geographic_area": "Switzerland — urban",
+      "location_detail": "Zürich",
+      "health_status": "Recovering from illness or injury",
+      "existing_conditions": "Mild left-knee osteoarthritis",
+      "smoking_status": "Non-smoker",
+      "alcohol_use": "Occasional (social)",
+      "sleep_hours": "7–8 hours",
+      "diet": "",
+      "stress": "Not assessed",
+      "depression": "Not assessed",
+      "optimism": "Not assessed",
+      "injuries": "Left knee pain after interval sessions",
+      "notes": "Published plan already reviewed by the clinic."
+    },
+    "enabled_sections": {},
+    "privacy_settings": {},
+    "created_at": "2026-10-09T23:44:14+00:00",
+    "updated_at": "2026-10-09T23:44:14+00:00"
+  },
+  {
+    "id": "demo-lena-hofmann",
+    "email": "lena.demo@ayun.local",
+    "password_hash": "pbkdf2_sha256$120000$06bff5b11862eae80ca05f01ba5ef130$f5da4b52bb2e870cf76437d817655e0ddb98eef0c79ab1055c8d60fe266ee50b",
+    "display_name": "Lena Hofmann",
+    "pseudonym": "LH-42F",
+    "member_data": {
+      "Demographic::Age": 42,
+      "Demographic::Sex": "Female",
+      "Physiological::Vo2Max": 28,
+      "Physiological::HR max": 178,
+      "Physiological::HR at VT1": 128,
+      "Physiological::HR at VT2": 155,
+      "Physiological::Gripstrength Rechts": 26,
+      "Physiological::Gripstrength Links": 24,
+      "Physiological::Counter movement jump": 22,
+      "Body Composition::Fat percentage": 34,
+      "Body Composition::Muscle Mass Index (LMI)": 14.2,
+      "Body Composition::ALMI": 5.8,
+      "Body Composition::Visceral Fat Index (raw value from DEXA)": 9,
+      "Blood Biomarkers::LDL": 4.2,
+      "Blood Biomarkers::HbA1c": 5.8
+    },
+    "personal_profile": {
+      "name": "Lena Hofmann",
+      "goals": [
+        "Improve aerobic fitness",
+        "Lower cholesterol"
+      ],
+      "activity_level": "Lightly Active (under 2h/week)",
+      "sport_prefs": [
+        "Walking",
+        "Yoga"
+      ],
+      "geographic_area": "Switzerland — urban",
+      "location_detail": "Zürich",
+      "health_status": "Generally healthy — minor issues only",
+      "existing_conditions": "Family history of cardiovascular disease",
+      "smoking_status": "Non-smoker",
+      "alcohol_use": "Occasional (social)",
+      "sleep_hours": "7–8 hours",
+      "diet": "",
+      "stress": "Not assessed",
+      "depression": "Not assessed",
+      "optimism": "Not assessed",
+      "injuries": "",
+      "notes": "Wants a plan she can keep with two small children."
+    },
+    "enabled_sections": {},
+    "privacy_settings": {},
+    "created_at": "2026-10-09T23:44:08+00:00",
+    "updated_at": "2026-10-09T23:44:08+00:00"
+  }
+]

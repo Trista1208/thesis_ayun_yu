@@ -1,0 +1,23 @@
+[
+  {
+    "id": "99f2ab9d",
+    "title": "Left knee hurts after intervals. Can I keep running?",
+    "category": "Injury / joints",
+    "summary": "Q: Left knee hurts after intervals. Can I keep running?\nA: Keep easy running on flat ground 2×/week. Replace interval days with cycling or an elliptical so the knee is not loaded at speed. Add quad and hip-stability work twice a week. Stop and book a clinician visit if swelling or night pain appears.",
+    "passages": [
+      {
+        "excerpt": "Keep easy running on flat ground 2×/week. Replace interval days with cycling or an elliptical so the knee is not loaded at speed. Add quad and hip-stability work twice a week. Stop and book a clinician visit if swelling or night pain appears.",
+        "locator": "validated by Dr. Meier"
+      }
+    ],
+    "captured_by": "Dr. Meier",
+    "source": "validated_ticket",
+    "member_context": "Talk thread about keeping running after the new plan.",
+    "tags": [
+      "qa",
+      "patient"
+    ],
+    "created_at": "2026-10-09T23:44:21+00:00",
+    "source_ticket_id": "demo-t-marco-knee"
+  }
+]

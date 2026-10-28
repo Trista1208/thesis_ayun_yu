@@ -1,0 +1,3194 @@
+# Sports Health Recommendations Logic
+# Based on AYUN Parameter Dictionary
+# Used sections: Demographic, Anamnese Questionnaire, Body Composition, Physiological
+# PRIMARY STRATIFICATION: Age and Gender
+
+metadata:
+  assessment_type: "Sports Health Recommendations"
+  parameter_source: "output/parameter_dictionary_20251204_103329_cleaned.json"
+  applicable_sections:
+    - "Demographic"
+    - "Anamnese Questionnaire"
+    - "Body Composition"  # LMI, ALMI, FMI, Body Fat %, Visceral Fat, Bone Mineral Density
+    - "Physiological"  # VO2max, Grip Strength (R/L), Y-Balance Score, Counter Movement Jump, HRV Scores, HR at VT1/VT2
+  version: "2.2"
+  created_date: "2025-12-04"
+  updated_date: "2026-09-30"
+  last_reviewed_by: "Manuel Burger (AYUN sports science)"
+  stratification_priority:
+    - "Gender"
+    - "Age Group"
+    - "Health Parameters"
+
+# AGE AND GENDER SPECIFIC REFERENCE RANGES
+age_gender_reference_ranges:
+  
+  # MALE REFERENCE RANGES
+  male:
+    age_18_29:
+      age_range: [18, 29]
+      physiological:
+        vo2max:
+          unit: "ml/min/kg"
+          source: "AYUN Physiological Testing reference table (Physiological testing.xlsx)"
+          excellent: [56.0, 999]
+          good: [49.0, 56.0]
+          average: [43.0, 49.0]
+          below_average: [36.0, 43.0]
+          poor: [0, 36.0]
+        grip_strength:
+          unit: "kg"
+          source: "AYUN Physiological Testing reference table (Physiological testing.xlsx)"
+          excellent: [55.0, 999]
+          good: [48.0, 55.0]
+          average: [43.0, 48.0]
+          below_average: [38.0, 43.0]
+          poor: [0, 38.0]
+        counter_movement_jump:
+          unit: "cm"
+          source: "AYUN Physiological Testing reference table (Physiological testing.xlsx)"
+          excellent: [45.1, 999]
+          good: [40.1, 45.1]
+          average: [35.1, 40.1]
+          below_average: [30.1, 35.1]
+          poor: [0, 30.1]
+        shoulder_flexion:
+          unit: "degrees"
+          source: "AYUN Physiological Testing reference table (Physiological testing.xlsx)"
+          note: "4-tier ROM ceiling; same norms right and left"
+          excellent: [176.1, 999]
+          average: [167.9, 176.1]
+          below_average: [162.6, 167.9]
+          poor: [0, 162.6]
+        hip_extension:
+          unit: "degrees"
+          source: "AYUN Physiological Testing reference table (Physiological testing.xlsx)"
+          note: "4-tier ROM ceiling; same norms right and left"
+          excellent: [21.6, 999]
+          average: [17.1, 21.6]
+          below_average: [13.1, 17.1]
+          poor: [0, 13.1]
+        hip_flexion:
+          unit: "degrees"
+          source: "AYUN Physiological Testing reference table (Physiological testing.xlsx)"
+          note: "4-tier ROM ceiling; same norms right and left"
+          excellent: [136.1, 999]
+          average: [131.1, 136.1]
+          below_average: [126.6, 131.1]
+          poor: [0, 126.6]
+        knee_extension:
+          unit: "kg"
+          measured: false
+          source: "AYUN Physiological Testing reference table (Physiological testing.xlsx; VALD percentiles) — knee strength not currently measured at AYUN"
+          note: "same norms right and left; seated"
+          excellent: [75.7, 999]
+          good: [59.3, 75.7]
+          average: [40.2, 59.3]
+          below_average: [26.6, 40.2]
+          poor: [0, 26.6]
+        knee_flexion:
+          unit: "kg"
+          measured: false
+          source: "AYUN Physiological Testing reference table (Physiological testing.xlsx; VALD percentiles) — knee strength not currently measured at AYUN"
+          note: "same norms right and left; prone"
+          excellent: [33.6, 999]
+          good: [26.6, 33.6]
+          average: [20.8, 26.6]
+          below_average: [15.3, 20.8]
+          poor: [0, 15.3]
+        elbow_extension:
+          unit: "kg"
+          source: "AYUN Physiological Testing reference table (Physiological testing.xlsx)"
+          note: "same norms right and left"
+          excellent: [29.7, 999]
+          good: [25.0, 29.7]
+          average: [20.4, 25.0]
+          below_average: [15.8, 20.4]
+          poor: [0, 15.8]
+        elbow_flexion:
+          unit: "kg"
+          source: "AYUN Physiological Testing reference table (Physiological testing.xlsx)"
+          note: "same norms right and left"
+          excellent: [44.7, 999]
+          good: [38.7, 44.7]
+          average: [32.7, 38.7]
+          below_average: [26.7, 32.7]
+          poor: [0, 26.7]
+        push_up_30s:
+          unit: "repetitions"
+          source: "AYUN Physiological Testing reference table (Physiological testing.xlsx)"
+          excellent: [36, 999]
+          good: [29, 36]
+          average: [22, 29]
+          below_average: [17, 22]
+          poor: [0, 17]
+        y_balance_composite:
+          unit: "% of limb length"
+          source: "AYUN Physiological Testing reference table (Physiological testing.xlsx)"
+          note: "same norms male and female"
+          excellent: [101.8, 999]
+          good: [98.3, 101.8]
+          average: [91.3, 98.3]
+          below_average: [87.8, 91.3]
+          poor: [0, 87.8]
+      body_composition:
+        lmi:
+          unit: "kg/m²"
+          source: "Ofenheimer et al. 2020 (LEAD cohort DXA values); AYUN percentile bands 0–30 / 30–50 / 50–70 / 70–90 / 90–100"
+          excellent: [20.19, 999]
+          good: [18.93, 20.19]
+          average: [17.66, 18.93]
+          below_average: [16.6, 17.66]
+          poor: [0, 16.6]
+        fat_percentage:
+          unit: "%"
+          source: "Ofenheimer et al. 2020 (LEAD cohort DXA values); AYUN percentile bands 0–30 / 30–50 / 50–70 / 70–90 / 90–100"
+          excellent: [8.1, 13.0]
+          good: [13.0, 16.0]
+          average: [16.0, 19.4]
+          elevated: [19.4, 22.6]
+          high: [22.6, 100]
+        visceral_fat:
+          unit: "cm³"
+          source: "AYUN visceral fat reference by age and sex (Visceral fat info)"
+          excellent: [0, 59]
+          good: [60, 183]
+          average: [184, 308]
+          elevated: [309, 579]
+          high: [580, 1230]
+    
+    age_30_39:
+      age_range: [30, 39]
+      physiological:
+        vo2max:
+          unit: "ml/min/kg"
+          source: "AYUN Physiological Testing reference table (Physiological testing.xlsx)"
+          excellent: [53.0, 999]
+          good: [46.0, 53.0]
+          average: [40.0, 46.0]
+          below_average: [35.0, 40.0]
+          poor: [0, 35.0]
+        grip_strength:
+          unit: "kg"
+          source: "AYUN Physiological Testing reference table (Physiological testing.xlsx)"
+          excellent: [59.0, 999]
+          good: [52.0, 59.0]
+          average: [47.0, 52.0]
+          below_average: [42.0, 47.0]
+          poor: [0, 42.0]
+        counter_movement_jump:
+          unit: "cm"
+          source: "AYUN Physiological Testing reference table (Physiological testing.xlsx)"
+          excellent: [41.1, 999]
+          good: [36.1, 41.1]
+          average: [31.1, 36.1]
+          below_average: [26.1, 31.1]
+          poor: [0, 26.1]
+        shoulder_flexion:
+          unit: "degrees"
+          source: "AYUN Physiological Testing reference table (Physiological testing.xlsx)"
+          note: "4-tier ROM ceiling; same norms right and left"
+          excellent: [176.1, 999]
+          average: [167.9, 176.1]
+          below_average: [162.6, 167.9]
+          poor: [0, 162.6]
+        hip_extension:
+          unit: "degrees"
+          source: "AYUN Physiological Testing reference table (Physiological testing.xlsx)"
+          note: "4-tier ROM ceiling; same norms right and left"
+          excellent: [21.6, 999]
+          average: [17.1, 21.6]
+          below_average: [13.1, 17.1]
+          poor: [0, 13.1]
+        hip_flexion:
+          unit: "degrees"
+          source: "AYUN Physiological Testing reference table (Physiological testing.xlsx)"
+          note: "4-tier ROM ceiling; same norms right and left"
+          excellent: [136.1, 999]
+          average: [131.1, 136.1]
+          below_average: [126.6, 131.1]
+          poor: [0, 126.6]
+        knee_extension:
+          unit: "kg"
+          measured: false
+          source: "AYUN Physiological Testing reference table (Physiological testing.xlsx; VALD percentiles) — knee strength not currently measured at AYUN"
+          note: "same norms right and left; seated"
+          excellent: [75.7, 999]
+          good: [59.3, 75.7]
+          average: [40.2, 59.3]
+          below_average: [26.6, 40.2]
+          poor: [0, 26.6]
+        knee_flexion:
+          unit: "kg"
+          measured: false
+          source: "AYUN Physiological Testing reference table (Physiological testing.xlsx; VALD percentiles) — knee strength not currently measured at AYUN"
+          note: "same norms right and left; prone"
+          excellent: [33.6, 999]
+          good: [26.6, 33.6]
+          average: [20.8, 26.6]
+          below_average: [15.3, 20.8]
+          poor: [0, 15.3]
+        elbow_extension:
+          unit: "kg"
+          source: "AYUN Physiological Testing reference table (Physiological testing.xlsx)"
+          note: "same norms right and left"
+          excellent: [29.7, 999]
+          good: [25.0, 29.7]
+          average: [20.4, 25.0]
+          below_average: [15.8, 20.4]
+          poor: [0, 15.8]
+        elbow_flexion:
+          unit: "kg"
+          source: "AYUN Physiological Testing reference table (Physiological testing.xlsx)"
+          note: "same norms right and left"
+          excellent: [44.7, 999]
+          good: [38.7, 44.7]
+          average: [32.7, 38.7]
+          below_average: [26.7, 32.7]
+          poor: [0, 26.7]
+        push_up_30s:
+          unit: "repetitions"
+          source: "AYUN Physiological Testing reference table (Physiological testing.xlsx)"
+          excellent: [30, 999]
+          good: [22, 30]
+          average: [17, 22]
+          below_average: [12, 17]
+          poor: [0, 12]
+        y_balance_composite:
+          unit: "% of limb length"
+          source: "AYUN Physiological Testing reference table (Physiological testing.xlsx)"
+          note: "same norms male and female"
+          excellent: [101.8, 999]
+          good: [98.3, 101.8]
+          average: [91.3, 98.3]
+          below_average: [87.8, 91.3]
+          poor: [0, 87.8]
+      body_composition:
+        lmi:
+          unit: "kg/m²"
+          source: "Ofenheimer et al. 2020 (LEAD cohort DXA values); AYUN percentile bands 0–30 / 30–50 / 50–70 / 70–90 / 90–100"
+          excellent: [20.0, 999]
+          good: [18.8, 20.0]
+          average: [17.5, 18.8]
+          below_average: [16.5, 17.5]
+          poor: [0, 16.5]
+        fat_percentage:
+          unit: "%"
+          source: "Ofenheimer et al. 2020 (LEAD cohort DXA values); AYUN percentile bands 0–30 / 30–50 / 50–70 / 70–90 / 90–100"
+          excellent: [8.5, 14.0]
+          good: [14.0, 17.0]
+          average: [17.0, 20.0]
+          elevated: [20.0, 23.0]
+          high: [23.0, 100]
+        visceral_fat:
+          unit: "cm³"
+          source: "AYUN visceral fat reference by age and sex (Visceral fat info)"
+          excellent: [0, 192]
+          good: [193, 440]
+          average: [441, 689]
+          elevated: [690, 1126]
+          high: [1127, 2114]
+    
+    age_40_49:
+      age_range: [40, 49]
+      physiological:
+        vo2max:
+          unit: "ml/min/kg"
+          source: "AYUN Physiological Testing reference table (Physiological testing.xlsx)"
+          excellent: [53.0, 999]
+          good: [44.0, 53.0]
+          average: [39.0, 44.0]
+          below_average: [34.0, 39.0]
+          poor: [0, 34.0]
+        grip_strength:
+          unit: "kg"
+          source: "AYUN Physiological Testing reference table (Physiological testing.xlsx)"
+          excellent: [60.0, 999]
+          good: [53.0, 60.0]
+          average: [48.0, 53.0]
+          below_average: [40.0, 48.0]
+          poor: [0, 40.0]
+        counter_movement_jump:
+          unit: "cm"
+          source: "AYUN Physiological Testing reference table (Physiological testing.xlsx)"
+          excellent: [37.1, 999]
+          good: [31.1, 37.1]
+          average: [28.1, 31.1]
+          below_average: [23.1, 28.1]
+          poor: [0, 23.1]
+        shoulder_flexion:
+          unit: "degrees"
+          source: "AYUN Physiological Testing reference table (Physiological testing.xlsx)"
+          note: "4-tier ROM ceiling; same norms right and left"
+          excellent: [176.1, 999]
+          average: [167.9, 176.1]
+          below_average: [162.6, 167.9]
+          poor: [0, 162.6]
+        hip_extension:
+          unit: "degrees"
+          source: "AYUN Physiological Testing reference table (Physiological testing.xlsx)"
+          note: "4-tier ROM ceiling; same norms right and left"
+          excellent: [21.6, 999]
+          average: [17.1, 21.6]
+          below_average: [13.1, 17.1]
+          poor: [0, 13.1]
+        hip_flexion:
+          unit: "degrees"
+          source: "AYUN Physiological Testing reference table (Physiological testing.xlsx)"
+          note: "4-tier ROM ceiling; same norms right and left"
+          excellent: [136.1, 999]
+          average: [131.1, 136.1]
+          below_average: [126.6, 131.1]
+          poor: [0, 126.6]
+        knee_extension:
+          unit: "kg"
+          measured: false
+          source: "AYUN Physiological Testing reference table (Physiological testing.xlsx; VALD percentiles) — knee strength not currently measured at AYUN"
+          note: "same norms right and left; seated"
+          excellent: [75.7, 999]
+          good: [59.3, 75.7]
+          average: [40.2, 59.3]
+          below_average: [26.6, 40.2]
+          poor: [0, 26.6]
+        knee_flexion:
+          unit: "kg"
+          measured: false
+          source: "AYUN Physiological Testing reference table (Physiological testing.xlsx; VALD percentiles) — knee strength not currently measured at AYUN"
+          note: "same norms right and left; prone"
+          excellent: [33.6, 999]
+          good: [26.6, 33.6]
+          average: [20.8, 26.6]
+          below_average: [15.3, 20.8]
+          poor: [0, 15.3]
+        elbow_extension:
+          unit: "kg"
+          source: "AYUN Physiological Testing reference table (Physiological testing.xlsx)"
+          note: "same norms right and left"
+          excellent: [29.7, 999]
+          good: [25.0, 29.7]
+          average: [20.4, 25.0]
+          below_average: [15.8, 20.4]
+          poor: [0, 15.8]
+        elbow_flexion:
+          unit: "kg"
+          source: "AYUN Physiological Testing reference table (Physiological testing.xlsx)"
+          note: "same norms right and left"
+          excellent: [44.7, 999]
+          good: [38.7, 44.7]
+          average: [32.7, 38.7]
+          below_average: [26.7, 32.7]
+          poor: [0, 26.7]
+        push_up_30s:
+          unit: "repetitions"
+          source: "AYUN Physiological Testing reference table (Physiological testing.xlsx)"
+          excellent: [25, 999]
+          good: [17, 25]
+          average: [13, 17]
+          below_average: [10, 13]
+          poor: [0, 10]
+        y_balance_composite:
+          unit: "% of limb length"
+          source: "AYUN Physiological Testing reference table (Physiological testing.xlsx)"
+          note: "same norms male and female"
+          excellent: [99.1, 999]
+          good: [95.6, 99.1]
+          average: [88.6, 95.6]
+          below_average: [85.1, 88.6]
+          poor: [0, 85.1]
+      body_composition:
+        lmi:
+          unit: "kg/m²"
+          source: "Ofenheimer et al. 2020 (LEAD cohort DXA values); AYUN percentile bands 0–30 / 30–50 / 50–70 / 70–90 / 90–100"
+          excellent: [19.5, 999]
+          good: [18.5, 19.5]
+          average: [17.2, 18.5]
+          below_average: [16.0, 17.2]
+          poor: [0, 16.0]
+        fat_percentage:
+          unit: "%"
+          source: "Ofenheimer et al. 2020 (LEAD cohort DXA values); AYUN percentile bands 0–30 / 30–50 / 50–70 / 70–90 / 90–100"
+          excellent: [9.0, 15.0]
+          good: [15.0, 18.0]
+          average: [18.0, 21.0]
+          elevated: [21.0, 24.0]
+          high: [24.0, 100]
+        visceral_fat:
+          unit: "cm³"
+          source: "AYUN visceral fat reference by age and sex (Visceral fat info)"
+          excellent: [0, 370]
+          good: [371, 728]
+          average: [729, 1087]
+          elevated: [1088, 1648]
+          high: [1649, 5000]
+    
+    age_50_59:
+      age_range: [50, 59]
+      physiological:
+        vo2max:
+          unit: "ml/min/kg"
+          source: "AYUN Physiological Testing reference table (Physiological testing.xlsx)"
+          excellent: [50.0, 999]
+          good: [42.0, 50.0]
+          average: [36.0, 42.0]
+          below_average: [29.0, 36.0]
+          poor: [0, 29.0]
+        grip_strength:
+          unit: "kg"
+          source: "AYUN Physiological Testing reference table (Physiological testing.xlsx)"
+          excellent: [59.0, 999]
+          good: [50.0, 59.0]
+          average: [45.0, 50.0]
+          below_average: [38.0, 45.0]
+          poor: [0, 38.0]
+        counter_movement_jump:
+          unit: "cm"
+          source: "AYUN Physiological Testing reference table (Physiological testing.xlsx)"
+          excellent: [30.1, 999]
+          good: [26.1, 30.1]
+          average: [22.1, 26.1]
+          below_average: [19.1, 22.1]
+          poor: [0, 19.1]
+        shoulder_flexion:
+          unit: "degrees"
+          source: "AYUN Physiological Testing reference table (Physiological testing.xlsx)"
+          note: "4-tier ROM ceiling; same norms right and left; age 45+"
+          excellent: [169.1, 999]
+          average: [164.1, 169.1]
+          below_average: [159.1, 164.1]
+          poor: [0, 159.1]
+        hip_extension:
+          unit: "degrees"
+          source: "AYUN Physiological Testing reference table (Physiological testing.xlsx)"
+          note: "4-tier ROM ceiling; same norms right and left; age 45+"
+          excellent: [17.6, 999]
+          average: [12.6, 17.6]
+          below_average: [10.1, 12.6]
+          poor: [0, 10.1]
+        hip_flexion:
+          unit: "degrees"
+          source: "AYUN Physiological Testing reference table (Physiological testing.xlsx)"
+          note: "4-tier ROM ceiling; same norms right and left; age 45+"
+          excellent: [132.4, 999]
+          average: [128.1, 132.4]
+          below_average: [122.4, 128.1]
+          poor: [0, 122.4]
+        knee_extension:
+          unit: "kg"
+          measured: false
+          source: "AYUN Physiological Testing reference table (Physiological testing.xlsx; VALD percentiles) — knee strength not currently measured at AYUN"
+          note: "same norms right and left; seated; age 50-59"
+          excellent: [60.2, 999]
+          good: [45.5, 60.2]
+          average: [33.4, 45.5]
+          below_average: [23.8, 33.4]
+          poor: [0, 23.8]
+        knee_flexion:
+          unit: "kg"
+          measured: false
+          source: "AYUN Physiological Testing reference table (Physiological testing.xlsx; VALD percentiles) — knee strength not currently measured at AYUN"
+          note: "same norms right and left; prone; age 50-59"
+          excellent: [28.4, 999]
+          good: [23.1, 28.4]
+          average: [18.4, 23.1]
+          below_average: [14.0, 18.4]
+          poor: [0, 14.0]
+        elbow_extension:
+          unit: "kg"
+          source: "AYUN Physiological Testing reference table (Physiological testing.xlsx)"
+          note: "same norms right and left; age 50-59"
+          excellent: [27.0, 999]
+          good: [22.4, 27.0]
+          average: [17.8, 22.4]
+          below_average: [13.2, 17.8]
+          poor: [0, 13.2]
+        elbow_flexion:
+          unit: "kg"
+          source: "AYUN Physiological Testing reference table (Physiological testing.xlsx)"
+          note: "same norms right and left; age 50-59"
+          excellent: [38.1, 999]
+          good: [32.6, 38.1]
+          average: [27.1, 32.6]
+          below_average: [21.6, 27.1]
+          poor: [0, 21.6]
+        push_up_30s:
+          unit: "repetitions"
+          source: "AYUN Physiological Testing reference table (Physiological testing.xlsx)"
+          excellent: [21, 999]
+          good: [13, 21]
+          average: [10, 13]
+          below_average: [7, 10]
+          poor: [0, 7]
+        y_balance_composite:
+          unit: "% of limb length"
+          source: "AYUN Physiological Testing reference table (Physiological testing.xlsx)"
+          note: "same norms male and female"
+          excellent: [95.1, 999]
+          good: [91.5, 95.1]
+          average: [84.6, 91.5]
+          below_average: [81.1, 84.6]
+          poor: [0, 81.1]
+      body_composition:
+        lmi:
+          unit: "kg/m²"
+          source: "Ofenheimer et al. 2020 (LEAD cohort DXA values); AYUN percentile bands 0–30 / 30–50 / 50–70 / 70–90 / 90–100"
+          excellent: [19.0, 999]
+          good: [18.0, 19.0]
+          average: [17.0, 18.0]
+          below_average: [15.8, 17.0]
+          poor: [0, 15.8]
+        fat_percentage:
+          unit: "%"
+          source: "Ofenheimer et al. 2020 (LEAD cohort DXA values); AYUN percentile bands 0–30 / 30–50 / 50–70 / 70–90 / 90–100"
+          excellent: [10.0, 16.0]
+          good: [16.0, 19.0]
+          average: [19.0, 22.0]
+          elevated: [22.0, 25.0]
+          high: [25.0, 100]
+        visceral_fat:
+          unit: "cm³"
+          source: "AYUN visceral fat reference by age and sex (Visceral fat info)"
+          excellent: [0, 581]
+          good: [582, 1029]
+          average: [1030, 1477]
+          elevated: [1478, 2117]
+          high: [2118, 5000]
+    
+    age_60_69:
+      age_range: [60, 69]
+      physiological:
+        vo2max:
+          unit: "ml/min/kg"
+          source: "AYUN Physiological Testing reference table (Physiological testing.xlsx)"
+          excellent: [46.0, 999]
+          good: [36.0, 46.0]
+          average: [30.0, 36.0]
+          below_average: [25.0, 30.0]
+          poor: [0, 25.0]
+        grip_strength:
+          unit: "kg"
+          source: "AYUN Physiological Testing reference table (Physiological testing.xlsx)"
+          excellent: [53.0, 999]
+          good: [49.0, 53.0]
+          average: [45.0, 49.0]
+          below_average: [36.0, 45.0]
+          poor: [0, 36.0]
+        counter_movement_jump:
+          unit: "cm"
+          source: "AYUN Physiological Testing reference table (Physiological testing.xlsx)"
+          excellent: [27.1, 999]
+          good: [23.1, 27.1]
+          average: [19.1, 23.1]
+          below_average: [16.1, 19.1]
+          poor: [0, 16.1]
+        shoulder_flexion:
+          unit: "degrees"
+          source: "AYUN Physiological Testing reference table (Physiological testing.xlsx)"
+          note: "4-tier ROM ceiling; same norms right and left; age 45+"
+          excellent: [169.1, 999]
+          average: [164.1, 169.1]
+          below_average: [159.1, 164.1]
+          poor: [0, 159.1]
+        hip_extension:
+          unit: "degrees"
+          source: "AYUN Physiological Testing reference table (Physiological testing.xlsx)"
+          note: "4-tier ROM ceiling; same norms right and left; age 45+"
+          excellent: [17.6, 999]
+          average: [12.6, 17.6]
+          below_average: [10.1, 12.6]
+          poor: [0, 10.1]
+        hip_flexion:
+          unit: "degrees"
+          source: "AYUN Physiological Testing reference table (Physiological testing.xlsx)"
+          note: "4-tier ROM ceiling; same norms right and left; age 45+"
+          excellent: [132.4, 999]
+          average: [128.1, 132.4]
+          below_average: [122.4, 128.1]
+          poor: [0, 122.4]
+        knee_extension:
+          unit: "kg"
+          measured: false
+          source: "AYUN Physiological Testing reference table (Physiological testing.xlsx; VALD percentiles) — knee strength not currently measured at AYUN"
+          note: "same norms right and left; seated; age 60+"
+          excellent: [53.2, 999]
+          good: [40.4, 53.2]
+          average: [29.7, 40.4]
+          below_average: [20.8, 29.7]
+          poor: [0, 20.8]
+        knee_flexion:
+          unit: "kg"
+          measured: false
+          source: "AYUN Physiological Testing reference table (Physiological testing.xlsx; VALD percentiles) — knee strength not currently measured at AYUN"
+          note: "same norms right and left; prone; age 60+"
+          excellent: [24.7, 999]
+          good: [20.3, 24.7]
+          average: [16.3, 20.3]
+          below_average: [12.7, 16.3]
+          poor: [0, 12.7]
+        elbow_extension:
+          unit: "kg"
+          source: "AYUN Physiological Testing reference table (Physiological testing.xlsx)"
+          note: "same norms right and left; age 60+"
+          excellent: [25.0, 999]
+          good: [20.4, 25.0]
+          average: [15.8, 20.4]
+          below_average: [11.2, 15.8]
+          poor: [0, 11.2]
+        elbow_flexion:
+          unit: "kg"
+          source: "AYUN Physiological Testing reference table (Physiological testing.xlsx)"
+          note: "same norms right and left; age 60+"
+          excellent: [31.0, 999]
+          good: [26.0, 31.0]
+          average: [21.0, 26.0]
+          below_average: [16.0, 21.0]
+          poor: [0, 16.0]
+        push_up_30s:
+          unit: "repetitions"
+          source: "AYUN Physiological Testing reference table (Physiological testing.xlsx)"
+          excellent: [18, 999]
+          good: [11, 18]
+          average: [8, 11]
+          below_average: [5, 8]
+          poor: [0, 5]
+        y_balance_composite:
+          unit: "% of limb length"
+          source: "AYUN Physiological Testing reference table (Physiological testing.xlsx)"
+          note: "same norms male and female"
+          excellent: [90.1, 999]
+          good: [85.1, 90.1]
+          average: [75.1, 85.1]
+          below_average: [70.1, 75.1]
+          poor: [0, 70.1]
+      body_composition:
+        lmi:
+          unit: "kg/m²"
+          source: "Ofenheimer et al. 2020 (LEAD cohort DXA values); AYUN percentile bands 0–30 / 30–50 / 50–70 / 70–90 / 90–100"
+          excellent: [18.5, 999]
+          good: [17.5, 18.5]
+          average: [16.5, 17.5]
+          below_average: [15.5, 16.5]
+          poor: [0, 15.5]
+        fat_percentage:
+          unit: "%"
+          source: "Ofenheimer et al. 2020 (LEAD cohort DXA values); AYUN percentile bands 0–30 / 30–50 / 50–70 / 70–90 / 90–100"
+          excellent: [11.0, 17.0]
+          good: [17.0, 20.0]
+          average: [20.0, 23.0]
+          elevated: [23.0, 26.0]
+          high: [26.0, 100]
+        visceral_fat:
+          unit: "cm³"
+          source: "AYUN visceral fat reference by age and sex (Visceral fat info)"
+          excellent: [0, 803]
+          good: [804, 1296]
+          average: [1297, 1789]
+          elevated: [1790, 2443]
+          high: [2444, 3810]
+    
+    age_70_79:
+      age_range: [70, 79]
+      physiological:
+        vo2max:
+          unit: "ml/min/kg"
+          source: "AYUN Physiological Testing reference table (Physiological testing.xlsx)"
+          excellent: [41.0, 999]
+          good: [30.0, 41.0]
+          average: [25.0, 30.0]
+          below_average: [21.0, 25.0]
+          poor: [0, 21.0]
+        grip_strength:
+          unit: "kg"
+          source: "AYUN Physiological Testing reference table (Physiological testing.xlsx)"
+          excellent: [46.0, 999]
+          good: [42.0, 46.0]
+          average: [38.0, 42.0]
+          below_average: [29.0, 38.0]
+          poor: [0, 29.0]
+        counter_movement_jump:
+          unit: "cm"
+          source: "AYUN Physiological Testing reference table (Physiological testing.xlsx)"
+          note: "uses age 60+ norms"
+          excellent: [27.1, 999]
+          good: [23.1, 27.1]
+          average: [19.1, 23.1]
+          below_average: [16.1, 19.1]
+          poor: [0, 16.1]
+        shoulder_flexion:
+          unit: "degrees"
+          source: "AYUN Physiological Testing reference table (Physiological testing.xlsx)"
+          note: "4-tier ROM ceiling; same norms right and left; age 45+"
+          excellent: [169.1, 999]
+          average: [164.1, 169.1]
+          below_average: [159.1, 164.1]
+          poor: [0, 159.1]
+        hip_extension:
+          unit: "degrees"
+          source: "AYUN Physiological Testing reference table (Physiological testing.xlsx)"
+          note: "4-tier ROM ceiling; same norms right and left; age 45+"
+          excellent: [17.6, 999]
+          average: [12.6, 17.6]
+          below_average: [10.1, 12.6]
+          poor: [0, 10.1]
+        hip_flexion:
+          unit: "degrees"
+          source: "AYUN Physiological Testing reference table (Physiological testing.xlsx)"
+          note: "4-tier ROM ceiling; same norms right and left; age 45+"
+          excellent: [132.4, 999]
+          average: [128.1, 132.4]
+          below_average: [122.4, 128.1]
+          poor: [0, 122.4]
+        knee_extension:
+          unit: "kg"
+          measured: false
+          source: "AYUN Physiological Testing reference table (Physiological testing.xlsx; VALD percentiles) — knee strength not currently measured at AYUN"
+          note: "same norms right and left; seated; age 60+"
+          excellent: [53.2, 999]
+          good: [40.4, 53.2]
+          average: [29.7, 40.4]
+          below_average: [20.8, 29.7]
+          poor: [0, 20.8]
+        knee_flexion:
+          unit: "kg"
+          measured: false
+          source: "AYUN Physiological Testing reference table (Physiological testing.xlsx; VALD percentiles) — knee strength not currently measured at AYUN"
+          note: "same norms right and left; prone; age 60+"
+          excellent: [24.7, 999]
+          good: [20.3, 24.7]
+          average: [16.3, 20.3]
+          below_average: [12.7, 16.3]
+          poor: [0, 12.7]
+        elbow_extension:
+          unit: "kg"
+          source: "AYUN Physiological Testing reference table (Physiological testing.xlsx)"
+          note: "same norms right and left; age 60+"
+          excellent: [25.0, 999]
+          good: [20.4, 25.0]
+          average: [15.8, 20.4]
+          below_average: [11.2, 15.8]
+          poor: [0, 11.2]
+        elbow_flexion:
+          unit: "kg"
+          source: "AYUN Physiological Testing reference table (Physiological testing.xlsx)"
+          note: "same norms right and left; age 60+"
+          excellent: [31.0, 999]
+          good: [26.0, 31.0]
+          average: [21.0, 26.0]
+          below_average: [16.0, 21.0]
+          poor: [0, 16.0]
+        push_up_30s:
+          unit: "repetitions"
+          source: "AYUN Physiological Testing reference table (Physiological testing.xlsx)"
+          note: "uses age 60+ norms"
+          excellent: [18, 999]
+          good: [11, 18]
+          average: [8, 11]
+          below_average: [5, 8]
+          poor: [0, 5]
+        y_balance_composite:
+          unit: "% of limb length"
+          source: "AYUN Physiological Testing reference table (Physiological testing.xlsx)"
+          note: "same norms male and female; age 70+"
+          excellent: [87.1, 999]
+          good: [81.6, 87.1]
+          average: [70.6, 81.6]
+          below_average: [65.1, 70.6]
+          poor: [0, 65.1]
+      body_composition:
+        lmi:
+          unit: "kg/m²"
+          source: "Ofenheimer et al. 2020 (LEAD cohort DXA values); AYUN percentile bands 0–30 / 30–50 / 50–70 / 70–90 / 90–100"
+          excellent: [18.0, 999]
+          good: [17.0, 18.0]
+          average: [16.0, 17.0]
+          below_average: [15.0, 16.0]
+          poor: [0, 15.0]
+        fat_percentage:
+          unit: "%"
+          source: "Ofenheimer et al. 2020 (LEAD cohort DXA values); AYUN percentile bands 0–30 / 30–50 / 50–70 / 70–90 / 90–100"
+          excellent: [12.0, 18.0]
+          good: [18.0, 21.0]
+          average: [21.0, 24.0]
+          elevated: [24.0, 27.0]
+          high: [27.0, 100]
+        visceral_fat:
+          unit: "cm³"
+          source: "AYUN visceral fat reference by age and sex (Visceral fat info)"
+          excellent: [0, 981]
+          good: [982, 1508]
+          average: [1509, 2036]
+          elevated: [2037, 2698]
+          high: [2699, 5100]
+    
+    age_80_99:
+      age_range: [80, 99]
+      physiological:
+        vo2max:
+          unit: "ml/min/kg"
+          source: "AYUN Physiological Testing reference table (Physiological testing.xlsx)"
+          note: "uses age 70+ norms"
+          excellent: [41.0, 999]
+          good: [30.0, 41.0]
+          average: [25.0, 30.0]
+          below_average: [21.0, 25.0]
+          poor: [0, 21.0]
+        grip_strength:
+          unit: "kg"
+          source: "AYUN Physiological Testing reference table (Physiological testing.xlsx)"
+          note: "uses age 70+ norms"
+          excellent: [46.0, 999]
+          good: [42.0, 46.0]
+          average: [38.0, 42.0]
+          below_average: [29.0, 38.0]
+          poor: [0, 29.0]
+        counter_movement_jump:
+          unit: "cm"
+          source: "AYUN Physiological Testing reference table (Physiological testing.xlsx)"
+          note: "uses age 60+ norms"
+          excellent: [27.1, 999]
+          good: [23.1, 27.1]
+          average: [19.1, 23.1]
+          below_average: [16.1, 19.1]
+          poor: [0, 16.1]
+        shoulder_flexion:
+          unit: "degrees"
+          source: "AYUN Physiological Testing reference table (Physiological testing.xlsx)"
+          note: "4-tier ROM ceiling; same norms right and left; age 45+"
+          excellent: [169.1, 999]
+          average: [164.1, 169.1]
+          below_average: [159.1, 164.1]
+          poor: [0, 159.1]
+        hip_extension:
+          unit: "degrees"
+          source: "AYUN Physiological Testing reference table (Physiological testing.xlsx)"
+          note: "4-tier ROM ceiling; same norms right and left; age 45+"
+          excellent: [17.6, 999]
+          average: [12.6, 17.6]
+          below_average: [10.1, 12.6]
+          poor: [0, 10.1]
+        hip_flexion:
+          unit: "degrees"
+          source: "AYUN Physiological Testing reference table (Physiological testing.xlsx)"
+          note: "4-tier ROM ceiling; same norms right and left; age 45+"
+          excellent: [132.4, 999]
+          average: [128.1, 132.4]
+          below_average: [122.4, 128.1]
+          poor: [0, 122.4]
+        knee_extension:
+          unit: "kg"
+          measured: false
+          source: "AYUN Physiological Testing reference table (Physiological testing.xlsx; VALD percentiles) — knee strength not currently measured at AYUN"
+          note: "same norms right and left; seated; age 60+"
+          excellent: [53.2, 999]
+          good: [40.4, 53.2]
+          average: [29.7, 40.4]
+          below_average: [20.8, 29.7]
+          poor: [0, 20.8]
+        knee_flexion:
+          unit: "kg"
+          measured: false
+          source: "AYUN Physiological Testing reference table (Physiological testing.xlsx; VALD percentiles) — knee strength not currently measured at AYUN"
+          note: "same norms right and left; prone; age 60+"
+          excellent: [24.7, 999]
+          good: [20.3, 24.7]
+          average: [16.3, 20.3]
+          below_average: [12.7, 16.3]
+          poor: [0, 12.7]
+        elbow_extension:
+          unit: "kg"
+          source: "AYUN Physiological Testing reference table (Physiological testing.xlsx)"
+          note: "same norms right and left; age 60+"
+          excellent: [25.0, 999]
+          good: [20.4, 25.0]
+          average: [15.8, 20.4]
+          below_average: [11.2, 15.8]
+          poor: [0, 11.2]
+        elbow_flexion:
+          unit: "kg"
+          source: "AYUN Physiological Testing reference table (Physiological testing.xlsx)"
+          note: "same norms right and left; age 60+"
+          excellent: [31.0, 999]
+          good: [26.0, 31.0]
+          average: [21.0, 26.0]
+          below_average: [16.0, 21.0]
+          poor: [0, 16.0]
+        push_up_30s:
+          unit: "repetitions"
+          source: "AYUN Physiological Testing reference table (Physiological testing.xlsx)"
+          note: "uses age 60+ norms"
+          excellent: [18, 999]
+          good: [11, 18]
+          average: [8, 11]
+          below_average: [5, 8]
+          poor: [0, 5]
+        y_balance_composite:
+          unit: "% of limb length"
+          source: "AYUN Physiological Testing reference table (Physiological testing.xlsx)"
+          note: "same norms male and female; uses age 70+ norms"
+          excellent: [87.1, 999]
+          good: [81.6, 87.1]
+          average: [70.6, 81.6]
+          below_average: [65.1, 70.6]
+          poor: [0, 65.1]
+      body_composition:
+        lmi:
+          unit: "kg/m²"
+          source: "Ofenheimer et al. 2020 (LEAD cohort DXA values); AYUN percentile bands 0–30 / 30–50 / 50–70 / 70–90 / 90–100"
+          excellent: [17.5, 999]
+          good: [16.5, 17.5]
+          average: [15.5, 16.5]
+          below_average: [14.5, 15.5]
+          poor: [0, 14.5]
+        fat_percentage:
+          unit: "%"
+          source: "Ofenheimer et al. 2020 (LEAD cohort DXA values); AYUN percentile bands 0–30 / 30–50 / 50–70 / 70–90 / 90–100"
+          excellent: [13.0, 19.0]
+          good: [19.0, 22.0]
+          average: [22.0, 25.0]
+          elevated: [25.0, 28.0]
+          high: [28.0, 100]
+        visceral_fat:
+          unit: "cm³"
+          source: "AYUN visceral fat reference by age and sex (Visceral fat info)"
+          excellent: [0, 981]
+          good: [982, 1508]
+          average: [1509, 2036]
+          elevated: [2037, 2698]
+          high: [2699, 5100]
+  
+  # FEMALE REFERENCE RANGES
+  female:
+    age_18_29:
+      age_range: [18, 29]
+      physiological:
+        vo2max:
+          unit: "ml/min/kg"
+          source: "AYUN Physiological Testing reference table (Physiological testing.xlsx)"
+          excellent: [53.0, 999]
+          good: [41.0, 53.0]
+          average: [36.0, 41.0]
+          below_average: [28.1, 36.0]
+          poor: [0, 28.1]
+        grip_strength:
+          unit: "kg"
+          source: "AYUN Physiological Testing reference table (Physiological testing.xlsx)"
+          excellent: [35.0, 999]
+          good: [32.0, 35.0]
+          average: [27.0, 32.0]
+          below_average: [24.0, 27.0]
+          poor: [0, 24.0]
+        counter_movement_jump:
+          unit: "cm"
+          source: "AYUN Physiological Testing reference table (Physiological testing.xlsx)"
+          excellent: [34.1, 999]
+          good: [30.1, 34.1]
+          average: [25.1, 30.1]
+          below_average: [21.1, 25.1]
+          poor: [0, 21.1]
+        shoulder_flexion:
+          unit: "degrees"
+          source: "AYUN Physiological Testing reference table (Physiological testing.xlsx)"
+          note: "4-tier ROM ceiling; same norms right and left"
+          excellent: [178.1, 999]
+          average: [172.1, 178.1]
+          below_average: [167.1, 172.1]
+          poor: [0, 167.1]
+        hip_extension:
+          unit: "degrees"
+          source: "AYUN Physiological Testing reference table (Physiological testing.xlsx)"
+          note: "4-tier ROM ceiling; same norms right and left"
+          excellent: [22.6, 999]
+          average: [17.6, 22.6]
+          below_average: [13.6, 17.6]
+          poor: [0, 13.6]
+        hip_flexion:
+          unit: "degrees"
+          source: "AYUN Physiological Testing reference table (Physiological testing.xlsx)"
+          note: "4-tier ROM ceiling; same norms right and left"
+          excellent: [139.6, 999]
+          average: [134.6, 139.6]
+          below_average: [128.6, 134.6]
+          poor: [0, 128.6]
+        knee_extension:
+          unit: "kg"
+          measured: false
+          source: "AYUN Physiological Testing reference table (Physiological testing.xlsx; VALD percentiles) — knee strength not currently measured at AYUN"
+          note: "same norms right and left; seated"
+          excellent: [56.1, 999]
+          good: [44.1, 56.1]
+          average: [30.1, 44.1]
+          below_average: [21.1, 30.1]
+          poor: [0, 21.1]
+        knee_flexion:
+          unit: "kg"
+          measured: false
+          source: "AYUN Physiological Testing reference table (Physiological testing.xlsx; VALD percentiles) — knee strength not currently measured at AYUN"
+          note: "same norms right and left; prone"
+          excellent: [24.6, 999]
+          good: [20.0, 24.6]
+          average: [15.5, 20.0]
+          below_average: [11.8, 15.5]
+          poor: [0, 11.8]
+        elbow_extension:
+          unit: "kg"
+          source: "AYUN Physiological Testing reference table (Physiological testing.xlsx)"
+          note: "same norms right and left"
+          excellent: [18.2, 999]
+          good: [15.2, 18.2]
+          average: [12.2, 15.2]
+          below_average: [9.2, 12.2]
+          poor: [0, 9.2]
+        elbow_flexion:
+          unit: "kg"
+          source: "AYUN Physiological Testing reference table (Physiological testing.xlsx)"
+          note: "same norms right and left"
+          excellent: [28.1, 999]
+          good: [23.6, 28.1]
+          average: [19.1, 23.6]
+          below_average: [14.6, 19.1]
+          poor: [0, 14.6]
+        push_up_30s:
+          unit: "repetitions"
+          source: "AYUN Physiological Testing reference table (Physiological testing.xlsx)"
+          excellent: [30, 999]
+          good: [21, 30]
+          average: [15, 21]
+          below_average: [10, 15]
+          poor: [0, 10]
+        y_balance_composite:
+          unit: "% of limb length"
+          source: "AYUN Physiological Testing reference table (Physiological testing.xlsx)"
+          note: "same norms male and female"
+          excellent: [101.8, 999]
+          good: [98.3, 101.8]
+          average: [91.3, 98.3]
+          below_average: [87.8, 91.3]
+          poor: [0, 87.8]
+      body_composition:
+        lmi:
+          unit: "kg/m²"
+          source: "Ofenheimer et al. 2020 (LEAD cohort DXA values); AYUN percentile bands 0–30 / 30–50 / 50–70 / 70–90 / 90–100"
+          excellent: [16.5, 999]
+          good: [15.5, 16.5]
+          average: [14.5, 15.5]
+          below_average: [13.5, 14.5]
+          poor: [0, 13.5]
+        fat_percentage:
+          unit: "%"
+          source: "Ofenheimer et al. 2020 (LEAD cohort DXA values); AYUN percentile bands 0–30 / 30–50 / 50–70 / 70–90 / 90–100"
+          excellent: [18.0, 22.0]
+          good: [22.0, 25.0]
+          average: [25.0, 28.0]
+          elevated: [28.0, 32.0]
+          high: [32.0, 100]
+        visceral_fat:
+          unit: "cm³"
+          source: "AYUN visceral fat reference by age and sex (Visceral fat info)"
+          excellent: [0, 30]
+          good: [31, 97]
+          average: [98, 163]
+          elevated: [164, 343]
+          high: [344, 820]
+    
+    age_30_39:
+      age_range: [30, 39]
+      physiological:
+        vo2max:
+          unit: "ml/min/kg"
+          source: "AYUN Physiological Testing reference table (Physiological testing.xlsx)"
+          excellent: [51.0, 999]
+          good: [39.0, 51.0]
+          average: [34.0, 39.0]
+          below_average: [27.0, 34.0]
+          poor: [0, 27.0]
+        grip_strength:
+          unit: "kg"
+          source: "AYUN Physiological Testing reference table (Physiological testing.xlsx)"
+          excellent: [36.0, 999]
+          good: [32.0, 36.0]
+          average: [28.0, 32.0]
+          below_average: [25.0, 28.0]
+          poor: [0, 25.0]
+        counter_movement_jump:
+          unit: "cm"
+          source: "AYUN Physiological Testing reference table (Physiological testing.xlsx)"
+          excellent: [31.1, 999]
+          good: [26.1, 31.1]
+          average: [21.1, 26.1]
+          below_average: [17.1, 21.1]
+          poor: [0, 17.1]
+        shoulder_flexion:
+          unit: "degrees"
+          source: "AYUN Physiological Testing reference table (Physiological testing.xlsx)"
+          note: "4-tier ROM ceiling; same norms right and left"
+          excellent: [178.1, 999]
+          average: [172.1, 178.1]
+          below_average: [167.1, 172.1]
+          poor: [0, 167.1]
+        hip_extension:
+          unit: "degrees"
+          source: "AYUN Physiological Testing reference table (Physiological testing.xlsx)"
+          note: "4-tier ROM ceiling; same norms right and left"
+          excellent: [22.6, 999]
+          average: [17.6, 22.6]
+          below_average: [13.6, 17.6]
+          poor: [0, 13.6]
+        hip_flexion:
+          unit: "degrees"
+          source: "AYUN Physiological Testing reference table (Physiological testing.xlsx)"
+          note: "4-tier ROM ceiling; same norms right and left"
+          excellent: [139.6, 999]
+          average: [134.6, 139.6]
+          below_average: [128.6, 134.6]
+          poor: [0, 128.6]
+        knee_extension:
+          unit: "kg"
+          measured: false
+          source: "AYUN Physiological Testing reference table (Physiological testing.xlsx; VALD percentiles) — knee strength not currently measured at AYUN"
+          note: "same norms right and left; seated"
+          excellent: [56.1, 999]
+          good: [44.1, 56.1]
+          average: [30.1, 44.1]
+          below_average: [21.1, 30.1]
+          poor: [0, 21.1]
+        knee_flexion:
+          unit: "kg"
+          measured: false
+          source: "AYUN Physiological Testing reference table (Physiological testing.xlsx; VALD percentiles) — knee strength not currently measured at AYUN"
+          note: "same norms right and left; prone"
+          excellent: [24.6, 999]
+          good: [20.0, 24.6]
+          average: [15.5, 20.0]
+          below_average: [11.8, 15.5]
+          poor: [0, 11.8]
+        elbow_extension:
+          unit: "kg"
+          source: "AYUN Physiological Testing reference table (Physiological testing.xlsx)"
+          note: "same norms right and left"
+          excellent: [18.2, 999]
+          good: [15.2, 18.2]
+          average: [12.2, 15.2]
+          below_average: [9.2, 12.2]
+          poor: [0, 9.2]
+        elbow_flexion:
+          unit: "kg"
+          source: "AYUN Physiological Testing reference table (Physiological testing.xlsx)"
+          note: "same norms right and left"
+          excellent: [28.1, 999]
+          good: [23.6, 28.1]
+          average: [19.1, 23.6]
+          below_average: [14.6, 19.1]
+          poor: [0, 14.6]
+        push_up_30s:
+          unit: "repetitions"
+          source: "AYUN Physiological Testing reference table (Physiological testing.xlsx)"
+          excellent: [27, 999]
+          good: [20, 27]
+          average: [13, 20]
+          below_average: [8, 13]
+          poor: [0, 8]
+        y_balance_composite:
+          unit: "% of limb length"
+          source: "AYUN Physiological Testing reference table (Physiological testing.xlsx)"
+          note: "same norms male and female"
+          excellent: [101.8, 999]
+          good: [98.3, 101.8]
+          average: [91.3, 98.3]
+          below_average: [87.8, 91.3]
+          poor: [0, 87.8]
+      body_composition:
+        lmi:
+          unit: "kg/m²"
+          source: "Ofenheimer et al. 2020 (LEAD cohort DXA values); AYUN percentile bands 0–30 / 30–50 / 50–70 / 70–90 / 90–100"
+          excellent: [16.2, 999]
+          good: [15.3, 16.2]
+          average: [14.3, 15.3]
+          below_average: [13.3, 14.3]
+          poor: [0, 13.3]
+        fat_percentage:
+          unit: "%"
+          source: "Ofenheimer et al. 2020 (LEAD cohort DXA values); AYUN percentile bands 0–30 / 30–50 / 50–70 / 70–90 / 90–100"
+          excellent: [19.0, 23.0]
+          good: [23.0, 26.0]
+          average: [26.0, 29.0]
+          elevated: [29.0, 33.0]
+          high: [33.0, 100]
+        visceral_fat:
+          unit: "cm³"
+          source: "AYUN visceral fat reference by age and sex (Visceral fat info)"
+          excellent: [0, 53]
+          good: [54, 157]
+          average: [158, 260]
+          elevated: [261, 515]
+          high: [516, 1500]
+    
+    age_40_49:
+      age_range: [40, 49]
+      physiological:
+        vo2max:
+          unit: "ml/min/kg"
+          source: "AYUN Physiological Testing reference table (Physiological testing.xlsx)"
+          excellent: [49.0, 999]
+          good: [37.0, 49.0]
+          average: [32.0, 37.0]
+          below_average: [26.0, 32.0]
+          poor: [0, 26.0]
+        grip_strength:
+          unit: "kg"
+          source: "AYUN Physiological Testing reference table (Physiological testing.xlsx)"
+          excellent: [37.0, 999]
+          good: [32.0, 37.0]
+          average: [28.0, 32.0]
+          below_average: [25.0, 28.0]
+          poor: [0, 25.0]
+        counter_movement_jump:
+          unit: "cm"
+          source: "AYUN Physiological Testing reference table (Physiological testing.xlsx)"
+          excellent: [24.1, 999]
+          good: [20.1, 24.1]
+          average: [16.1, 20.1]
+          below_average: [12.1, 16.1]
+          poor: [0, 12.1]
+        shoulder_flexion:
+          unit: "degrees"
+          source: "AYUN Physiological Testing reference table (Physiological testing.xlsx)"
+          note: "4-tier ROM ceiling; same norms right and left"
+          excellent: [178.1, 999]
+          average: [172.1, 178.1]
+          below_average: [167.1, 172.1]
+          poor: [0, 167.1]
+        hip_extension:
+          unit: "degrees"
+          source: "AYUN Physiological Testing reference table (Physiological testing.xlsx)"
+          note: "4-tier ROM ceiling; same norms right and left"
+          excellent: [22.6, 999]
+          average: [17.6, 22.6]
+          below_average: [13.6, 17.6]
+          poor: [0, 13.6]
+        hip_flexion:
+          unit: "degrees"
+          source: "AYUN Physiological Testing reference table (Physiological testing.xlsx)"
+          note: "4-tier ROM ceiling; same norms right and left"
+          excellent: [139.6, 999]
+          average: [134.6, 139.6]
+          below_average: [128.6, 134.6]
+          poor: [0, 128.6]
+        knee_extension:
+          unit: "kg"
+          measured: false
+          source: "AYUN Physiological Testing reference table (Physiological testing.xlsx; VALD percentiles) — knee strength not currently measured at AYUN"
+          note: "same norms right and left; seated"
+          excellent: [56.1, 999]
+          good: [44.1, 56.1]
+          average: [30.1, 44.1]
+          below_average: [21.1, 30.1]
+          poor: [0, 21.1]
+        knee_flexion:
+          unit: "kg"
+          measured: false
+          source: "AYUN Physiological Testing reference table (Physiological testing.xlsx; VALD percentiles) — knee strength not currently measured at AYUN"
+          note: "same norms right and left; prone"
+          excellent: [24.6, 999]
+          good: [20.0, 24.6]
+          average: [15.5, 20.0]
+          below_average: [11.8, 15.5]
+          poor: [0, 11.8]
+        elbow_extension:
+          unit: "kg"
+          source: "AYUN Physiological Testing reference table (Physiological testing.xlsx)"
+          note: "same norms right and left"
+          excellent: [18.2, 999]
+          good: [15.2, 18.2]
+          average: [12.2, 15.2]
+          below_average: [9.2, 12.2]
+          poor: [0, 9.2]
+        elbow_flexion:
+          unit: "kg"
+          source: "AYUN Physiological Testing reference table (Physiological testing.xlsx)"
+          note: "same norms right and left"
+          excellent: [28.1, 999]
+          good: [23.6, 28.1]
+          average: [19.1, 23.6]
+          below_average: [14.6, 19.1]
+          poor: [0, 14.6]
+        push_up_30s:
+          unit: "repetitions"
+          source: "AYUN Physiological Testing reference table (Physiological testing.xlsx)"
+          excellent: [24, 999]
+          good: [15, 24]
+          average: [11, 15]
+          below_average: [5, 11]
+          poor: [0, 5]
+        y_balance_composite:
+          unit: "% of limb length"
+          source: "AYUN Physiological Testing reference table (Physiological testing.xlsx)"
+          note: "same norms male and female"
+          excellent: [99.1, 999]
+          good: [95.6, 99.1]
+          average: [88.6, 95.6]
+          below_average: [85.1, 88.6]
+          poor: [0, 85.1]
+      body_composition:
+        lmi:
+          unit: "kg/m²"
+          source: "Ofenheimer et al. 2020 (LEAD cohort DXA values); AYUN percentile bands 0–30 / 30–50 / 50–70 / 70–90 / 90–100"
+          excellent: [16.0, 999]
+          good: [15.0, 16.0]
+          average: [14.0, 15.0]
+          below_average: [13.0, 14.0]
+          poor: [0, 13.0]
+        fat_percentage:
+          unit: "%"
+          source: "Ofenheimer et al. 2020 (LEAD cohort DXA values); AYUN percentile bands 0–30 / 30–50 / 50–70 / 70–90 / 90–100"
+          excellent: [20.0, 24.0]
+          good: [24.0, 27.0]
+          average: [27.0, 30.0]
+          elevated: [30.0, 34.0]
+          high: [34.0, 100]
+        visceral_fat:
+          unit: "cm³"
+          source: "AYUN visceral fat reference by age and sex (Visceral fat info)"
+          excellent: [0, 104]
+          good: [105, 258]
+          average: [259, 414]
+          elevated: [415, 752]
+          high: [753, 2500]
+    
+    age_50_59:
+      age_range: [50, 59]
+      physiological:
+        vo2max:
+          unit: "ml/min/kg"
+          source: "AYUN Physiological Testing reference table (Physiological testing.xlsx)"
+          excellent: [47.0, 999]
+          good: [36.0, 47.0]
+          average: [29.0, 36.0]
+          below_average: [25.0, 29.0]
+          poor: [0, 25.0]
+        grip_strength:
+          unit: "kg"
+          source: "AYUN Physiological Testing reference table (Physiological testing.xlsx)"
+          excellent: [36.0, 999]
+          good: [32.0, 36.0]
+          average: [29.0, 32.0]
+          below_average: [24.0, 29.0]
+          poor: [0, 24.0]
+        counter_movement_jump:
+          unit: "cm"
+          source: "AYUN Physiological Testing reference table (Physiological testing.xlsx)"
+          excellent: [21.1, 999]
+          good: [18.1, 21.1]
+          average: [15.1, 18.1]
+          below_average: [12.1, 15.1]
+          poor: [0, 12.1]
+        shoulder_flexion:
+          unit: "degrees"
+          source: "AYUN Physiological Testing reference table (Physiological testing.xlsx)"
+          note: "4-tier ROM ceiling; same norms right and left; age 45+"
+          excellent: [173.6, 999]
+          average: [168.6, 173.6]
+          below_average: [163.6, 168.6]
+          poor: [0, 163.6]
+        hip_extension:
+          unit: "degrees"
+          source: "AYUN Physiological Testing reference table (Physiological testing.xlsx)"
+          note: "4-tier ROM ceiling; same norms right and left; age 45+"
+          excellent: [21.1, 999]
+          average: [16.1, 21.1]
+          below_average: [11.1, 16.1]
+          poor: [0, 11.1]
+        hip_flexion:
+          unit: "degrees"
+          source: "AYUN Physiological Testing reference table (Physiological testing.xlsx)"
+          note: "4-tier ROM ceiling; same norms right and left; age 45+"
+          excellent: [136.1, 999]
+          average: [132.1, 136.1]
+          below_average: [124.6, 132.1]
+          poor: [0, 124.6]
+        knee_extension:
+          unit: "kg"
+          measured: false
+          source: "AYUN Physiological Testing reference table (Physiological testing.xlsx; VALD percentiles) — knee strength not currently measured at AYUN"
+          note: "same norms right and left; seated; age 50-59"
+          excellent: [41.0, 999]
+          good: [30.8, 41.0]
+          average: [22.0, 30.8]
+          below_average: [18.4, 22.0]
+          poor: [0, 18.4]
+        knee_flexion:
+          unit: "kg"
+          measured: false
+          source: "AYUN Physiological Testing reference table (Physiological testing.xlsx; VALD percentiles) — knee strength not currently measured at AYUN"
+          note: "same norms right and left; prone; age 50-59"
+          excellent: [20.0, 999]
+          good: [15.7, 20.0]
+          average: [12.5, 15.7]
+          below_average: [10.0, 12.5]
+          poor: [0, 10.0]
+        elbow_extension:
+          unit: "kg"
+          source: "AYUN Physiological Testing reference table (Physiological testing.xlsx)"
+          note: "same norms right and left; age 50-59"
+          excellent: [16.9, 999]
+          good: [13.9, 16.9]
+          average: [10.9, 13.9]
+          below_average: [7.9, 10.9]
+          poor: [0, 7.9]
+        elbow_flexion:
+          unit: "kg"
+          source: "AYUN Physiological Testing reference table (Physiological testing.xlsx)"
+          note: "same norms right and left; age 50-59"
+          excellent: [24.7, 999]
+          good: [20.7, 24.7]
+          average: [16.7, 20.7]
+          below_average: [12.7, 16.7]
+          poor: [0, 12.7]
+        push_up_30s:
+          unit: "repetitions"
+          source: "AYUN Physiological Testing reference table (Physiological testing.xlsx)"
+          excellent: [21, 999]
+          good: [11, 21]
+          average: [7, 11]
+          below_average: [2, 7]
+          poor: [0, 2]
+        y_balance_composite:
+          unit: "% of limb length"
+          source: "AYUN Physiological Testing reference table (Physiological testing.xlsx)"
+          note: "same norms male and female"
+          excellent: [95.1, 999]
+          good: [91.5, 95.1]
+          average: [84.6, 91.5]
+          below_average: [81.1, 84.6]
+          poor: [0, 81.1]
+      body_composition:
+        lmi:
+          unit: "kg/m²"
+          source: "Ofenheimer et al. 2020 (LEAD cohort DXA values); AYUN percentile bands 0–30 / 30–50 / 50–70 / 70–90 / 90–100"
+          excellent: [15.5, 999]
+          good: [14.6, 15.5]
+          average: [13.7, 14.6]
+          below_average: [12.7, 13.7]
+          poor: [0, 12.7]
+        fat_percentage:
+          unit: "%"
+          source: "Ofenheimer et al. 2020 (LEAD cohort DXA values); AYUN percentile bands 0–30 / 30–50 / 50–70 / 70–90 / 90–100"
+          excellent: [21.0, 25.0]
+          good: [25.0, 28.0]
+          average: [28.0, 31.0]
+          elevated: [31.0, 35.0]
+          high: [35.0, 100]
+        visceral_fat:
+          unit: "cm³"
+          source: "AYUN visceral fat reference by age and sex (Visceral fat info)"
+          excellent: [0, 203]
+          good: [204, 424]
+          average: [425, 645]
+          elevated: [646, 1061]
+          high: [1062, 2035]
+    
+    age_60_69:
+      age_range: [60, 69]
+      physiological:
+        vo2max:
+          unit: "ml/min/kg"
+          source: "AYUN Physiological Testing reference table (Physiological testing.xlsx)"
+          excellent: [46.0, 999]
+          good: [30.0, 46.0]
+          average: [25.0, 30.0]
+          below_average: [21.0, 25.0]
+          poor: [0, 21.0]
+        grip_strength:
+          unit: "kg"
+          source: "AYUN Physiological Testing reference table (Physiological testing.xlsx)"
+          excellent: [34.0, 999]
+          good: [30.0, 34.0]
+          average: [25.0, 30.0]
+          below_average: [22.0, 25.0]
+          poor: [0, 22.0]
+        counter_movement_jump:
+          unit: "cm"
+          source: "AYUN Physiological Testing reference table (Physiological testing.xlsx)"
+          excellent: [19.1, 999]
+          good: [15.1, 19.1]
+          average: [11.1, 15.1]
+          below_average: [7.1, 11.1]
+          poor: [0, 7.1]
+        shoulder_flexion:
+          unit: "degrees"
+          source: "AYUN Physiological Testing reference table (Physiological testing.xlsx)"
+          note: "4-tier ROM ceiling; same norms right and left; age 45+"
+          excellent: [173.6, 999]
+          average: [168.6, 173.6]
+          below_average: [163.6, 168.6]
+          poor: [0, 163.6]
+        hip_extension:
+          unit: "degrees"
+          source: "AYUN Physiological Testing reference table (Physiological testing.xlsx)"
+          note: "4-tier ROM ceiling; same norms right and left; age 45+"
+          excellent: [21.1, 999]
+          average: [16.1, 21.1]
+          below_average: [11.1, 16.1]
+          poor: [0, 11.1]
+        hip_flexion:
+          unit: "degrees"
+          source: "AYUN Physiological Testing reference table (Physiological testing.xlsx)"
+          note: "4-tier ROM ceiling; same norms right and left; age 45+"
+          excellent: [136.1, 999]
+          average: [132.1, 136.1]
+          below_average: [124.6, 132.1]
+          poor: [0, 124.6]
+        knee_extension:
+          unit: "kg"
+          measured: false
+          source: "AYUN Physiological Testing reference table (Physiological testing.xlsx; VALD percentiles) — knee strength not currently measured at AYUN"
+          note: "same norms right and left; seated; age 60+"
+          excellent: [35.8, 999]
+          good: [27.7, 35.8]
+          average: [20.9, 27.7]
+          below_average: [15.5, 20.9]
+          poor: [0, 15.5]
+        knee_flexion:
+          unit: "kg"
+          measured: false
+          source: "AYUN Physiological Testing reference table (Physiological testing.xlsx; VALD percentiles) — knee strength not currently measured at AYUN"
+          note: "same norms right and left; prone; age 60+"
+          excellent: [17.9, 999]
+          good: [13.0, 17.9]
+          average: [10.1, 13.0]
+          below_average: [8.1, 10.1]
+          poor: [0, 8.1]
+        elbow_extension:
+          unit: "kg"
+          source: "AYUN Physiological Testing reference table (Physiological testing.xlsx)"
+          note: "same norms right and left; age 60+"
+          excellent: [15.7, 999]
+          good: [12.7, 15.7]
+          average: [9.7, 12.7]
+          below_average: [6.7, 9.7]
+          poor: [0, 6.7]
+        elbow_flexion:
+          unit: "kg"
+          source: "AYUN Physiological Testing reference table (Physiological testing.xlsx)"
+          note: "same norms right and left; age 60+"
+          excellent: [20.0, 999]
+          good: [16.5, 20.0]
+          average: [13.0, 16.5]
+          below_average: [9.5, 13.0]
+          poor: [0, 9.5]
+        push_up_30s:
+          unit: "repetitions"
+          source: "AYUN Physiological Testing reference table (Physiological testing.xlsx)"
+          excellent: [17, 999]
+          good: [12, 17]
+          average: [5, 12]
+          below_average: [2, 5]
+          poor: [0, 2]
+        y_balance_composite:
+          unit: "% of limb length"
+          source: "AYUN Physiological Testing reference table (Physiological testing.xlsx)"
+          note: "same norms male and female"
+          excellent: [90.1, 999]
+          good: [85.1, 90.1]
+          average: [75.1, 85.1]
+          below_average: [70.1, 75.1]
+          poor: [0, 70.1]
+      body_composition:
+        lmi:
+          unit: "kg/m²"
+          source: "Ofenheimer et al. 2020 (LEAD cohort DXA values); AYUN percentile bands 0–30 / 30–50 / 50–70 / 70–90 / 90–100"
+          excellent: [15.2, 999]
+          good: [14.3, 15.2]
+          average: [13.4, 14.3]
+          below_average: [12.4, 13.4]
+          poor: [0, 12.4]
+        fat_percentage:
+          unit: "%"
+          source: "Ofenheimer et al. 2020 (LEAD cohort DXA values); AYUN percentile bands 0–30 / 30–50 / 50–70 / 70–90 / 90–100"
+          excellent: [22.0, 26.0]
+          good: [26.0, 29.0]
+          average: [29.0, 32.0]
+          elevated: [32.0, 36.0]
+          high: [36.0, 100]
+        visceral_fat:
+          unit: "cm³"
+          source: "AYUN visceral fat reference by age and sex (Visceral fat info)"
+          excellent: [0, 331]
+          good: [332, 608]
+          average: [609, 886]
+          elevated: [887, 1356]
+          high: [1357, 2422]
+    
+    age_70_79:
+      age_range: [70, 79]
+      physiological:
+        vo2max:
+          unit: "ml/min/kg"
+          source: "AYUN Physiological Testing reference table (Physiological testing.xlsx)"
+          excellent: [40.0, 999]
+          good: [25.0, 40.0]
+          average: [22.0, 25.0]
+          below_average: [18.0, 22.0]
+          poor: [0, 18.0]
+        grip_strength:
+          unit: "kg"
+          source: "AYUN Physiological Testing reference table (Physiological testing.xlsx)"
+          excellent: [30.0, 999]
+          good: [26.0, 30.0]
+          average: [24.0, 26.0]
+          below_average: [19.0, 24.0]
+          poor: [0, 19.0]
+        counter_movement_jump:
+          unit: "cm"
+          source: "AYUN Physiological Testing reference table (Physiological testing.xlsx)"
+          note: "uses age 60+ norms"
+          excellent: [19.1, 999]
+          good: [15.1, 19.1]
+          average: [11.1, 15.1]
+          below_average: [7.1, 11.1]
+          poor: [0, 7.1]
+        shoulder_flexion:
+          unit: "degrees"
+          source: "AYUN Physiological Testing reference table (Physiological testing.xlsx)"
+          note: "4-tier ROM ceiling; same norms right and left; age 45+"
+          excellent: [173.6, 999]
+          average: [168.6, 173.6]
+          below_average: [163.6, 168.6]
+          poor: [0, 163.6]
+        hip_extension:
+          unit: "degrees"
+          source: "AYUN Physiological Testing reference table (Physiological testing.xlsx)"
+          note: "4-tier ROM ceiling; same norms right and left; age 45+"
+          excellent: [21.1, 999]
+          average: [16.1, 21.1]
+          below_average: [11.1, 16.1]
+          poor: [0, 11.1]
+        hip_flexion:
+          unit: "degrees"
+          source: "AYUN Physiological Testing reference table (Physiological testing.xlsx)"
+          note: "4-tier ROM ceiling; same norms right and left; age 45+"
+          excellent: [136.1, 999]
+          average: [132.1, 136.1]
+          below_average: [124.6, 132.1]
+          poor: [0, 124.6]
+        knee_extension:
+          unit: "kg"
+          measured: false
+          source: "AYUN Physiological Testing reference table (Physiological testing.xlsx; VALD percentiles) — knee strength not currently measured at AYUN"
+          note: "same norms right and left; seated; age 60+"
+          excellent: [35.8, 999]
+          good: [27.7, 35.8]
+          average: [20.9, 27.7]
+          below_average: [15.5, 20.9]
+          poor: [0, 15.5]
+        knee_flexion:
+          unit: "kg"
+          measured: false
+          source: "AYUN Physiological Testing reference table (Physiological testing.xlsx; VALD percentiles) — knee strength not currently measured at AYUN"
+          note: "same norms right and left; prone; age 60+"
+          excellent: [17.9, 999]
+          good: [13.0, 17.9]
+          average: [10.1, 13.0]
+          below_average: [8.1, 10.1]
+          poor: [0, 8.1]
+        elbow_extension:
+          unit: "kg"
+          source: "AYUN Physiological Testing reference table (Physiological testing.xlsx)"
+          note: "same norms right and left; age 60+"
+          excellent: [15.7, 999]
+          good: [12.7, 15.7]
+          average: [9.7, 12.7]
+          below_average: [6.7, 9.7]
+          poor: [0, 6.7]
+        elbow_flexion:
+          unit: "kg"
+          source: "AYUN Physiological Testing reference table (Physiological testing.xlsx)"
+          note: "same norms right and left; age 60+"
+          excellent: [20.0, 999]
+          good: [16.5, 20.0]
+          average: [13.0, 16.5]
+          below_average: [9.5, 13.0]
+          poor: [0, 9.5]
+        push_up_30s:
+          unit: "repetitions"
+          source: "AYUN Physiological Testing reference table (Physiological testing.xlsx)"
+          note: "uses age 60+ norms"
+          excellent: [17, 999]
+          good: [12, 17]
+          average: [5, 12]
+          below_average: [2, 5]
+          poor: [0, 2]
+        y_balance_composite:
+          unit: "% of limb length"
+          source: "AYUN Physiological Testing reference table (Physiological testing.xlsx)"
+          note: "same norms male and female; age 70+"
+          excellent: [87.1, 999]
+          good: [81.6, 87.1]
+          average: [70.6, 81.6]
+          below_average: [65.1, 70.6]
+          poor: [0, 65.1]
+      body_composition:
+        lmi:
+          unit: "kg/m²"
+          source: "Ofenheimer et al. 2020 (LEAD cohort DXA values); AYUN percentile bands 0–30 / 30–50 / 50–70 / 70–90 / 90–100"
+          excellent: [14.8, 999]
+          good: [13.9, 14.8]
+          average: [13.0, 13.9]
+          below_average: [12.0, 13.0]
+          poor: [0, 12.0]
+        fat_percentage:
+          unit: "%"
+          source: "Ofenheimer et al. 2020 (LEAD cohort DXA values); AYUN percentile bands 0–30 / 30–50 / 50–70 / 70–90 / 90–100"
+          excellent: [23.0, 27.0]
+          good: [27.0, 30.0]
+          average: [30.0, 33.0]
+          elevated: [33.0, 37.0]
+          high: [37.0, 100]
+        visceral_fat:
+          unit: "cm³"
+          source: "AYUN visceral fat reference by age and sex (Visceral fat info)"
+          excellent: [0, 440]
+          good: [441, 747]
+          average: [748, 1054]
+          elevated: [1055, 1537]
+          high: [1538, 2608]
+    
+    age_80_99:
+      age_range: [80, 99]
+      physiological:
+        vo2max:
+          unit: "ml/min/kg"
+          source: "AYUN Physiological Testing reference table (Physiological testing.xlsx)"
+          note: "uses age 70+ norms"
+          excellent: [40.0, 999]
+          good: [25.0, 40.0]
+          average: [22.0, 25.0]
+          below_average: [18.0, 22.0]
+          poor: [0, 18.0]
+        grip_strength:
+          unit: "kg"
+          source: "AYUN Physiological Testing reference table (Physiological testing.xlsx)"
+          note: "uses age 70+ norms"
+          excellent: [30.0, 999]
+          good: [26.0, 30.0]
+          average: [24.0, 26.0]
+          below_average: [19.0, 24.0]
+          poor: [0, 19.0]
+        counter_movement_jump:
+          unit: "cm"
+          source: "AYUN Physiological Testing reference table (Physiological testing.xlsx)"
+          note: "uses age 60+ norms"
+          excellent: [19.1, 999]
+          good: [15.1, 19.1]
+          average: [11.1, 15.1]
+          below_average: [7.1, 11.1]
+          poor: [0, 7.1]
+        shoulder_flexion:
+          unit: "degrees"
+          source: "AYUN Physiological Testing reference table (Physiological testing.xlsx)"
+          note: "4-tier ROM ceiling; same norms right and left; age 45+"
+          excellent: [173.6, 999]
+          average: [168.6, 173.6]
+          below_average: [163.6, 168.6]
+          poor: [0, 163.6]
+        hip_extension:
+          unit: "degrees"
+          source: "AYUN Physiological Testing reference table (Physiological testing.xlsx)"
+          note: "4-tier ROM ceiling; same norms right and left; age 45+"
+          excellent: [21.1, 999]
+          average: [16.1, 21.1]
+          below_average: [11.1, 16.1]
+          poor: [0, 11.1]
+        hip_flexion:
+          unit: "degrees"
+          source: "AYUN Physiological Testing reference table (Physiological testing.xlsx)"
+          note: "4-tier ROM ceiling; same norms right and left; age 45+"
+          excellent: [136.1, 999]
+          average: [132.1, 136.1]
+          below_average: [124.6, 132.1]
+          poor: [0, 124.6]
+        knee_extension:
+          unit: "kg"
+          measured: false
+          source: "AYUN Physiological Testing reference table (Physiological testing.xlsx; VALD percentiles) — knee strength not currently measured at AYUN"
+          note: "same norms right and left; seated; age 60+"
+          excellent: [35.8, 999]
+          good: [27.7, 35.8]
+          average: [20.9, 27.7]
+          below_average: [15.5, 20.9]
+          poor: [0, 15.5]
+        knee_flexion:
+          unit: "kg"
+          measured: false
+          source: "AYUN Physiological Testing reference table (Physiological testing.xlsx; VALD percentiles) — knee strength not currently measured at AYUN"
+          note: "same norms right and left; prone; age 60+"
+          excellent: [17.9, 999]
+          good: [13.0, 17.9]
+          average: [10.1, 13.0]
+          below_average: [8.1, 10.1]
+          poor: [0, 8.1]
+        elbow_extension:
+          unit: "kg"
+          source: "AYUN Physiological Testing reference table (Physiological testing.xlsx)"
+          note: "same norms right and left; age 60+"
+          excellent: [15.7, 999]
+          good: [12.7, 15.7]
+          average: [9.7, 12.7]
+          below_average: [6.7, 9.7]
+          poor: [0, 6.7]
+        elbow_flexion:
+          unit: "kg"
+          source: "AYUN Physiological Testing reference table (Physiological testing.xlsx)"
+          note: "same norms right and left; age 60+"
+          excellent: [20.0, 999]
+          good: [16.5, 20.0]
+          average: [13.0, 16.5]
+          below_average: [9.5, 13.0]
+          poor: [0, 9.5]
+        push_up_30s:
+          unit: "repetitions"
+          source: "AYUN Physiological Testing reference table (Physiological testing.xlsx)"
+          note: "uses age 60+ norms"
+          excellent: [17, 999]
+          good: [12, 17]
+          average: [5, 12]
+          below_average: [2, 5]
+          poor: [0, 2]
+        y_balance_composite:
+          unit: "% of limb length"
+          source: "AYUN Physiological Testing reference table (Physiological testing.xlsx)"
+          note: "same norms male and female; uses age 70+ norms"
+          excellent: [87.1, 999]
+          good: [81.6, 87.1]
+          average: [70.6, 81.6]
+          below_average: [65.1, 70.6]
+          poor: [0, 65.1]
+      body_composition:
+        lmi:
+          unit: "kg/m²"
+          source: "Ofenheimer et al. 2020 (LEAD cohort DXA values); AYUN percentile bands 0–30 / 30–50 / 50–70 / 70–90 / 90–100"
+          excellent: [14.4, 999]
+          good: [13.5, 14.4]
+          average: [12.6, 13.5]
+          below_average: [11.6, 12.6]
+          poor: [0, 11.6]
+        fat_percentage:
+          unit: "%"
+          source: "Ofenheimer et al. 2020 (LEAD cohort DXA values); AYUN percentile bands 0–30 / 30–50 / 50–70 / 70–90 / 90–100"
+          excellent: [24.0, 28.0]
+          good: [28.0, 31.0]
+          average: [31.0, 34.0]
+          elevated: [34.0, 38.0]
+          high: [38.0, 100]
+        visceral_fat:
+          unit: "cm³"
+          source: "AYUN visceral fat reference by age and sex (Visceral fat info)"
+          excellent: [0, 440]
+          good: [441, 747]
+          average: [748, 1054]
+          elevated: [1055, 1537]
+          high: [1538, 2608]
+
+# AGE AND GENDER STRATIFIED RECOMMENDATION PATHS
+recommendation_paths:
+  
+  # MALE RECOMMENDATIONS BY AGE GROUP
+  male:
+    
+    age_18_29:
+      conditions:
+        - parameter: "Demographic::Sex"
+          value: ["Male", "M", "male", "m"]
+          comparison: "in"
+        - parameter: "Demographic::Age"
+          value:
+            interval: [18, 29]
+          comparison: "in"
+      
+      recommendations:
+        
+        # VO2max - Aerobic Capacity
+        - category: "Aerobic Capacity"
+          priority: "High"
+          title: "Enhance Aerobic Capacity - Young Adult Male"
+          condition:
+            parameter: "Physiological::Vo2Max"
+            value:
+              interval: [0, 46.0]  # Below good for age/gender
+            comparison: "below"
+          recommendations:
+            - "Target VO2max improvement: Aim for ≥56 ml/min/kg (excellent for your age)"
+            - "VT1 training: 3-4 sessions per week, 30-45 minutes at aerobic threshold"
+            - "Add 1-2 high-intensity sessions: HIIT or VT2 intervals"
+            - "Progressive volume increase: Add 10% per week"
+            - "Monitor recovery: Check your HRV values and ensure adequate rest between sessions"
+        
+        # Strength and Muscle Mass — LMI trigger = below_average/poor band only
+        # (not "below good"), so average muscle mass is not framed as a deficit.
+        - category: "Strength and Muscle Mass"
+          priority: "High"
+          title: "Build Strength and Muscle Mass - Young Adult Male"
+          any_of:
+            - condition:
+                parameter: "Physiological::Gripstrength Rechts"
+                value:
+                  interval: [0, 45.0]
+                comparison: "below"
+            - condition:
+                parameter: "Body Composition::Muscle Mass Index (LMI)"
+                value:
+                  interval: [0, 17.66]
+                comparison: "below"
+          recommendations:
+            - "Your muscle / strength markers leave room to build — framed as development, not a medical deficit"
+            - "Strength training: 3-4 sessions per week, compound movements"
+            - "Focus on progressive overload: Increase weight by 5-10% every 2-3 weeks"
+            - "Protein intake: 1.8-2.2 g/kg body weight daily"
+            - "Power development: Include Olympic lifts, plyometrics 2x/week"
+            - "Target LMI: Aim for >20.19 kg/m² (excellent) if hypertrophy is a goal"
+        
+        # Body Composition — fire only in the "high" fat band (not borderline elevated),
+        # so healthy / average members are not pushed into fat-loss framing.
+        - category: "Body Composition"
+          priority: "Medium"
+          title: "Optimize Body Composition - Young Adult Male"
+          any_of:
+            - condition:
+                parameter: "Body Composition::Fat percentage"
+                value:
+                  interval: [22.6, 100]
+                comparison: "above"
+            - condition:
+                parameter: "Body Composition::Visceral Fat Index (raw value from DEXA)"
+                value:
+                  interval: [309.0, 9999]
+                comparison: "above"
+          recommendations:
+            - "Your results support focused body-composition work — this is an optimisation path, not a disease diagnosis"
+            - "Target body fat: Aim for 8-16% (excellent-good range) if fat loss is a personal goal"
+            - "Combine resistance training with cardio for body recomposition"
+            - "If fat loss is appropriate: modest caloric deficit 300-500 kcal/day"
+            - "High protein diet: Preserve muscle mass during any deficit"
+            - "Target visceral fat: Aim for the good range for your age group"
+            - "Monitor with DEXA every 8-12 weeks"
+        
+        # Bone Health
+        - category: "Bone Health"
+          priority: "High"
+          title: "Build Peak Bone Density - Young Adult Male"
+          condition:
+            parameter: "Body Composition::Bone mineral density"
+            value:
+              categorical: ["below average", "average"]
+            comparison: "in"
+          recommendations:
+            - "Critical age for bone density: Build peak bone mass now"
+            - "Resistance training: Essential for bone strength stimulation"
+            - "Weight-bearing exercises: Running, jumping, strength training 3-4x/week"
+            - "Impact exercises: Include plyometrics for bone health"
+            - "Calcium: 1000-1200 mg daily"
+            - "Vitamin D: Test levels, supplement to reach 50-100 nmol/L"
+            - "Avoid excessive alcohol and smoking: Harmful to bone health"
+        
+        # Lower Body Power
+        - category: "Lower Body Power"
+          priority: "Medium"
+          title: "Improve Lower Body Power - Young Adult Male"
+          condition:
+            parameter: "Physiological::Counter movement jump"
+            value:
+              interval: [0, 36.1]  # Below good range
+            comparison: "below"
+          recommendations:
+            - "Plyometric training: 2x/week for power development"
+            - "Box jumps: 3 sets of 5-8 reps, progress height gradually"
+            - "Counter-movement jumps: 3 sets of 8-10 reps"
+            - "Depth jumps: For advanced athletes only"
+            - "Bulgarian split squats: Build unilateral leg power"
+            - "Sprint training: 20-40m accelerations, 5-8 reps"
+            - "Adequate recovery: 48-72 hours between power sessions"
+        
+        # Balance and Stability
+        - category: "Balance and Stability"
+          priority: "Medium"
+          title: "Enhance Balance and Stability - Young Adult Male"
+          condition:
+            parameter: "Physiological::Y-Balance Composite Score"
+            value:
+              interval: [0, 91.3]  # Below optimal
+            comparison: "below"
+          recommendations:
+            - "Single-leg balance: 30-60 seconds each leg, 3x daily"
+            - "Y-Balance training: Practice reach patterns 2-3x/week"
+            - "Single-leg exercises: Single-leg deadlifts, pistol squats"
+            - "Proprioceptive training: BOSU ball, balance board work"
+            - "Core stability: Planks, anti-rotation exercises"
+            - "Ankle mobility: Essential for balance, daily ankle circles"
+            - "Progress to unstable surfaces as balance improves"
+        
+        # Flexibility and Mobility
+        # NOTE: Awaiting shoulder and hip flexibility parameters to be added to parameter dictionary
+        - category: "Flexibility and Mobility"
+          priority: "Medium"
+          title: "Improve Flexibility - Young Adult Male"
+          recommendations:
+            - "Daily stretching: 10-15 minutes focusing on major muscle groups"
+            - "Hip flexibility: Hip flexor stretches, pigeon pose, 90/90 stretches"
+            - "Shoulder mobility: Doorway stretch, sleeper stretch, shoulder circles"
+            - "Dynamic warm-up: Before training, focus on movement preparation"
+            - "Static stretching: Post-training or evening, hold 30-60 seconds"
+            - "Foam rolling: 5-10 minutes daily for muscle recovery"
+            - "Yoga or mobility class: 1-2x/week for comprehensive flexibility"
+    
+    age_30_39:
+      conditions:
+        - parameter: "Demographic::Sex"
+          value: ["Male", "M", "male", "m"]
+          comparison: "in"
+        - parameter: "Demographic::Age"
+          value:
+            interval: [30, 39]
+          comparison: "in"
+      
+      recommendations:
+        
+        - category: "Aerobic Capacity"
+          priority: "High"
+          title: "Maintain/Enhance Aerobic Capacity - Male 30-39"
+          condition:
+            parameter: "Physiological::Vo2Max"
+            value:
+              interval: [0, 44.0]
+            comparison: "below"
+          recommendations:
+            - "Target VO2max: Aim for ≥53 ml/min/kg (excellent for age 30-39)"
+            - "VT1 training: 3-4 sessions per week, 35-50 minutes"
+            - "VT2 intervals: 1-2 sessions per week, 4-6 intervals of 2-4 minutes"
+            - "Mix modalities: Running, cycling, swimming for variety"
+            - "Recovery crucial: Ensure 1-2 rest days per week"
+        
+        - category: "Strength and Muscle Mass"
+          priority: "High"
+          title: "Maintain Strength and Muscle Mass - Male 30-39"
+          any_of:
+            - condition:
+                parameter: "Physiological::Gripstrength Rechts"
+                value:
+                  interval: [0, 51.0]
+                comparison: "below"
+            - condition:
+                parameter: "Body Composition::Muscle Mass Index (LMI)"
+                value:
+                  interval: [0, 18.8]
+                comparison: "below"
+          recommendations:
+            - "Resistance training: 3-4 sessions per week"
+            - "Focus on muscle maintenance and functional strength"
+            - "Include grip-specific work: Deadlifts, farmer's walks"
+            - "Protein: 1.6-2.0 g/kg body weight daily"
+            - "Target LMI: Aim for >20.0 kg/m² (excellent)"
+        
+        - category: "Body Composition"
+          priority: "Medium"
+          title: "Body Composition Management - Male 30-39"
+          any_of:
+            - condition:
+                parameter: "Body Composition::Fat percentage"
+                value:
+                  interval: [23.0, 100]
+                comparison: "above"
+            - condition:
+                parameter: "Body Composition::Visceral Fat Index (raw value from DEXA)"
+                value:
+                  interval: [690.0, 9999]
+                comparison: "above"
+          recommendations:
+            - "This is an optimisation path for clear high fat / visceral fat — not a label for healthy average values"
+            - "Target body fat: Aim for 8.5-17% (excellent-good range) if fat loss is a personal goal"
+            - "Metabolic health priority: Keep visceral fat in the good range for your age"
+            - "Combined training: Strength + cardio for optimal composition"
+            - "Nutrition focus: Whole foods, adequate protein, controlled carbs"
+            - "Regular monitoring: DEXA every 8-12 weeks"
+    
+    age_40_49:
+      conditions:
+        - parameter: "Demographic::Sex"
+          value: ["Male", "M", "male", "m"]
+          comparison: "in"
+        - parameter: "Demographic::Age"
+          value:
+            interval: [40, 49]
+          comparison: "in"
+      
+      recommendations:
+        
+        - category: "Aerobic Capacity"
+          priority: "High"
+          title: "Preserve Aerobic Capacity - Male 40-49"
+          condition:
+            parameter: "Physiological::Vo2Max"
+            value:
+              interval: [0, 42.0]
+            comparison: "below"
+          recommendations:
+            - "Target VO2max: Aim for ≥53 ml/min/kg (excellent for age 40-49)"
+            - "Cardiovascular health critical at this age"
+            - "VT1 base: 3-4 sessions per week, 35-50 minutes"
+            - "VT2 intervals: 1-2 sessions per week with adequate recovery"
+            - "Joint-friendly options: Consider cycling, swimming to reduce impact"
+            - "Recovery monitoring: HRV tracking essential"
+        
+        - category: "Strength and Muscle Mass"
+          priority: "High"
+          title: "Combat Age-Related Strength Decline - Male 40-49"
+          any_of:
+            - condition:
+                parameter: "Physiological::Gripstrength Rechts"
+                value:
+                  interval: [0, 50.0]
+                comparison: "below"
+            - condition:
+                parameter: "Body Composition::Muscle Mass Index (LMI)"
+                value:
+                  interval: [0, 18.5]
+                comparison: "below"
+          recommendations:
+            - "Resistance training: 3 sessions per week minimum"
+            - "Sarcopenia prevention: Maintain/build muscle mass"
+            - "Target LMI: Aim for >19.5 kg/m² (excellent)"
+            - "Protein: 1.6-2.0 g/kg body weight daily"
+            - "Progressive resistance: Careful progression to avoid injury"
+            - "Include mobility work: 10-15 min before/after sessions"
+        
+        - category: "Balance and Functional Fitness"
+          priority: "Medium"
+          title: "Balance and Injury Prevention - Male 40-49"
+          condition:
+            parameter: "Physiological::Y-Balance Composite Score"
+            value:
+              interval: [0, 91.3]
+            comparison: "below"
+          recommendations:
+            - "Balance training: 2-3 sessions per week"
+            - "Single-leg exercises: Build stability and prevent falls"
+            - "Core strength: Essential for balance and injury prevention"
+            - "Flexibility work: Yoga or stretching 2-3x/week"
+        
+        - category: "Metabolic Health"
+          priority: "High"
+          title: "Visceral Fat Management - Male 40-49"
+          condition:
+            parameter: "Body Composition::Visceral Fat Index (raw value from DEXA)"
+            value:
+              interval: [550.0, 9999]
+            comparison: "above"
+          recommendations:
+            - "Visceral fat control crucial: aim for the good range for your age group"
+            - "Cardiovascular disease risk increases with visceral fat"
+            - "Combine cardio + resistance training"
+            - "Nutrition: Reduce refined carbs, increase fiber"
+            - "Stress management: Cortisol affects visceral fat accumulation"
+    
+    age_50_59:
+      conditions:
+        - parameter: "Demographic::Sex"
+          value: ["Male", "M", "male", "m"]
+          comparison: "in"
+        - parameter: "Demographic::Age"
+          value:
+            interval: [50, 59]
+          comparison: "in"
+      
+      recommendations:
+        
+        - category: "Cardiovascular Health"
+          priority: "Critical"
+          title: "Cardiovascular Disease Prevention - Male 50-59"
+          condition:
+            parameter: "Physiological::Vo2Max"
+            value:
+              interval: [0, 39.0]
+            comparison: "below"
+          recommendations:
+            - "Target VO2max: Aim for ≥50 ml/min/kg (excellent for age 50-59)"
+            - "VO2max is strong predictor of longevity - prioritize improvement"
+            - "VT1 base building: 4-5 sessions per week, 35-50 minutes"
+            - "VT2 sessions: 1 session per week with careful monitoring"
+            - "Low-impact preferred: Cycling, swimming, elliptical"
+            - "Medical clearance: Consult physician before high-intensity training"
+            - "HRV monitoring: Daily tracking for recovery management"
+        
+        - category: "Sarcopenia Prevention"
+          priority: "Critical"
+          title: "Muscle Mass Preservation - Male 50-59"
+          any_of:
+            - condition:
+                parameter: "Body Composition::Muscle Mass Index (LMI)"
+                value:
+                  interval: [0, 18.0]
+                comparison: "below"
+            - condition:
+                parameter: "Physiological::Gripstrength Rechts"
+                value:
+                  interval: [0, 48.0]
+                comparison: "below"
+          recommendations:
+            - "Target LMI: Aim for >19.0 kg/m² (excellent)"
+            - "Resistance training: 3 sessions per week MINIMUM"
+            - "Muscle loss accelerates after 50 - action required"
+            - "High protein: 1.6-2.0 g/kg body weight daily essential"
+            - "Progressive resistance: Focus on compound movements"
+            - "Recovery time: 48-72 hours between intense sessions"
+            - "Consider creatine supplementation (consult physician)"
+        
+        - category: "Bone Health"
+          priority: "High"
+          title: "Bone Density Maintenance - Male 50-59"
+          condition:
+            parameter: "Body Composition::Bone mineral density"
+            value:
+              interval: [0, 1.0]
+            comparison: "below"
+          recommendations:
+            - "Weight-bearing exercises: Essential for bone health"
+            - "Resistance training: Stimulates bone formation"
+            - "Impact activities: If joints allow, include jumping/running"
+            - "Calcium and Vitamin D: Ensure adequate intake"
+            - "Regular DEXA scans: Monitor bone density annually"
+        
+        - category: "Metabolic Health"
+          priority: "High"
+          title: "Visceral Fat Control - Male 50-59"
+          condition:
+            parameter: "Body Composition::Visceral Fat Index (raw value from DEXA)"
+            value:
+              interval: [600.0, 9999]
+            comparison: "above"
+          recommendations:
+            - "Target visceral fat: Aim for the good range for your age group"
+            - "Metabolic syndrome risk high with elevated visceral fat"
+            - "Reduce refined carbohydrates and added sugars"
+            - "Increase fiber intake: 30-40g daily"
+            - "Regular health screenings: Blood glucose, lipids, blood pressure"
+        
+        - category: "Balance and Fall Prevention"
+          priority: "High"
+          title: "Balance and Stability - Male 50-59"
+          condition:
+            parameter: "Physiological::Y-Balance Composite Score"
+            value:
+              interval: [0, 91.3]
+            comparison: "below"
+          recommendations:
+            - "Balance training: 3 sessions per week"
+            - "Fall risk increases with age - prevention essential"
+            - "Single-leg exercises: Build proprioception"
+            - "Tai Chi or yoga: Excellent for balance"
+            - "Home safety: Remove trip hazards"
+    
+    age_60_69:
+      conditions:
+        - parameter: "Demographic::Sex"
+          value: ["Male", "M", "male", "m"]
+          comparison: "in"
+        - parameter: "Demographic::Age"
+          value:
+            interval: [60, 69]
+          comparison: "in"
+      
+      recommendations:
+        
+        - category: "Longevity and Functional Capacity"
+          priority: "Critical"
+          title: "Maintain Functional Independence - Male 60-69"
+          condition:
+            parameter: "Physiological::Vo2Max"
+            value:
+              interval: [0, 36.0]
+            comparison: "below"
+          recommendations:
+            - "Target VO2max: Aim for ≥46 ml/min/kg (excellent for age 60-69)"
+            - "VO2max directly correlates with independence in daily activities"
+            - "Aerobic base: 4-5 sessions per week, moderate intensity"
+            - "Duration over intensity: 35-60 minutes at comfortable pace"
+            - "Low-impact essential: Swimming, cycling, walking"
+            - "Medical supervision: Regular check-ups, especially if starting program"
+        
+        - category: "Strength for Daily Living"
+          priority: "Critical"
+          title: "Functional Strength - Male 60-69"
+          any_of:
+            - condition:
+                parameter: "Physiological::Gripstrength Rechts"
+                value:
+                  interval: [0, 45.0]
+                comparison: "below"
+            - condition:
+                parameter: "Body Composition::Muscle Mass Index (LMI)"
+                value:
+                  interval: [0, 17.5]
+                comparison: "below"
+          recommendations:
+            - "Target LMI: >18.5 kg/m² (excellent)"
+            - "Functional strength critical: Carry groceries, climb stairs, get up from chair"
+            - "Resistance training: 2-3 sessions per week"
+            - "Focus on major muscle groups: Legs, back, chest, core"
+            - "Lighter weights, proper form: Injury prevention priority"
+            - "Protein: 1.5-2.0 g/kg body weight daily"
+            - "Consider supervised training: Work with qualified trainer"
+        
+        - category: "Balance and Fall Prevention"
+          priority: "Critical"
+          title: "Fall Risk Reduction - Male 60-69"
+          any_of:
+            - condition:
+                parameter: "Physiological::Y-Balance Composite Score"
+                value:
+                  interval: [0, 91.3]
+                comparison: "below"
+            - condition:
+                parameter: "Physiological::Counter movement jump"
+                value:
+                  interval: [0, 27.5]
+                comparison: "below"
+          recommendations:
+            - "Balance training: Daily practice essential"
+            - "Falls are leading cause of injury in this age group"
+            - "Single-leg stands: 30-60 seconds, 3x daily"
+            - "Tai Chi: Evidence-based fall prevention"
+            - "Lower body power: Target jump height >32 cm (excellent)"
+            - "Vision and hearing: Regular checks affect balance"
+            - "Medication review: Some medications affect balance"
+            - "Home modifications: Install handrails, improve lighting"
+        
+        - category: "Bone and Joint Health"
+          priority: "High"
+          title: "Bone Density and Joint Health - Male 60-69"
+          recommendations:
+            - "Weight-bearing exercise: Essential for bone maintenance"
+            - "Resistance training: Stimulates bone formation"
+            - "Calcium: 1200 mg daily"
+            - "Vitamin D: 800-1000 IU daily (test levels)"
+            - "Joint-friendly activities: Swimming, cycling for cardio"
+            - "Anti-inflammatory diet: Reduce joint pain"
+            - "Regular DEXA scans: Monitor bone density"
+    
+    age_70_79:
+      conditions:
+        - parameter: "Demographic::Sex"
+          value: ["Male", "M", "male", "m"]
+          comparison: "in"
+        - parameter: "Demographic::Age"
+          value:
+            interval: [70, 79]
+          comparison: "in"
+      
+      recommendations:
+        
+        - category: "Independence and Quality of Life"
+          priority: "Critical"
+          title: "Maintain Independence - Male 70-79"
+          recommendations:
+            - "Primary goal: Maintain ability to perform daily activities independently"
+            - "Regular movement: Every day, even if just walking"
+            - "Social engagement: Group exercise classes for motivation and social benefit"
+            - "Medical team coordination: Physical therapist, physician oversight"
+        
+        - category: "Aerobic Capacity for Daily Life"
+          priority: "Critical"
+          title: "Cardiovascular Fitness - Male 70-79"
+          condition:
+            parameter: "Physiological::Vo2Max"
+            value:
+              interval: [0, 32.0]
+            comparison: "below"
+          recommendations:
+            - "Target VO2max: ≥41 ml/min/kg (excellent for age 70-79)"
+            - "Walking: Primary aerobic activity, 30-45 minutes daily"
+            - "Swimming: Excellent low-impact option"
+            - "Chair exercises: If mobility limited"
+            - "Frequency over intensity: Daily gentle activity"
+            - "Monitor heart rate: Stay below 70-80% of max HR"
+            - "Medical clearance: Essential before starting program"
+        
+        - category: "Muscle Mass and Strength"
+          priority: "Critical"
+          title: "Prevent Frailty - Male 70-79"
+          any_of:
+            - condition:
+                parameter: "Body Composition::Muscle Mass Index (LMI)"
+                value:
+                  interval: [0, 17.0]
+                comparison: "below"
+            - condition:
+                parameter: "Physiological::Gripstrength Rechts"
+                value:
+                  interval: [0, 42.0]
+                comparison: "below"
+          recommendations:
+            - "Target LMI: >18.0 kg/m² (excellent)"
+            - "Frailty prevention: Resistance training 2 sessions per week"
+            - "Light weights: Focus on form and consistency"
+            - "Functional movements: Sit-to-stand, step-ups, reaching"
+            - "Protein: 1.5-2.0 g/kg body weight daily - critical for this age"
+            - "Resistance bands: Safe, effective option"
+            - "Supervised sessions: Work with trained professional"
+        
+        - category: "Fall Prevention"
+          priority: "Critical"
+          title: "Comprehensive Fall Prevention - Male 70-79"
+          recommendations:
+            - "Balance practice: Daily, multiple times per day"
+            - "Remove hazards: Rugs, clutter, poor lighting"
+            - "Assistive devices: Use cane/walker if needed - no shame"
+            - "Footwear: Proper, non-slip shoes"
+            - "Vision: Regular eye exams, update prescriptions"
+            - "Medication review: Identify drugs that cause dizziness"
+            - "Strength: Strong legs prevent falls"
+            - "Emergency plan: Medical alert system consideration"
+        
+        - category: "Cognitive Health Through Exercise"
+          priority: "High"
+          title: "Brain Health - Male 70-79"
+          recommendations:
+            - "Aerobic exercise: Benefits cognitive function"
+            - "Coordination exercises: Dance, tai chi stimulate brain"
+            - "Social exercise: Classes provide cognitive and social stimulation"
+            - "Variety: Different activities engage different neural pathways"
+    
+    age_80_99:
+      conditions:
+        - parameter: "Demographic::Sex"
+          value: ["Male", "M", "male", "m"]
+          comparison: "in"
+        - parameter: "Demographic::Age"
+          value:
+            interval: [80, 99]
+          comparison: "in"
+      
+      recommendations:
+        
+        - category: "Quality of Life and Independence"
+          priority: "Critical"
+          title: "Maintain Quality of Life - Male 80+"
+          recommendations:
+            - "Goal: Maintain independence as long as possible"
+            - "Every bit of activity counts: Even 5 minutes is valuable"
+            - "Safety first: Supervised exercise strongly recommended"
+            - "Chair-based exercises: Safe and effective"
+            - "Family involvement: Support system crucial"
+            - "Medical team: Close coordination with healthcare providers"
+        
+        - category: "Basic Functional Capacity"
+          priority: "Critical"
+          title: "Essential Daily Function - Male 80+"
+          recommendations:
+            - "Focus on ADLs: Dressing, bathing, toileting, eating, mobility"
+            - "Sit-to-stand: Practice 5-10 times, 2-3x daily"
+            - "Walking: With assistance if needed, daily"
+            - "Range of motion: Gentle stretching daily"
+            - "Grip strength: Squeeze ball exercises, daily"
+        
+        - category: "Fall Prevention - Highest Priority"
+          priority: "Critical"
+          title: "Comprehensive Fall Prevention - Male 80+"
+          recommendations:
+            - "Falls are life-threatening at this age"
+            - "Supervised balance training: Daily if possible"
+            - "Home safety audit: Professional assessment recommended"
+            - "Assistive devices: Walker, cane as needed"
+            - "Grab bars: Bathroom, hallways, stairs"
+            - "Emergency response: Medical alert system essential"
+            - "Vision and hearing: Maintain optimal function"
+            - "Medication management: Review all medications with physician"
+            - "Footwear: Proper, supportive, non-slip"
+            - "Strength: Even minimal leg strength reduces fall risk"
+        
+        - category: "Gentle Activity"
+          priority: "High"
+          title: "Appropriate Activity Level - Male 80+"
+          recommendations:
+            - "Chair exercises: Seated arm movements, leg lifts"
+            - "Bed exercises: If mobility very limited"
+            - "Water exercise: If accessible, provides support"
+            - "Frequency: Daily gentle movement"
+            - "Duration: 10-20 minutes, multiple short sessions"
+            - "Intensity: Very light, focus on movement not exertion"
+            - "Rest: Adequate rest between activities"
+        
+        - category: "Nutrition and Muscle Maintenance"
+          priority: "High"
+          title: "Nutritional Support - Male 80+"
+          recommendations:
+            - "Protein: 1.5-2.0 g/kg body weight - critical"
+            - "Appetite often reduced: Protein-rich snacks throughout day"
+            - "Hydration: 6-8 glasses water daily"
+            - "Vitamin D: Supplement 800-1000 IU daily"
+            - "Calcium: 1200 mg daily"
+            - "Small frequent meals: Easier to consume adequate nutrition"
+  
+  # FEMALE RECOMMENDATIONS BY AGE GROUP
+  female:
+    
+    age_18_29:
+      conditions:
+        - parameter: "Demographic::Sex"
+          value: ["Female", "F", "female", "f"]
+          comparison: "in"
+        - parameter: "Demographic::Age"
+          value:
+            interval: [18, 29]
+          comparison: "in"
+      
+      recommendations:
+        
+        - category: "Aerobic Capacity"
+          priority: "High"
+          title: "Build Aerobic Base - Young Adult Female"
+          condition:
+            parameter: "Physiological::Vo2Max"
+            value:
+              interval: [0, 40.0]
+            comparison: "below"
+          recommendations:
+            - "Target VO2max: ≥53 ml/min/kg (excellent for your age)"
+            - "VT1 training: 3-4 sessions per week, 30-45 minutes"
+            - "HIIT sessions: 1-2 per week for VO2max improvement"
+            - "Variety: Running, cycling, swimming, rowing"
+            - "Monitor menstrual cycle: Adjust intensity during luteal phase if needed"
+            - "Recovery: Ensure adequate rest between hard sessions"
+        
+        - category: "Strength and Muscle Mass"
+          priority: "High"
+          title: "Build Strength Foundation - Young Adult Female"
+          any_of:
+            - condition:
+                parameter: "Physiological::Gripstrength Rechts"
+                value:
+                  interval: [0, 31.0]
+                comparison: "below"
+            - condition:
+                parameter: "Body Composition::Muscle Mass Index (LMI)"
+                value:
+                  interval: [0, 15.5]
+                comparison: "below"
+          recommendations:
+            - "Target LMI: >16.5 kg/m² (excellent)"
+            - "Resistance training: 3-4 sessions per week"
+            - "Don't fear heavy weights: Muscle building is essential"
+            - "Compound movements: Squats, deadlifts, presses, rows"
+            - "Protein: 1.6-2.0 g/kg body weight daily"
+            - "Build bone density now: Critical for later life"
+            - "Power training: Include plyometrics for bone health"
+        
+        - category: "Bone Health"
+          priority: "High"
+          title: "Peak Bone Mass Development - Young Adult Female"
+          recommendations:
+            - "Critical age for bone density: Build peak bone mass now"
+            - "Weight-bearing exercise: Running, jumping, strength training"
+            - "Calcium: 1000-1200 mg daily"
+            - "Vitamin D: Test levels, supplement if needed"
+            - "Avoid excessive cardio without strength training"
+            - "Maintain healthy body weight: Low body weight reduces bone density"
+        
+        - category: "Body Composition"
+          priority: "Medium"
+          title: "Healthy Body Composition - Young Adult Female"
+          any_of:
+            - condition:
+                parameter: "Body Composition::Fat percentage"
+                value:
+                  interval: [28.0, 100]
+                comparison: "above"
+            - condition:
+                parameter: "Body Composition::Visceral Fat Index (raw value from DEXA)"
+                value:
+                  interval: [350.0, 9999]
+                comparison: "above"
+          recommendations:
+            - "Target body fat: 18-25% (excellent-good range)"
+            - "Focus on body composition not just weight"
+            - "Build muscle while managing fat"
+            - "Visceral fat: aim for the good range for your age group"
+            - "Strength training + cardio for optimal composition"
+            - "Avoid extreme dieting: Can disrupt hormones"
+        
+        - category: "Hormonal Health"
+          priority: "Medium"
+          title: "Exercise and Hormonal Balance - Young Adult Female"
+          recommendations:
+            - "Monitor menstrual cycle regularity"
+            - "RED-S awareness: Relative Energy Deficiency in Sport"
+            - "Ensure adequate caloric intake for activity level"
+            - "Adjust training intensity with cycle if needed"
+            - "Iron: Monitor levels, especially if heavy periods"
+    
+    age_30_39:
+      conditions:
+        - parameter: "Demographic::Sex"
+          value: ["Female", "F", "female", "f"]
+          comparison: "in"
+        - parameter: "Demographic::Age"
+          value:
+            interval: [30, 39]
+          comparison: "in"
+      
+      recommendations:
+        
+        - category: "Aerobic Fitness"
+          priority: "High"
+          title: "Maintain Cardiovascular Health - Female 30-39"
+          condition:
+            parameter: "Physiological::Vo2Max"
+            value:
+              interval: [0, 38.0]
+            comparison: "below"
+          recommendations:
+            - "Target VO2max: ≥51 ml/min/kg (excellent for age 30-39)"
+            - "Cardiovascular health: Long-term disease prevention"
+            - "VT1 base: 3-4 sessions per week, 35-50 minutes"
+            - "VT2 intervals: 1-2 sessions per week"
+            - "Postpartum considerations: Gradual return to exercise if recent pregnancy"
+            - "Pelvic floor: Include strengthening exercises"
+        
+        - category: "Strength Training"
+          priority: "High"
+          title: "Strength Maintenance - Female 30-39"
+          any_of:
+            - condition:
+                parameter: "Body Composition::Muscle Mass Index (LMI)"
+                value:
+                  interval: [0, 15.3]
+                comparison: "below"
+            - condition:
+                parameter: "Physiological::Gripstrength Rechts"
+                value:
+                  interval: [0, 30.0]
+                comparison: "below"
+          recommendations:
+            - "Target LMI: >16.2 kg/m² (excellent)"
+            - "Resistance training: 3 sessions per week minimum"
+            - "Muscle loss begins after 30: Prevention starts now"
+            - "Compound movements: Full body training"
+            - "Protein: 1.6-2.0 g/kg body weight daily"
+            - "Bone density: Continue weight-bearing exercise"
+        
+        - category: "Metabolic Health"
+          priority: "Medium"
+          title: "Metabolic Health - Female 30-39"
+          any_of:
+            - condition:
+                parameter: "Body Composition::Visceral Fat Index (raw value from DEXA)"
+                value:
+                  interval: [380.0, 9999]
+                comparison: "above"
+            - condition:
+                parameter: "Body Composition::Fat percentage"
+                value:
+                  interval: [29.0, 100]
+                comparison: "above"
+          recommendations:
+            - "Target body fat: 19-26% (excellent-good range)"
+            - "Visceral fat: aim for the good range for your age group"
+            - "Metabolism slowing: Diet and exercise increasingly important"
+            - "Strength training: Maintains metabolic rate"
+            - "Insulin sensitivity: Regular exercise essential"
+        
+        - category: "Pelvic Floor Health"
+          priority: "High"
+          title: "Pelvic Floor Considerations - Female 30-39"
+          recommendations:
+            - "Pelvic floor exercises: Daily Kegels"
+            - "Impact exercise: Caution if pelvic floor weakness"
+            - "Post-pregnancy: Specialized PT if needed"
+            - "Core stability: Includes pelvic floor"
+            - "Prevent future issues: Proactive strengthening"
+    
+    age_40_49:
+      conditions:
+        - parameter: "Demographic::Sex"
+          value: ["Female", "F", "female", "f"]
+          comparison: "in"
+        - parameter: "Demographic::Age"
+          value:
+            interval: [40, 49]
+          comparison: "in"
+      
+      recommendations:
+        
+        - category: "Cardiovascular Health"
+          priority: "High"
+          title: "Heart Health Priority - Female 40-49"
+          condition:
+            parameter: "Physiological::Vo2Max"
+            value:
+              interval: [0, 35.0]
+            comparison: "below"
+          recommendations:
+            - "Target VO2max: ≥49 ml/min/kg (excellent for age 40-49)"
+            - "Cardiovascular disease risk increases after menopause"
+            - "Aerobic exercise: 4-5 sessions per week"
+            - "VT1 training: 35-50 minutes per session"
+            - "Monitor heart health: Regular check-ups"
+            - "Low-impact options: Protect joints while building fitness"
+        
+        - category: "Perimenopause and Exercise"
+          priority: "High"
+          title: "Perimenopause Management - Female 40-49"
+          recommendations:
+            - "Hormonal changes affect: Body composition, energy, recovery"
+            - "Strength training crucial: Counteracts hormonal muscle loss"
+            - "Weight-bearing exercise: Bone density declining"
+            - "Sleep disturbances: Evening exercise may help or hinder - individualize"
+            - "Hot flashes: May affect exercise tolerance"
+            - "Mood benefits: Exercise helps mood regulation"
+        
+        - category: "Bone Density"
+          priority: "Critical"
+          title: "Bone Health - Female 40-49"
+          recommendations:
+            - "Bone density declining: Action required now"
+            - "Weight-bearing exercise: Running, hiking, dancing"
+            - "Resistance training: Stimulates bone formation"
+            - "Impact exercises: If joints allow"
+            - "Calcium: 1200 mg daily"
+            - "Vitamin D: Test levels, supplement to reach 50-100 nmol/L"
+            - "Baseline DEXA scan: Establish bone density baseline"
+        
+        - category: "Strength and Muscle Mass"
+          priority: "Critical"
+          title: "Combat Muscle Loss - Female 40-49"
+          any_of:
+            - condition:
+                parameter: "Body Composition::Muscle Mass Index (LMI)"
+                value:
+                  interval: [0, 15.0]
+                comparison: "below"
+            - condition:
+                parameter: "Physiological::Gripstrength Rechts"
+                value:
+                  interval: [0, 29.0]
+                comparison: "below"
+          recommendations:
+            - "Target LMI: >16.0 kg/m² (excellent)"
+            - "Resistance training: 3 sessions per week MINIMUM"
+            - "Muscle loss accelerates: Hormonal changes increase loss"
+            - "Heavy weights: Don't be afraid - build strength now"
+            - "Protein: 1.6-2.0 g/kg body weight daily - essential"
+            - "Progressive overload: Continue challenging muscles"
+        
+        - category: "Body Composition Changes"
+          priority: "High"
+          title: "Metabolic Changes - Female 40-49"
+          any_of:
+            - condition:
+                parameter: "Body Composition::Fat percentage"
+                value:
+                  interval: [30.0, 100]
+                comparison: "above"
+            - condition:
+                parameter: "Body Composition::Visceral Fat Index (raw value from DEXA)"
+                value:
+                  interval: [420.0, 9999]
+                comparison: "above"
+          recommendations:
+            - "Target body fat: 20-27% (excellent-good range)"
+            - "Visceral fat: aim for the good range for your age group"
+            - "Fat distribution changes: More abdominal with hormonal changes"
+            - "Metabolism slowing: Exercise and diet both important"
+            - "Strength training: Maintains metabolic rate"
+            - "Cardiovascular risk: Visceral fat particularly harmful"
+    
+    age_50_59:
+      conditions:
+        - parameter: "Demographic::Sex"
+          value: ["Female", "F", "female", "f"]
+          comparison: "in"
+        - parameter: "Demographic::Age"
+          value:
+            interval: [50, 59]
+          comparison: "in"
+      
+      recommendations:
+        
+        - category: "Post-Menopause Cardiovascular Health"
+          priority: "Critical"
+          title: "Heart Disease Prevention - Female 50-59"
+          condition:
+            parameter: "Physiological::Vo2Max"
+            value:
+              interval: [0, 32.0]
+            comparison: "below"
+          recommendations:
+            - "Target VO2max: ≥47 ml/min/kg (excellent for age 50-59)"
+            - "Post-menopause: Cardiovascular risk increases dramatically"
+            - "Estrogen loss: No longer protects heart"
+            - "Aerobic exercise: 4-5 sessions per week essential"
+            - "Moderate intensity: 35-50 minutes per session"
+            - "Blood pressure: Regular monitoring"
+            - "Cholesterol: Exercise helps manage lipids"
+            - "Low-impact preferred: Swimming, cycling, brisk walking"
+        
+        - category: "Osteoporosis Prevention"
+          priority: "Critical"
+          title: "Bone Health Critical - Female 50-59"
+          recommendations:
+            - "Rapid bone loss after menopause: High priority intervention"
+            - "Weight-bearing exercise: 4-5 times per week"
+            - "Resistance training: 3 times per week minimum"
+            - "Impact activities: If safe for joints"
+            - "Calcium: 1200 mg daily"
+            - "Vitamin D: Maintain 50-100 nmol/L"
+            - "Regular DEXA scans: Every 1-2 years"
+            - "Avoid activities with fall risk if bone density low"
+            - "Consult physician: Medication may be needed"
+        
+        - category: "Muscle Mass Preservation"
+          priority: "Critical"
+          title: "Sarcopenia Prevention - Female 50-59"
+          any_of:
+            - condition:
+                parameter: "Body Composition::Muscle Mass Index (LMI)"
+                value:
+                  interval: [0, 14.6]
+                comparison: "below"
+            - condition:
+                parameter: "Physiological::Gripstrength Rechts"
+                value:
+                  interval: [0, 27.0]
+                comparison: "below"
+          recommendations:
+            - "Target LMI: >15.5 kg/m² (excellent)"
+            - "Muscle loss rapid after menopause: Urgent action needed"
+            - "Resistance training: 3 sessions per week ESSENTIAL"
+            - "Protein: 1.6-2.0 g/kg body weight daily - CRITICAL"
+            - "Heavier weights: Challenge muscles to maintain mass"
+            - "Compound exercises: Squats, deadlifts, presses, rows"
+            - "Functional strength: Maintain independence"
+            - "Consider HRT: Discuss with physician - may help muscle maintenance"
+        
+        - category: "Balance and Fall Prevention"
+          priority: "High"
+          title: "Balance Training - Female 50-59"
+          condition:
+            parameter: "Physiological::Y-Balance Composite Score"
+            value:
+              interval: [0, 91.3]
+            comparison: "below"
+          recommendations:
+            - "Fall risk increasing: Prevention starts now"
+            - "Balance training: 2-3 sessions per week"
+            - "Single-leg exercises: Build stability"
+            - "Yoga or Tai Chi: Excellent for balance"
+            - "Core strength: Essential for balance"
+            - "Vision: Regular eye exams"
+        
+        - category: "Visceral Fat and Metabolic Health"
+          priority: "High"
+          title: "Metabolic Syndrome Prevention - Female 50-59"
+          condition:
+            parameter: "Body Composition::Visceral Fat Index (raw value from DEXA)"
+            value:
+              interval: [460.0, 9999]
+            comparison: "above"
+          recommendations:
+            - "Target visceral fat: Aim for the good range for your age group"
+            - "Post-menopause: Increased abdominal fat accumulation"
+            - "Metabolic syndrome risk: Diabetes, heart disease"
+            - "Combine cardio + resistance training"
+            - "Reduce refined carbohydrates"
+            - "Increase fiber: 25-30g daily"
+            - "Regular health screenings: Glucose, lipids, blood pressure"
+    
+    age_60_69:
+      conditions:
+        - parameter: "Demographic::Sex"
+          value: ["Female", "F", "female", "f"]
+          comparison: "in"
+        - parameter: "Demographic::Age"
+          value:
+            interval: [60, 69]
+          comparison: "in"
+      
+      recommendations:
+        
+        - category: "Functional Independence"
+          priority: "Critical"
+          title: "Maintain Independence - Female 60-69"
+          condition:
+            parameter: "Physiological::Vo2Max"
+            value:
+              interval: [0, 29.0]
+            comparison: "below"
+          recommendations:
+            - "Target VO2max: ≥46 ml/min/kg (excellent for age 60-69)"
+            - "VO2max determines ability to perform daily activities"
+            - "Walking: Primary aerobic activity, 35-50 minutes daily"
+            - "Swimming: Excellent low-impact option"
+            - "Cycling: Gentle on joints"
+            - "Frequency more important than intensity"
+            - "Social exercise: Classes for motivation"
+        
+        - category: "Osteoporosis Management"
+          priority: "Critical"
+          title: "Bone Health - Female 60-69"
+          recommendations:
+            - "Osteoporosis highly prevalent in this age group"
+            - "Weight-bearing exercise: Essential but adapt to bone density"
+            - "Resistance training: Light-moderate weights, proper form"
+            - "Avoid: Excessive spinal flexion, twisting if osteoporosis"
+            - "Balance: Prevent falls that cause fractures"
+            - "Calcium and Vitamin D: Ensure adequate intake"
+            - "DEXA scans: Annual monitoring"
+            - "Medication compliance: If prescribed"
+        
+        - category: "Strength for Daily Living"
+          priority: "Critical"
+          title: "Functional Strength - Female 60-69"
+          any_of:
+            - condition:
+                parameter: "Body Composition::Muscle Mass Index (LMI)"
+                value:
+                  interval: [0, 14.3]
+                comparison: "below"
+            - condition:
+                parameter: "Physiological::Gripstrength Rechts"
+                value:
+                  interval: [0, 25.0]
+                comparison: "below"
+          recommendations:
+            - "Target LMI: >15.2 kg/m² (excellent)"
+            - "Functional strength: Carry groceries, climb stairs, get up from floor"
+            - "Resistance training: 2-3 sessions per week"
+            - "Focus on major muscle groups: Legs priority for mobility"
+            - "Lighter weights, higher reps: Safety and consistency"
+            - "Protein: 1.5-2.0 g/kg body weight daily"
+            - "Chair stands: Practice 10x, 2-3 times daily"
+            - "Supervised training: Consider working with trainer"
+        
+        - category: "Fall Prevention"
+          priority: "Critical"
+          title: "Comprehensive Fall Prevention - Female 60-69"
+          any_of:
+            - condition:
+                parameter: "Physiological::Y-Balance Composite Score"
+                value:
+                  interval: [0, 91.3]
+                comparison: "below"
+            - condition:
+                parameter: "Physiological::Counter movement jump"
+                value:
+                  interval: [0, 20.0]
+                comparison: "below"
+          recommendations:
+            - "Falls leading cause of fractures: Prevention essential"
+            - "Balance training: Daily practice"
+            - "Single-leg stands: 30 seconds, 3x daily"
+            - "Tai Chi: Evidence-based fall prevention"
+            - "Lower body strength: Prevents falls"
+            - "Home safety: Remove trip hazards, improve lighting"
+            - "Vision and hearing: Regular checks"
+            - "Medication review: Some increase fall risk"
+            - "Proper footwear: Supportive, non-slip"
+        
+        - category: "Joint Health"
+          priority: "High"
+          title: "Joint Care - Female 60-69"
+          recommendations:
+            - "Arthritis common: Modify exercises as needed"
+            - "Low-impact activities: Swimming, cycling, elliptical"
+            - "Warm-up essential: 10-15 minutes before exercise"
+            - "Flexibility: Daily stretching"
+            - "Anti-inflammatory diet: May reduce joint pain"
+            - "Weight management: Reduces joint stress"
+            - "Don't avoid movement: Gentle movement helps joints"
+    
+    age_70_79:
+      conditions:
+        - parameter: "Demographic::Sex"
+          value: ["Female", "F", "female", "f"]
+          comparison: "in"
+        - parameter: "Demographic::Age"
+          value:
+            interval: [70, 79]
+          comparison: "in"
+      
+      recommendations:
+        
+        - category: "Independence and Quality of Life"
+          priority: "Critical"
+          title: "Maintain Independence - Female 70-79"
+          recommendations:
+            - "Primary goal: Maintain ability to live independently"
+            - "Every bit of movement counts: Even small amounts beneficial"
+            - "Social aspect: Group classes provide social connection"
+            - "Consistency over intensity: Regular gentle activity"
+            - "Medical team: Coordinate with healthcare providers"
+        
+        - category: "Basic Mobility"
+          priority: "Critical"
+          title: "Essential Mobility - Female 70-79"
+          condition:
+            parameter: "Physiological::Vo2Max"
+            value:
+              interval: [0, 26.0]
+            comparison: "below"
+          recommendations:
+            - "Target VO2max: ≥40 ml/min/kg (excellent for age 70-79)"
+            - "Walking: Primary activity, 30-40 minutes daily if possible"
+            - "Indoor walking: Mall walking if weather/safety concern"
+            - "Chair exercises: If mobility limited"
+            - "Water aerobics: Gentle, supportive"
+            - "Frequency: Daily gentle movement priority"
+            - "Rest: Adequate rest between activities"
+        
+        - category: "Strength and Frailty Prevention"
+          priority: "Critical"
+          title: "Prevent Frailty - Female 70-79"
+          any_of:
+            - condition:
+                parameter: "Body Composition::Muscle Mass Index (LMI)"
+                value:
+                  interval: [0, 13.9]
+                comparison: "below"
+            - condition:
+                parameter: "Physiological::Gripstrength Rechts"
+                value:
+                  interval: [0, 22.0]
+                comparison: "below"
+          recommendations:
+            - "Target LMI: >14.8 kg/m² (excellent)"
+            - "Frailty prevention: Top priority"
+            - "Resistance training: 2 sessions per week, light weights"
+            - "Functional movements: Sit-to-stand, reaching, carrying"
+            - "Protein: 1.5-2.0 g/kg body weight daily - ESSENTIAL"
+            - "Protein at each meal: Spread intake throughout day"
+            - "Resistance bands: Safe, effective option"
+            - "Chair-based strength: If standing difficult"
+            - "Supervised sessions: Highly recommended"
+        
+        - category: "Fall Prevention - Highest Priority"
+          priority: "Critical"
+          title: "Fall Risk Reduction - Female 70-79"
+          recommendations:
+            - "Falls are major cause of loss of independence"
+            - "Hip fractures: Often lead to permanent disability"
+            - "Balance training: Daily practice essential"
+            - "Hold onto support: Safety first during balance practice"
+            - "Remove hazards: Rugs, clutter, cords, poor lighting"
+            - "Assistive devices: Walker or cane if needed - no shame"
+            - "Bathroom safety: Grab bars, non-slip mats"
+            - "Footwear: Supportive, proper fit, non-slip"
+            - "Vision: Annual eye exams, update glasses"
+            - "Medication review: Identify drugs causing dizziness"
+            - "Emergency response: Consider medical alert system"
+        
+        - category: "Bone Health"
+          priority: "Critical"
+          title: "Fracture Prevention - Female 70-79"
+          recommendations:
+            - "Osteoporosis very common: Fracture risk high"
+            - "Weight-bearing activity: As tolerated"
+            - "Fall prevention: More important than bone density"
+            - "Calcium and Vitamin D: Continue supplementation"
+            - "Medication: Follow physician recommendations"
+            - "Hip protectors: Consider if high fall risk"
+            - "Safe exercise: Avoid activities with fall risk"
+        
+        - category: "Cognitive Health"
+          priority: "High"
+          title: "Brain Health Through Exercise - Female 70-79"
+          recommendations:
+            - "Physical activity: Benefits cognitive function"
+            - "Social exercise: Provides cognitive stimulation"
+            - "Coordination activities: Dance, tai chi engage brain"
+            - "Consistency: Regular activity important for brain health"
+    
+    age_80_99:
+      conditions:
+        - parameter: "Demographic::Sex"
+          value: ["Female", "F", "female", "f"]
+          comparison: "in"
+        - parameter: "Demographic::Age"
+          value:
+            interval: [80, 99]
+          comparison: "in"
+      
+      recommendations:
+        
+        - category: "Quality of Life"
+          priority: "Critical"
+          title: "Maintain Quality of Life - Female 80+"
+          recommendations:
+            - "Goal: Maintain independence and quality of life"
+            - "Every movement matters: Even minimal activity beneficial"
+            - "Safety paramount: Supervised activity strongly recommended"
+            - "Gentle movement: Focus on comfort and safety"
+            - "Family support: Involve family and caregivers"
+            - "Medical coordination: Close communication with healthcare team"
+        
+        - category: "Basic Function"
+          priority: "Critical"
+          title: "Activities of Daily Living - Female 80+"
+          recommendations:
+            - "Focus on ADLs: Dressing, bathing, toileting, eating, mobility"
+            - "Sit-to-stand: Practice 5-10 times, 2-3x daily if able"
+            - "Walking: With walker or assistance, daily if possible"
+            - "Chair exercises: Seated movements if standing unsafe"
+            - "Bed exercises: If bed-bound, passive range of motion"
+            - "Range of motion: Gentle stretching daily"
+            - "Hand exercises: Maintain grip for eating, dressing"
+        
+        - category: "Fall Prevention - Life or Death Priority"
+          priority: "Critical"
+          title: "Comprehensive Fall Prevention - Female 80+"
+          recommendations:
+            - "Falls often life-threatening at this age"
+            - "Hip fractures: Frequently lead to death or permanent disability"
+            - "Supervised movement: Do not exercise alone"
+            - "Home safety: Professional assessment essential"
+            - "Remove all hazards: Rugs, clutter, cords"
+            - "Assistive devices: Walker essential if mobility impaired"
+            - "Grab bars: Throughout home - bathroom, hallways, bedroom"
+            - "Bathroom safety: Raised toilet, shower chair, grab bars"
+            - "Footwear: Proper, supportive, non-slip - critical"
+            - "Vision and hearing: Maximize sensory function"
+            - "Medication management: Comprehensive review"
+            - "Medical alert: System essential"
+            - "Hip protectors: Strongly consider"
+            - "Never rush: Take time with all movements"
+        
+        - category: "Gentle Activity"
+          priority: "High"
+          title: "Safe Movement - Female 80+"
+          recommendations:
+            - "Chair exercises: Seated arm movements, leg lifts"
+            - "Assisted walking: Daily if possible, with walker/assistance"
+            - "Bed exercises: Range of motion if mobility very limited"
+            - "Frequency: Multiple short sessions throughout day"
+            - "Duration: 5-15 minutes per session"
+            - "Intensity: Very light, focus on movement not exertion"
+            - "Supervised: All activity should be supervised"
+            - "Rest: Adequate rest crucial"
+        
+        - category: "Nutrition and Muscle"
+          priority: "Critical"
+          title: "Nutritional Support - Female 80+"
+          recommendations:
+            - "Protein: 1.5-2.0 g/kg body weight daily - ESSENTIAL"
+            - "Appetite reduced: Small protein-rich meals/snacks throughout day"
+            - "Protein supplements: Consider protein shakes if appetite poor"
+            - "Hydration: 6-8 glasses water daily"
+            - "Vitamin D: 800-1000 IU daily"
+            - "Calcium: 1200 mg daily"
+            - "Eating assistance: Ensure adequate intake"
+            - "Social eating: Improves appetite"
+        
+        - category: "Social and Emotional"
+          priority: "High"
+          title: "Social Connection - Female 80+"
+          recommendations:
+            - "Social connection: Critical for quality of life"
+            - "Group activities: If safe and accessible"
+            - "Family visits: Regular social interaction"
+            - "Mental stimulation: Conversation, activities"
+            - "Purpose: Maintain sense of purpose and dignity"

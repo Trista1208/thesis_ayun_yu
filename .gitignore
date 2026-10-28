@@ -1,0 +1,47 @@
+# Secrets
+.env
+.streamlit/secrets.toml
+
+# macOS
+.DS_Store
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+.venv/
+venv/
+
+# IDE
+.idea/
+
+# Large / generated output
+ayun documents/
+output/
+
+# Runtime app data (PHI, passwords, sessions — do not commit)
+backend/data/*
+!backend/data/README.md
+
+# Local screenshots / uploads
+Screenshot*.png
+Unknown.jpeg
+
+# React web
+web/node_modules/
+web/dist/
+web/*.tsbuildinfo
+
+# Thesis manuscript (kept locally, not published)
+thesis/
+thesis*.docx
+thesis*.pdf
+~$*
+
+# Unused renders and assets (kept locally only)
+docs/joule-architecture.html
+docs/joule-architecture.pdf
+web/public/ayun-logo.png
+web/public/models/body-fallback.svg
+web/public/models/human-exploration.json

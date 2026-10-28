@@ -1,0 +1,233 @@
+# Curated evipedia.ai evidence reviews for AYUN clinician reference.
+# URLs verified against https://evipedia.ai — not used in the rule engine.
+# Slug is the path segment after evipedia.ai/
+
+metadata:
+  source: "https://evipedia.ai"
+  version: "1.0"
+  description: "Forever Healthy evidence reviews — clinician decision support only"
+
+references:
+  resistance_training:
+    title: "Resistance Training"
+    slug: resistance_training_er
+    category: Exercise
+    summary: "Strength and hypertrophy training for muscle mass, bone loading, and metabolic health."
+    tags: [strength, muscle, sarcopenia, hypertrophy, weights, resistance, bone]
+    ayun_topics: [low_strength_muscle, low_bone_density]
+
+  cardio_training:
+    title: "Cardio Training"
+    slug: cardio_training
+    category: Exercise
+    summary: "Aerobic conditioning for cardiovascular health, VO2max, and daily-life capacity."
+    tags: [aerobic, cardio, endurance, vo2, heart, zone 2, zone2]
+    ayun_topics: [low_vo2max]
+
+  hiit:
+    title: "High-Intensity Interval Training"
+    slug: high_intensity_interval_training
+    category: Exercise
+    summary: "Interval-based vigorous training for cardiorespiratory fitness and time-efficient conditioning."
+    tags: [hiit, interval, vo2, polarized, vigorous]
+    ayun_topics: [low_vo2max]
+
+  norwegian_4x4:
+    title: "Norwegian 4x4"
+    slug: norwegian_4x4
+    category: Exercise
+    summary: "Structured high-intensity interval protocol often used for VO2max improvement."
+    tags: [hiit, vo2, interval, norwegian]
+    ayun_topics: [low_vo2max]
+
+  nordic_walking:
+    title: "Nordic Walking"
+    slug: nordic_walking
+    category: Exercise
+    summary: "Low-impact aerobic activity with poles; useful for older adults and joint-friendly conditioning."
+    tags: [walking, aerobic, balance, low impact]
+    ayun_topics: [low_vo2max, low_bone_density]
+
+  functional_fitness:
+    title: "Functional Fitness"
+    slug: functional_fitness
+    category: Exercise
+    summary: "Multi-joint movement patterns supporting daily-life strength and mobility."
+    tags: [functional, daily living, movement, strength]
+    ayun_topics: [low_strength_muscle]
+
+  pilates:
+    title: "Pilates"
+    slug: pilates
+    category: Exercise
+    summary: "Core stability, posture, and controlled movement training."
+    tags: [core, stability, posture, mobility]
+    ayun_topics: [low_bone_density]
+
+  stretching:
+    title: "Stretching"
+    slug: stretching
+    category: Exercise
+    summary: "Flexibility and range-of-motion work alongside structured training."
+    tags: [flexibility, mobility, recovery]
+    ayun_topics: []
+
+  foam_rolling:
+    title: "Foam Rolling"
+    slug: foam_rolling
+    category: Exercise
+    summary: "Self-myofascial release for recovery and tissue mobility."
+    tags: [recovery, mobility, soreness]
+    ayun_topics: []
+
+  mediterranean_diet:
+    title: "Mediterranean Diet"
+    slug: mediterranean_diet
+    category: Diet
+    summary: "Whole-food dietary pattern linked to cardiometabolic and longevity outcomes."
+    tags: [diet, nutrition, heart, metabolic, longevity]
+    ayun_topics: [high_body_fat, elevated_hba1c]
+
+  intermittent_fasting:
+    title: "Intermittent Fasting"
+    slug: intermittent_fasting
+    category: Diet
+    summary: "Time-restricted eating patterns and metabolic effects."
+    tags: [fasting, diet, weight, metabolic]
+    ayun_topics: [high_body_fat, elevated_hba1c]
+
+  ketogenic_diet:
+    title: "Ketogenic Diet"
+    slug: ketogenic_diet
+    category: Diet
+    summary: "Very low-carbohydrate dietary approach and metabolic adaptation."
+    tags: [keto, diet, carbohydrate, metabolic]
+    ayun_topics: [high_body_fat, elevated_hba1c]
+
+  low_carbohydrate_diet:
+    title: "Low-Carbohydrate Diet"
+    slug: low_carbohydrate_diet
+    category: Diet
+    summary: "Reduced carbohydrate intake for glycemic and body-composition goals."
+    tags: [low carb, diet, glucose, weight]
+    ayun_topics: [elevated_hba1c, high_body_fat]
+
+  calorie_restriction:
+    title: "Calorie Restriction"
+    slug: calorie_restriction
+    category: Diet
+    summary: "Sustained energy deficit and longevity-related metabolic effects."
+    tags: [calories, weight, deficit, diet]
+    ayun_topics: [high_body_fat]
+
+  protein:
+    title: "Essential Amino Acids / Protein"
+    slug: essential_amino_acids
+    category: Nutrition
+    summary: "Adequate protein and essential amino acids for muscle protein synthesis."
+    tags: [protein, amino acids, muscle, nutrition]
+    ayun_topics: [low_strength_muscle]
+
+  creatine:
+    title: "Creatine"
+    slug: creatine
+    category: Supplements
+    summary: "Evidence on strength, power, and muscle-related outcomes with creatine supplementation."
+    tags: [creatine, supplement, strength, muscle]
+    ayun_topics: [low_strength_muscle]
+
+  vitamin_d:
+    title: "Vitamin D"
+    slug: vitamin_d
+    category: Supplements
+    summary: "Vitamin D status, supplementation, and musculoskeletal health."
+    tags: [vitamin d, bone, supplement, sun]
+    ayun_topics: [low_bone_density]
+
+  calcium:
+    title: "Calcium"
+    slug: calcium
+    category: Supplements
+    summary: "Calcium intake and bone mineral density considerations."
+    tags: [calcium, bone, supplement]
+    ayun_topics: [low_bone_density]
+
+  collagen:
+    title: "Collagen Hydrolysate"
+    slug: collagen_hydrolysate
+    category: Supplements
+    summary: "Collagen supplementation for connective tissue and joint-related outcomes."
+    tags: [collagen, joint, tendon, supplement]
+    ayun_topics: [low_bone_density]
+
+  epa_dha:
+    title: "EPA & DHA"
+    slug: epa_dha
+    category: Supplements
+    summary: "Omega-3 fatty acids for cardiovascular and inflammatory pathways."
+    tags: [omega 3, fish oil, epa, dha, heart]
+    ayun_topics: [low_vo2max, high_body_fat]
+
+  metformin:
+    title: "Metformin"
+    slug: metformin
+    category: Medications
+    summary: "Metformin evidence for glycemic control and longevity-related research."
+    tags: [metformin, glucose, hba1c, diabetes]
+    ayun_topics: [elevated_hba1c]
+
+  berberine:
+    title: "Berberine"
+    slug: berberine
+    category: Supplements
+    summary: "Plant-derived compound studied for glycemic and metabolic effects."
+    tags: [berberine, glucose, metabolic, supplement]
+    ayun_topics: [elevated_hba1c]
+
+  low_dose_aspirin:
+    title: "Low-Dose Aspirin"
+    slug: low_dose_aspirin
+    category: Medications
+    summary: "Primary prevention and cardiovascular risk — benefit/risk trade-offs."
+    tags: [aspirin, cardiovascular, prevention]
+    ayun_topics: [low_vo2max]
+
+  magnesium:
+    title: "Magnesium L-Threonate"
+    slug: magnesium_l_threonate
+    category: Supplements
+    summary: "Magnesium formulations and neurological / sleep-related evidence."
+    tags: [magnesium, sleep, supplement]
+    ayun_topics: []
+
+  sleep:
+    title: "Sleep"
+    slug: sleep
+    category: Foundational Habits
+    summary: "Sleep duration and quality as foundational health and recovery behavior."
+    tags: [sleep, recovery, rest, circadian]
+    ayun_topics: []
+
+  sauna:
+    title: "Sauna"
+    slug: sauna
+    category: Foundational Habits
+    summary: "Heat exposure and cardiovascular / recovery-related evidence."
+    tags: [sauna, heat, recovery, cardiovascular]
+    ayun_topics: [low_vo2max]
+
+  cold_exposure:
+    title: "Cold Exposure"
+    slug: cold_exposure
+    category: Foundational Habits
+    summary: "Cold water immersion and cryotherapy-related outcomes."
+    tags: [cold, ice bath, recovery, cryotherapy]
+    ayun_topics: []
+
+  acarbose:
+    title: "Acarbose"
+    slug: acarbose
+    category: Medications
+    summary: "Alpha-glucosidase inhibitor evidence for postprandial glucose control."
+    tags: [acarbose, glucose, hba1c, metabolic]
+    ayun_topics: [elevated_hba1c]

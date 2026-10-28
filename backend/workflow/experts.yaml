@@ -1,0 +1,27 @@
+# AYUN sports science team — edit names and specialties.
+# Availability is toggled live in the app (Expert Q&A tab, doctor mode).
+
+experts:
+  - id: sport_lead
+    name: Sports Science Lead
+    role: Head of Performance
+    specialties: [Cardiovascular, Training Zones, VO2max]
+    default_hours: "Mon–Fri 09:00–17:00 CET"
+
+  - id: metabolic
+    name: Metabolic Health Specialist
+    role: Sports Scientist
+    specialties: [Metabolic, Blood Biomarkers, Body Composition]
+    default_hours: "Mon–Fri 10:00–16:00 CET"
+
+  - id: strength
+    name: Strength & Mobility Coach
+    role: Exercise Physiologist
+    specialties: [Strength, Mobility, Bone Health]
+    default_hours: "Tue–Thu 08:00–14:00 CET"
+
+  - id: general_pool
+    name: Any Available Expert
+    role: Team inbox
+    specialties: [General]
+    default_hours: "Mon–Fri 09:00–17:00 CET"
